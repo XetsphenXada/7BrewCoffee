@@ -1,11 +1,11 @@
 import { Router, response } from "express"
-import Recipes from "../models/recipes"
+import Recipe from "../models/recipes"
 const router = Router()
 
 //adds new recipe
 router.post("/newRecipe", async (request, response) => {
     try {
-        const doesRecipeExist = await recipes.exists({
+        const doesRecipeExist = await Recipe.exists({
             name: request.body.name
         });
         if (doesRecipeExist === null) {
@@ -29,7 +29,7 @@ router.post("/newRecipe", async (request, response) => {
 //displays all recipes
 router.get("/allRecipes", async (request, response) => {
     try {
-        const allRecipes = await Recipes.find();
+        const allRecipes = await Recipe.find();
         response.send(allRecipes);
     } catch (error) {
         response.status(500).send({
@@ -41,7 +41,7 @@ router.get("/allRecipes", async (request, response) => {
 //edit recipes
 router.post("/editRecipe/:_id", async (request, response) => {
     try {
-        const recipe = await Recipes.findById(request.params._id);
+        const recipe = await Recipe.findById(request.params._id);
         recipe.name = request.body.name
         recipe.ingredients = request.body.ingredients
         recipe.directions = request.body.directions
@@ -55,7 +55,7 @@ router.post("/editRecipe/:_id", async (request, response) => {
 //delete recipes
 router.delete("/deleteRecipe/:_id", async (request, response) => {
     try {
-        let deletedRecipe = await Recipes.findByIdAndDelete({_id: request.params._id});
+        let deletedRecipe = await Recipe.findByIdAndDelete({_id: request.params._id});
         console.log(deletedRecipe);
         response.send("Recipe deleted successfully");
     } catch (error) {
