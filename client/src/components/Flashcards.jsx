@@ -1,4 +1,17 @@
+import { useEffect, useState } from "react";
+
 export default function Flashcards() {
+    let flashcards;
+
+    useEffect(() => {
+        async function getFlashcardData() {
+            const response = await fetch("http://localhost:3000/flashcards");
+            flashcards = await response.json();
+        }
+        
+        getFlashcardData();
+    }, []);
+    
 
     return (
         <div className="stack">
