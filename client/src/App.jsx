@@ -1,12 +1,12 @@
-import './App.css'
+import Flashcards from './components/Flashcards'
 
 function App() {
 
-  return (
-    <>
-
-    </>
-  )
+	return (
+		<>
+			<Flashcards />
+		</>
+	)
 }
 
 export default App
