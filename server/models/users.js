@@ -2,6 +2,7 @@ import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
     employeeID: String,
+    createdBy: String,
     passwordHash: {
         type: String,
         required: true
@@ -9,7 +10,7 @@ const userSchema = new Schema({
     firstName: String,
     middleName: String,
     lastName: String,
-    role: Object,
+    role: Schema.ObjectId,
     storeLocation: String,
     brewistas: Array,
     email: {

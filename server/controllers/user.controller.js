@@ -2,11 +2,13 @@ import User from "../models/users.js";
 import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import validationMiddleware from "../middleware/validationMiddleware.js";
+import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
 
 const router = Router();
 
 //Manager/Admin signup endpoint (For store manager/Admin use, will require admin check middleware)
-router.post("/signup", async (request, response) => {
+router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -15,6 +17,7 @@ router.post("/signup", async (request, response) => {
         if (doesUserExist === null) {
             const user = new User({
                 employeeID: request.body.employeeID,
+                createdBy: request.user.email,
                 firstName: request.body.firstName,
                 middleName: request.body.middleName,
                 lastName: request.body.lastName,
@@ -71,7 +74,7 @@ router.post("/login", async (request, response) => {
 });
 
 //Employee account creation (For store manager use, will require admin check middleware)
-router.post("/adduser", async (request, response) => {
+router.post("/adduser", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -80,6 +83,7 @@ router.post("/adduser", async (request, response) => {
         if (doesUserExist === null) {
             const user = new User({
                 employeeID: request.body.employeeID,
+                createdBy: request.user.email,
                 firstName: request.body.firstName,
                 middleName: request.body.middleName,
                 lastName: request.body.lastName,
