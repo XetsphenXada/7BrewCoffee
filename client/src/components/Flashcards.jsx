@@ -14,7 +14,7 @@ export default function Flashcards() {
     }, []);
 
     return (
-        <div className="w-1/4 flex-col justify-center">
+        <div className="w-1/4 flex flex-col content-center gap-y-5">
             <div className="stack">
                 {flashcards.map((card) => (
                     <label key={card.cardNumber} className="swap swap-flip">
@@ -33,8 +33,8 @@ export default function Flashcards() {
                 ))}
             </div>
             <div className="flex justify-around">
-                <button className="btn btn-neutral">Previous</button>
-                <button className="btn btn-neutral">Next</button>
+                <button className="btn btn-neutral w-1/5">Previous</button>
+                <button className="btn btn-neutral w-1/5">Next</button>
             </div>
         </div>
     )
