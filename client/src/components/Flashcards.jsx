@@ -3,15 +3,38 @@ import { useEffect, useState } from "react";
 export default function Flashcards() {
     const [flashcards, setFlashcards] = useState([]);
 
+    // retrieve flashcard data
     useEffect(() => {
         async function getFlashcardData() {
             const response = await fetch("http://localhost:3000/flashcards");
             const flashcardJson = await response.json();
             setFlashcards(flashcardJson);
         }
-        
+
         getFlashcardData();
     }, []);
+
+    function nextFlashcard(event) {
+        event.preventDefault();
+        console.log("next")
+
+        let tempCards = flashcards;
+        let currentCard = tempCards.shift();
+        tempCards.push(currentCard);
+        setFlashcards(tempCards);
+        console.log(flashcards)
+    }
+
+    function previousFlashcard(event) {
+        event.preventDefault();
+        console.log("previous")
+
+        let tempCards = flashcards;
+        let lastCard = tempCards.pop();
+        tempCards.unshift(lastCard);
+        setFlashcards(tempCards);
+        console.log(flashcards)
+    }
 
     return (
         <div className="w-1/4 flex flex-col content-center gap-y-5">
@@ -33,8 +56,8 @@ export default function Flashcards() {
                 ))}
             </div>
             <div className="flex justify-around">
-                <button className="btn btn-neutral w-1/5">Previous</button>
-                <button className="btn btn-neutral w-1/5">Next</button>
+                <button className="btn btn-neutral w-1/5" onClick={previousFlashcard}>Previous</button>
+                <button className="btn btn-neutral w-1/5" onClick={nextFlashcard}>Next</button>
             </div>
         </div>
     )
