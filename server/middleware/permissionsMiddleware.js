@@ -27,7 +27,7 @@ export default async function adminPermissionMiddleware(request, response, next)
         
         return next();
     } catch (error) {
-        response.status(500).send({
+        response.status(401).send({
             message: "User is not authorized to make this change"
         })
     }
