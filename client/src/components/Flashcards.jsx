@@ -16,24 +16,20 @@ export default function Flashcards() {
 
     function nextFlashcard(event) {
         event.preventDefault();
-        console.log("next")
 
-        let tempCards = flashcards;
+        let tempCards = [...flashcards];
         let currentCard = tempCards.shift();
         tempCards.push(currentCard);
         setFlashcards(tempCards);
-        console.log(flashcards)
     }
 
     function previousFlashcard(event) {
         event.preventDefault();
-        console.log("previous")
 
-        let tempCards = flashcards;
+        let tempCards = [...flashcards];
         let lastCard = tempCards.pop();
         tempCards.unshift(lastCard);
         setFlashcards(tempCards);
-        console.log(flashcards)
     }
 
     return (
