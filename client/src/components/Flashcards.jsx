@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function Flashcards() {
     const [flashcards, setFlashcards] = useState([]);
+    const [selectedCards, setSelectedCards] = useState([]);
     const [cardCategory, setCardCategory] = useState([]);
     const [isCategoryChecked, setIsCategoryChecked] = useState({
         "all": true,
@@ -16,47 +17,55 @@ export default function Flashcards() {
         "recipe-questions": false
     });
 
-    // retrieve flashcard data
+    // retrieve flashcard data and set cards
     useEffect(() => {
         async function getFlashcardData() {
             const response = await fetch("http://localhost:3000/flashcards");
             const flashcardJson = await response.json();
             setFlashcards(flashcardJson);
+            setSelectedCards(flashcardJson);
         }
-        console.log("change detected")
         getFlashcardData();
+    }, []);
+
+    // set cards
+    useEffect(() => {
+        if(cardCategory.length > 0) {
+            // find cards that match categories in array
+            console.log(cardCategory)
+            let tempFlashArr = flashcards.filter((card) => cardCategory.includes(card.category) );
+            console.log(tempFlashArr)
+            setSelectedCards(tempFlashArr);
+        }
+        else {
+            setSelectedCards(flashcards);
+        }
     }, [cardCategory]);
 
     // move to next flashcard
     function nextFlashcard(event) {
         event.preventDefault();
 
-        let tempCards = [...flashcards];
+        let tempCards = [...selectedCards];
         let currentCard = tempCards.shift();
         tempCards.push(currentCard);
-        setFlashcards(tempCards);
+        setSelectedCards(tempCards);
     }
 
     // go to previous flashcard
     function previousFlashcard(event) {
         event.preventDefault();
 
-        let tempCards = [...flashcards];
+        let tempCards = [...selectedCards];
         let lastCard = tempCards.pop();
         tempCards.unshift(lastCard);
-        setFlashcards(tempCards);
+        setSelectedCards(tempCards);
     }
 
-    function getCheckedStatus(event) {
-        event.preventDefault();
-
-        console.log(isCategoryChecked);
-    }
     function getCardCategoryArray(event) {
         event.preventDefault();
 
         console.log(cardCategory);
-        console.log(cardCategory.length);
     }
 
     // handle checkbox selection
@@ -158,18 +167,17 @@ export default function Flashcards() {
                     <input type="checkbox" id="recipe-questions" name="category" value={isCategoryChecked["recipe-questions"]} onChange={() => categorySelection("recipe-questions")} checked={isCategoryChecked["recipe-questions"]} />
                     <label htmlFor="recipe-questions">Recipe Questions</label>
                 </div>
-                <button className="btn btn-neutral w-1/5" onClick={getCheckedStatus}>checked status</button>
                 <button className="btn btn-neutral w-1/5" onClick={getCardCategoryArray}>cardCategory array</button>
             </fieldset>
             <div className="w-1/4 flex flex-col content-center gap-y-5">
                 <div className="stack">
-                    {flashcards.map((card) => (
+                    {selectedCards.map((card) => (
                         <label key={card.cardNumber} className="swap swap-flip">
                             <input type="checkbox" />
                             <div className="card w-96 h-48 shadow-md bg-primary text-primary-content flex-col justify-center swap-off">
-                            <div className="card-body flex-col justify-center">
-                                <h2 className="card-title justify-center">{card.question}</h2>
-                            </div>
+                                <div className="card-body flex-col justify-center">
+                                    <h2 className="card-title justify-center">{card.question}</h2>
+                                </div>
                             </div> 
                             <div className="card w-96 h-48 shadow-md bg-primary text-primary-content flex-col justify-center swap-on">
                                 <div className="card-body flex-col justify-center">
