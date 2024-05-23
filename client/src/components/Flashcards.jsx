@@ -115,6 +115,13 @@ export default function Flashcards() {
         }
     }
 
+    function swapClick(event) {
+        // prevent cards that aren't on top from flipping over
+        if(event.target.title !== selectedCards[0].cardNumber) {
+            event.preventDefault();
+        }
+    }
+
     return (
         <div className="flex ">
             <fieldset className="mr-5">
@@ -164,7 +171,7 @@ export default function Flashcards() {
                 <div className="stack">
                     {selectedCards.map((card) => (
                         <label key={card.cardNumber} className="swap swap-flip">
-                            <input type="checkbox" />
+                            <input type="checkbox" title={card.cardNumber} onClick={swapClick} />
                             <div className="card w-96 h-72 shadow-md bg-primary text-primary-content flex-col justify-center swap-off">
                                 <div className="card-body flex-col justify-center">
                                     <h2 className="w-full h-full card-title justify-center">{card.question}</h2>
