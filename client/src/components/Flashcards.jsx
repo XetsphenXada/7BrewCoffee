@@ -160,27 +160,27 @@ export default function Flashcards() {
                     <label htmlFor="recipe-questions">Recipe Questions</label>
                 </div>
             </fieldset>
-            <div className="w-1/4 flex flex-col content-center gap-y-5">
+            <div className="w-1/4 flex flex-col content-center gap-y-7">
                 <div className="stack">
                     {selectedCards.map((card) => (
                         <label key={card.cardNumber} className="swap swap-flip">
                             <input type="checkbox" />
-                            <div className="card w-96 h-48 shadow-md bg-primary text-primary-content flex-col justify-center swap-off">
+                            <div className="card w-96 h-72 shadow-md bg-primary text-primary-content flex-col justify-center swap-off">
                                 <div className="card-body flex-col justify-center">
-                                    <h2 className="card-title justify-center">{card.question}</h2>
+                                    <h2 className="w-full h-full card-title justify-center">{card.question}</h2>
                                 </div>
                             </div> 
-                            <div className="card w-96 h-48 shadow-md bg-primary text-primary-content flex-col justify-center swap-on">
+                            <div className="card w-96 h-72 shadow-md bg-primary text-primary-content flex-col justify-center swap-on">
                                 <div className="card-body flex-col justify-center">
-                                    <h2 className="card-title justify-center">{card.answer}</h2>
+                                    <h2 className="w-full h-full card-title justify-center">{card.answer}</h2>
                                 </div>
                             </div>
                         </label>
                     ))}
                 </div>
                 <div className="flex justify-around">
-                    <button className="btn btn-neutral w-1/5" onClick={previousFlashcard}>Previous</button>
-                    <button className="btn btn-neutral w-1/5" onClick={nextFlashcard}>Next</button>
+                    <button className="btn btn-neutral w-1/4" onClick={previousFlashcard}>Previous</button>
+                    <button className="btn btn-neutral w-1/4" onClick={nextFlashcard}>Next</button>
                 </div>
             </div>
         </div>
