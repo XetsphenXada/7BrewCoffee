@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
 
-export default function AdminSignUp({ setToken }) {
+export default function AdminSignUp() {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -37,9 +37,6 @@ export default function AdminSignUp({ setToken }) {
                 //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
                 const body = await response.json();
                 if (response.status === 200) {
-                    //save jwt to local storage using setItem method
-                    localStorage.setItem("jwt-token", body.token);
-                    setToken(body.token);
                 } else {
                     console.log(body.message);
                 }
@@ -48,6 +45,8 @@ export default function AdminSignUp({ setToken }) {
     }
     
     return (
-        <div>AdminSignUp</div>
+        <form onSubmit={submitAdminManagerSignup} class="prose flex flex-col items-center border-2 border-black w-1/3">
+            <h1>AdminSignUp</h1>
+        </form>
   )
 }

@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
 import cors from "cors";
-import router from "./controllers/user.controller.js";
+import userRouter from "./controllers/user.controller.js";
 import flashcardRouter from "./controllers/flashcards.js";
 
 //creating variables
@@ -19,7 +19,7 @@ const db = mongoose.connection;
 app.use(express.json());
 app.use(cors());
 //routes being used
-app.use("/", router);
+app.use("/", userRouter);
 app.use("/", flashcardRouter);
 
 //printing to the console when connection is established
