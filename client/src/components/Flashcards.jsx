@@ -32,9 +32,7 @@ export default function Flashcards() {
     useEffect(() => {
         if(cardCategory.length > 0) {
             // find cards that match categories in array
-            console.log(cardCategory)
-            let tempFlashArr = flashcards.filter((card) => cardCategory.includes(card.category) );
-            console.log(tempFlashArr)
+            let tempFlashArr = flashcards.filter((card) => cardCategory.includes(card.category));
             setSelectedCards(tempFlashArr);
         }
         else {
@@ -60,12 +58,6 @@ export default function Flashcards() {
         let lastCard = tempCards.pop();
         tempCards.unshift(lastCard);
         setSelectedCards(tempCards);
-    }
-
-    function getCardCategoryArray(event) {
-        event.preventDefault();
-
-        console.log(cardCategory);
     }
 
     // handle checkbox selection
@@ -167,7 +159,6 @@ export default function Flashcards() {
                     <input type="checkbox" id="recipe-questions" name="category" value={isCategoryChecked["recipe-questions"]} onChange={() => categorySelection("recipe-questions")} checked={isCategoryChecked["recipe-questions"]} />
                     <label htmlFor="recipe-questions">Recipe Questions</label>
                 </div>
-                <button className="btn btn-neutral w-1/5" onClick={getCardCategoryArray}>cardCategory array</button>
             </fieldset>
             <div className="w-1/4 flex flex-col content-center gap-y-5">
                 <div className="stack">
