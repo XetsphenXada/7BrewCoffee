@@ -1,9 +1,14 @@
+import { useState } from 'react';
+import Flashcards from './components/Flashcards'
+import AdminSignUp from './components/auth/AdminSignUp';
 import { Route, Routes } from 'react-router-dom'
 import Flashcards from './components/Flashcards'
 import LogIn from './components/auth/Login'
 
-function App() {
 
+function App() {
+	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
+	
 	return (
 		<>
 			<Routes>

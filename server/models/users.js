@@ -3,14 +3,17 @@ import { Schema, model } from "mongoose";
 const userSchema = new Schema({
     employeeID: String,
     createdBy: String,
-    passwordHash: {
+    password: {
         type: String,
         required: true
     },
     firstName: String,
     middleName: String,
     lastName: String,
-    role: Schema.ObjectId,
+    role: {
+        type: String,
+        required: true
+    },
     storeLocation: String,
     brewistas: Array,
     email: {
