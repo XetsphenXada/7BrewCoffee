@@ -32,7 +32,7 @@
     {
         "cardNumber": "006",
         "question": "Sequence of reading back the drink",
-        "answer": "1. Drink Size (Kids, Small, Medium, or Large) \\n2. Drink Temperature (Hit, Iced, or Chiller) \\n3. Modifications (Extra Shot, Light Ice, Half-Sweet, etc.) \\n4. Drink Name (Blondie, Brunette, Triple 7, etc.) \\n5. Finish Details, if applicable (Whipped Cream, Caramel Drizzle, Cinnamon Sprinkles, etc.)",
+        "answer": "1. Drink Size (Kids, Small, Medium, or Large) \n2. Drink Temperature (Hit, Iced, or Chiller) \n3. Modifications (Extra Shot, Light Ice, Half-Sweet, etc.) \n4. Drink Name (Blondie, Brunette, Triple 7, etc.) \n5. Finish Details, if applicable (Whipped Cream, Caramel Drizzle, Cinnamon Sprinkles, etc.)",
         "category": "customer-questions"
     },
     {
@@ -44,13 +44,13 @@
     {
         "cardNumber": "008",
         "question": "4 Keys to Success",
-        "answer": "1. First Impressions \\n2. Customer Service \\n3. Drink Quality \\n4. Consistency",
+        "answer": "1. First Impressions \n2. Customer Service \n3. Drink Quality \n4. Consistency",
         "category": "company-culture"
     },
     {
         "cardNumber": "009",
         "question": "Our 7 Brew Values",
-        "answer": "1. Our first job is to take care of our team and have each othyer's backs. \\n2. We always have time to remake a drink. \\n3. Move with a visible sense of urgency - your team is counting on you. \\n4. We call each other when anything needs to immediate attention. \\n5. If a teammate asks you for help, let them know you are on it. \\n6. Do more than what you expect from others. \\n7. Treat every encounter with others as a chance to build them up.",
+        "answer": "1. Our first job is to take care of our team and have each othyer's backs. \n2. We always have time to remake a drink. \n3. Move with a visible sense of urgency - your team is counting on you. \n4. We call each other when anything needs to immediate attention. \n5. If a teammate asks you for help, let them know you are on it. \n6. Do more than what you expect from others. \n7. Treat every encounter with others as a chance to build them up.",
         "category": "company-culture"
     },
     {
@@ -79,50 +79,50 @@
     },
     {
         "cardNumber": "014",
-        "question": "Lane \\nThis is the foundational role in the stand. The team member on lane carries a heavy responsibility with their role:",
-        "answer": "-Makes a genuine and unique connection with the customer. \\n-Calls back orders to the crew. \\n-Takes payment. \\n-Ensures all drinks we hand out are as-ordered and top-quality. \\n-Makes sure drinks are well-organized, drink exteriors are clean, and presented flaelessly to the customer. \\n-Moves quickly to ensure a short wait time for the customer.",
+        "question": "Lane \nThis is the foundational role in the stand. The team member on lane carries a heavy responsibility with their role:",
+        "answer": "-Makes a genuine and unique connection with the customer. \n-Calls back orders to the crew. \n-Takes payment. \n-Ensures all drinks we hand out are as-ordered and top-quality. \n-Makes sure drinks are well-organized, drink exteriors are clean, and presented flaelessly to the customer. \n-Moves quickly to ensure a short wait time for the customer.",
         "category": "brewista-positions"
     },
     {
         "cardNumber": "015",
-        "question": "Texter \\nThe texter is the first impression that a customer has on our people, which is vital!",
-        "answer": "-Goes outside when there are three or more cars in line to grab orders. \\n-Takes credit/debit card payments outside when we are busy. \\n-Makes sure that drink makes inside have enough orders to work with, at least three per line. \\n-Whenever not taking orders, runs inside to support the crew. That means running up to the front and refilling the ice chests, stocking cups and lids, refilling sauces, and more!",
+        "question": "Texter \nThe texter is the first impression that a customer has on our people, which is vital!",
+        "answer": "-Goes outside when there are three or more cars in line to grab orders. \n-Takes credit/debit card payments outside when we are busy. \n-Makes sure that drink makes inside have enough orders to work with, at least three per line. \n-Whenever not taking orders, runs inside to support the crew. That means running up to the front and refilling the ice chests, stocking cups and lids, refilling sauces, and more!",
         "category": "brewista-positions"
     },
     {
         "cardNumber": "016",
         "question": "Shots Position",
-        "answer": "-Measures out flavor into the cup to start the drink. \\n-Makes espresso and stirs it into the flavor. \\n-Keeps track of incoming drinks and directs the team on which drinks to work on next. \\n-Supports the milk position with their duties (steaming/pouring milk, getting ice cups, etc.) \\n-Makes blended drinks and chillers.",
+        "answer": "-Measures out flavor into the cup to start the drink. \n-Makes espresso and stirs it into the flavor. \n-Keeps track of incoming drinks and directs the team on which drinks to work on next. \n-Supports the milk position with their duties (steaming/pouring milk, getting ice cups, etc.) \n-Makes blended drinks and chillers.",
         "category": "brewista-positions"
     },
     {
         "cardNumber": "017",
         "question": "Milk Position",
-        "answer": "-Steams and pours milk for any hot drinks. \\n-Pours milk for any iced drinks. \\n-Plans ahead to have various steamed milk ready whenever the shots position has flavor and espresso in the cup. \\n-Handles finishing details (whipped cream, drizzle, sprinkles, and lids). \\n-Passes finished drinks to the appropiate lane table.",
+        "answer": "-Steams and pours milk for any hot drinks. \n-Pours milk for any iced drinks. \n-Plans ahead to have various steamed milk ready whenever the shots position has flavor and espresso in the cup. \n-Handles finishing details (whipped cream, drizzle, sprinkles, and lids). \n-Passes finished drinks to the appropiate lane table.",
         "category": "brewista-positions"
     },
     {
         "cardNumber": "018",
         "question": "The Big 3",
-        "answer": "1. Have genuine and unique interactions with every customer and your teammates. Speak their language. \\n2. Use open and positive body language. \\n3. Smile for every customer and teammate.",
+        "answer": "1. Have genuine and unique interactions with every customer and your teammates. Speak their language. \n2. Use open and positive body language. \n3. Smile for every customer and teammate.",
         "category": "company-culture"
     },
     {
         "cardNumber": "019",
         "question": "When Somethign Goes Wrong - ACT",
-        "answer": "A - Apologize \\nC - Care \\nT - Thank",
+        "answer": "A - Apologize \nC - Care \nT - Thank",
         "category": "company-culture"
     },
     {
         "cardNumber": "020",
         "question": "Who is the first team member that our customer interacts with when they pull into the drive-thru line?",
-        "answer": "Texter \\nThe texter is the first impression that a customer has on our people.",
+        "answer": "Texter \nThe texter is the first impression that a customer has on our people.",
         "category": "brewista-positions"
     },
     {
         "cardNumber": "021",
         "question": "Which position is the foundational role in the stand, and why?",
-        "answer": "Lane \\nThis is the foundational role in the stand.",
+        "answer": "Lane \nThis is the foundational role in the stand.",
         "category": "brewista-positions"
     },
     {
@@ -140,7 +140,7 @@
     {
         "cardNumber": "024",
         "question": "What is the lane position's job after the customer has paid and while the drink is still being made?",
-        "answer": "-Makes a genuine and unique connection with the customer. \\n-Ensures all drinks we hand out are as-ordered and top-quality. \\n-Makes sure drinks are well-organized, drink exteriors are clean, and presented flaelessly to the customer. \\n-Moves quickly to ensure a short wait time for the customer.",
+        "answer": "-Makes a genuine and unique connection with the customer. \n-Ensures all drinks we hand out are as-ordered and top-quality. \n-Makes sure drinks are well-organized, drink exteriors are clean, and presented flaelessly to the customer. \n-Moves quickly to ensure a short wait time for the customer.",
         "category": "brewista-positions"
     },
     {
@@ -151,79 +151,79 @@
     },
     {
         "cardNumber": "026",
-        "question": "BREWISTA TERMS \\nEspresso",
+        "question": "BREWISTA TERMS \nEspresso",
         "answer": "A Latin word literally meaning 'pressed out'. Strong coffee made by pressing a small amount of steam through ground coffee beans. Contrary to popular belief, there is no 'x' in 'espresso'.",
         "category": "brewista-terms"
     },
     {
         "cardNumber": "027",
-        "question": "BREWISTA TERMS \\nDouble Shot",
+        "question": "BREWISTA TERMS \nDouble Shot",
         "answer": "7 Brew espresso machines always dispense double shots. A double shot is the espresso from one shot tin (a single shot is half of a shot tin).",
         "category": "brewista-terms"
     },
     {
         "cardNumber": "028",
-        "question": "BREWISTA TERMS \\nPull",
+        "question": "BREWISTA TERMS \nPull",
         "answer": "The action of using an espresso machine to make a double shot.",
         "category": "brewista-terms"
     },
     {
         "cardNumber": "029",
-        "question": "BREWISTA TERMS \\nShot Window",
+        "question": "BREWISTA TERMS \nShot Window",
         "answer": "This is the amount of time it takes for the hot steam in the espresso machine to flow through the coffee grinds and dispense a 7 Brew double shot. This process should take between 17 and 27 seconds (there is an automatic timer on the machine).",
         "category": "brewista-terms"
     },
     {
         "cardNumber": "030",
-        "question": "BREWISTA TERMS \\nPortafilter",
+        "question": "BREWISTA TERMS \nPortafilter",
         "answer": "This is a filter that we fill witrh coffee grinds and lock into the espresso machine. When the espresso machine forces steam through the grinds, the tiny holes in the filter allow the freshly made espresso to flow out without letting the coffee grounds leak into the shot tin.",
         "category": "brewista-terms"
     },
     {
         "cardNumber": "031",
-        "question": "HOW TO PULL A DOUBLE SHOT \\nPart 1: Coffee Grinds",
+        "question": "HOW TO PULL A DOUBLE SHOT \nPart 1: Coffee Grinds",
         "answer": "Every good double shot starts as 14 grams of freshly ground coffee from our coffee grinder. The hopper (at the top) holds the coffee beans, the grinding burrs grind the beans (inside the grinder), and the dosing chanber holds the fresh grinds. Then, move the dosing lever back and forth twice to dispense two 7 gram portions of grinds into your portafilter for a 14 gram total portion.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "032",
-        "question": "HOW TO PULL A DOUBLE SHOT \\nPart 1: Coffee Grinds \\nBrewista Tip:",
+        "question": "HOW TO PULL A DOUBLE SHOT \nPart 1: Coffee Grinds \nBrewista Tip:",
         "answer": "Be sure to clean the rim of the portafilter before you put coffee grinds in it. A dirty portafilter makes a bad seal with the espresso machine and leads to damage. Only grind as much as you need! Fresher grinds are better; don't grind a full chamber's worth of grinds unless you're in the middle of a rush.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "033",
-        "question": "HOW TO PULL A DOUBLE SHOT \\nPart 2: Tamping",
+        "question": "HOW TO PULL A DOUBLE SHOT \nPart 2: Tamping",
         "answer": "'Tamping' is the act of compacting/compressing your coffee grinds so that they are ready for the espresso machine. You'll position the portafilter under the tamper and press upwards. Compacted ground espresso should be flat and level throughout the inside of the portafilter.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "034",
-        "question": "HOW TO PULL A DOUBLE SHOT \\nPart 3: Extraction Action",
+        "question": "HOW TO PULL A DOUBLE SHOT \nPart 3: Extraction Action",
         "answer": "Swipe your hand across the rim of the portafilter to brush away any excess grinds (called 'blessing' the shot), then load the portafilter into the grouyp head. The extraction time 9from hitting the shot button to finish) should be between 17 and 27 seconds.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "035",
-        "question": "If the double shot pulls TOO QUICKLY \\nWHY?",
+        "question": "If the double shot pulls TOO QUICKLY \nWHY?",
         "answer": "Coffee grinds are too coarse (large) and can't be compacted enough, allowing the water to go through the grinds too quickly.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "036",
-        "question": "If the double shot pulls TOO QUICKLY \\nHOW TO FIX IT",
+        "question": "If the double shot pulls TOO QUICKLY \nHOW TO FIX IT",
         "answer": "Adjust the grinder to grind the coffee into a finer consistency, making it harder for the water to pass through.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "037",
-        "question": "If the double shot pulls TOO SLOWLY \\nWHY?",
+        "question": "If the double shot pulls TOO SLOWLY \nWHY?",
         "answer": "Coffee grinds are too fine (small) and over-compacted, preventing the water from flowing through the grinds as fast as it needs to.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "038",
-        "question": "If the double shot pulls TOO SLOWLY \\nHOW TO FIX IT",
+        "question": "If the double shot pulls TOO SLOWLY \nHOW TO FIX IT",
         "answer": "Adjust the grinder to grind the coffee into a coarser consistency, allowing the water to pass through more easily.",
         "category": "recipe-prep"
     },
@@ -296,13 +296,13 @@
     {
         "cardNumber": "050",
         "question": "STEAMING DAIRY-FREE MILK ALTERNATIVES",
-        "answer": "-Make sure you use a 100% clean steam pitcher with no diary residue. \\n-Double-check that your steam wand is purged and wiped thoroughly before and after each use. \\n-Double-check to ensure that the flavor scoop you are using is 100% clean and is not contaminated by any other drinks that have dairy products.",
+        "answer": "-Make sure you use a 100% clean steam pitcher with no diary residue. \n-Double-check that your steam wand is purged and wiped thoroughly before and after each use. \n-Double-check to ensure that the flavor scoop you are using is 100% clean and is not contaminated by any other drinks that have dairy products.",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "051",
         "question": "STEAMING DAIRY-FREE MILK ALTERNATIVES pt. 2",
-        "answer": "-Even though certain milk alternatives may be stored at room temperature, use chilled milk for your drinks. \\n-Always refrigerate the milk after you open it. \\n-Shake the closed carton to break up any natrural separation.",
+        "answer": "-Even though certain milk alternatives may be stored at room temperature, use chilled milk for your drinks. \n-Always refrigerate the milk after you open it. \n-Shake the closed carton to break up any natrural separation.",
         "category": "recipe-prep"
     },
     {
@@ -319,49 +319,49 @@
     },
     {
         "cardNumber": "054",
-        "question": "STANDARD DAIRY BASE \\nSmooth Mix",
+        "question": "STANDARD DAIRY BASE \nSmooth Mix",
         "answer": "This is 'code' for half and half. We use Smooth Mix (half and half) for any drink made as a breve, including our Smooth 7, Blondie, and Triple 7 original drinks.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "055",
-        "question": "STANDARD DAIRY BASE \\nMocha Mix",
+        "question": "STANDARD DAIRY BASE \nMocha Mix",
         "answer": "This is our proprietary recipe and the base for mochas, chocolate milk, and hot cocoa.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "056",
-        "question": "STANDARD DAIRY BASE \\nWhole Milk",
+        "question": "STANDARD DAIRY BASE \nWhole Milk",
         "answer": "This is the default milk for lattes and cappuccinos.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "057",
-        "question": "STANDARD DAIRY BASE \\nIce Cream Mix",
+        "question": "STANDARD DAIRY BASE \nIce Cream Mix",
         "answer": "The sweet dairy base for smoothies, Chai chillers, and shakes.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "058",
-        "question": "MILK ALTERNATIVES (BY REQUEST) \\nNonfat Milk",
+        "question": "MILK ALTERNATIVES (BY REQUEST) \nNonfat Milk",
         "answer": "Just what it sounds like!",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "059",
-        "question": "MILK ALTERNATIVES (BY REQUEST) \\nOat Milk",
+        "question": "MILK ALTERNATIVES (BY REQUEST) \nOat Milk",
         "answer": "Lightly sweetened.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "060",
-        "question": "MILK ALTERNATIVES (BY REQUEST) \\nCoconut Milk",
+        "question": "MILK ALTERNATIVES (BY REQUEST) \nCoconut Milk",
         "answer": "Also has a touch of vanilla flavor.",
         "category": "recipe-dairy"
     },
     {
         "cardNumber": "061",
-        "question": "MILK ALTERNATIVES (BY REQUEST) \\nAlmond Milk",
+        "question": "MILK ALTERNATIVES (BY REQUEST) \nAlmond Milk",
         "answer": "No special flavors other than the nutty-ness, but has a light sweetness. Made from fresh pecans. Made you look!",
         "category": "recipe-dairy"
     },
@@ -397,25 +397,25 @@
     },
     {
         "cardNumber": "067",
-        "question": "What should you do if your espresso shots are taking too long to pull? \\nA) Adjust the grinder to make the coffee grinds coarser \\nB) Adjust the grinder to make the coffee frinds finer \\nC) Flush out the espresso heads \\nD) Tamp more firmly",
+        "question": "What should you do if your espresso shots are taking too long to pull? \nA) Adjust the grinder to make the coffee grinds coarser \nB) Adjust the grinder to make the coffee frinds finer \nC) Flush out the espresso heads \nD) Tamp more firmly",
         "answer": "A) Adjust the grinder to make the coffee grinds coarser",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "068",
-        "question": "What should you do if your espresso shots are pulling too quickly? \\nA) Adjust the grinder to make the coffee grinds coarser \\nB) Adjust the grinder to make the coffee frinds finer \\nC) Reverse-flush the espresso heads \\nD) Tamp less firmly",
+        "question": "What should you do if your espresso shots are pulling too quickly? \nA) Adjust the grinder to make the coffee grinds coarser \nB) Adjust the grinder to make the coffee frinds finer \nC) Reverse-flush the espresso heads \nD) Tamp less firmly",
         "answer": "B) Adjust the grinder to make the coffee frinds finer",
         "category": "recipe-prep"
     },
     {
         "cardNumber": "069",
         "question": "Write the following in the correct sequence for drink-making: Espresso shots, milk, flavor.",
-        "answer": "1. Flavor \\n2. Espresso shot \\n3. Milk",
+        "answer": "1. Flavor \n2. Espresso shot \n3. Milk",
         "category": "recipe-quesitons"
     },
     {
         "cardNumber": "070",
-        "question": "How much froth do our hot dirnks get on top? \\nA) 1 inch of bubbly froth \\nB) 1/4 inch of tight froth \\nC) 1/2 inch of tight froth \\nD) 2 inches of milky froth",
+        "question": "How much froth do our hot dirnks get on top? \nA) 1 inch of bubbly froth \nB) 1/4 inch of tight froth \nC) 1/2 inch of tight froth \nD) 2 inches of milky froth",
         "answer": "B) 1/4 inch of tight froth",
         "category": "recipe-quesitons"
     },
@@ -572,13 +572,13 @@
     {
         "cardNumber": "096",
         "question": "Fill lines for hot chais",
-        "answer": "5 oz chai, 5 oz milk \\n7 oz chai, 7 oz milk \\n9 oz chai, 9 oz milk",
+        "answer": "5 oz chai, 5 oz milk \n7 oz chai, 7 oz milk \n9 oz chai, 9 oz milk",
         "category": "recipe-quesitons"
     },
     {
         "cardNumber": "097",
         "question": "Fill lines for iced chais",
-        "answer": "4 oz chai, 4 oz milk \\n6 oz chai, 6 oz milk \\n8 oz chai, 8 oz milk",
+        "answer": "4 oz chai, 4 oz milk \n6 oz chai, 6 oz milk \n8 oz chai, 8 oz milk",
         "category": "recipe-quesitons"
     },
     {
@@ -668,7 +668,7 @@
     {
         "cardNumber": "112",
         "question": "How many ounces of chai concentrate and milk belong in a small iced chai?",
-        "answer": "4 oz. milk \\n4 oz. chai concentrate",
+        "answer": "4 oz. milk \n4 oz. chai concentrate",
         "category": "recipe-quesitons"
     },
     {
@@ -692,13 +692,13 @@
     {
         "cardNumber": "116",
         "question": "Smoothie mix lines",
-        "answer": "6, 2 \\n9, 3 \\n12, 4",
+        "answer": "6, 2 \n9, 3 \n12, 4",
         "category": "recipe-quesitons"
     },
     {
         "cardNumber": "117",
         "question": "Shake mix lines",
-        "answer": "2, 6 \\n3, 9 \\n4, 12",
+        "answer": "2, 6 \n3, 9 \n4, 12",
         "category": "recipe-quesitons"
     },
     {
@@ -710,7 +710,7 @@
     {
         "cardNumber": "119",
         "question": "Chai chiller mix lines",
-        "answer": "6, 2 \\n9, 3 \\n12, 4",
+        "answer": "6, 2 \n9, 3 \n12, 4",
         "category": "recipe-quesitons"
     },
     {
@@ -776,7 +776,7 @@
     {
         "cardNumber": "130",
         "question": "Hot sugar-free chocolate steam lines",
-        "answer": "9, 13, 17 \\n And 1-2-2 scoops of Dark Chocolate",
+        "answer": "9, 13, 17 \n And 1-2-2 scoops of Dark Chocolate",
         "category": "recipe-quesitons"
     },
     {
@@ -794,19 +794,19 @@
     {
         "cardNumber": "133",
         "question": "Kids fizz mix lines",
-        "answer": "1 scoop of flavor \\n4 oz of soda water",
+        "answer": "1 scoop of flavor \n4 oz of soda water",
         "category": "recipe-quesitons"
     },
     {
         "cardNumber": "134",
         "question": "Kids smoothie mix lines",
-        "answer": "4 oz of smoothie mix \\n1 oz of ice cream",
+        "answer": "4 oz of smoothie mix \n1 oz of ice cream",
         "category": "recipe-quesitons"
     },
     {
         "cardNumber": "135",
         "question": "Kids shake lines",
-        "answer": "1 scoop of flavor \\n4 oz of ice cream",
+        "answer": "1 scoop of flavor \n4 oz of ice cream",
         "category": "recipe-quesitons"
     },
     {
@@ -824,13 +824,13 @@
     {
         "cardNumber": "138",
         "question": "Lemonade Chiller",
-        "answer": "Lemonade concentrate: 2-3-4 \\nLemonade: 6-9-12 \\nIce",
+        "answer": "Lemonade concentrate: 2-3-4 \nLemonade: 6-9-12 \nIce",
         "category": "recipe-quick"
     },
     {
         "cardNumber": "139",
         "question": "Lemon Freeze",
-        "answer": "Lemonade concentrate: 3-5-6 \\nIce Cream: 5-7-10 \\nIce",
+        "answer": "Lemonade concentrate: 3-5-6 \nIce Cream: 5-7-10 \nIce",
         "category": "recipe-quick"
     },
     {
@@ -968,7 +968,7 @@
     {
         "cardNumber": "162",
         "question": "Matcha Chiller",
-        "answer": "Matcha concentrate: 4-6-8 \\nIce cream mix: 4-6-8 \\nTop off with ice",
+        "answer": "Matcha concentrate: 4-6- \nIce cream mix: 4-6-8 \nTop off with ice",
         "category": "recipe-quick"
     },
     {
