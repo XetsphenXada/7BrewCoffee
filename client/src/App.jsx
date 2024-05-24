@@ -8,7 +8,7 @@ function App() {
 	return (
 		<>
 			{/* <Flashcards /> */}
-			<AdminSignUp />
+			<AdminSignUp setToken={ setToken } />
 		</>
 	)
 }

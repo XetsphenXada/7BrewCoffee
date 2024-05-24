@@ -4,8 +4,7 @@ import jwt from "jsonwebtoken";
 
 export default async function adminPermissionMiddleware(request, response, next) {
     try {
-        //find the admin and manager id's by the role in which they are stored under
-        //save them as a string to be compared with user.role.toString()
+        //find the admin and manager by the role in which they are stored under
         const admin = await Permission.findOne({ role: "Admin" });
         const manager = await Permission.findOne({ role: "Manager" });
         const regionalManager = await Permission.findOne({ role: "Regional Manager" });
@@ -15,8 +14,6 @@ export default async function adminPermissionMiddleware(request, response, next)
         
         //get user from ID that was in jwt
         const user = await User.findById(decryptedToken.id);
-        
-        request.user = user;
         
         //check if the user's role ID matches the ID of either the admin or the manager permissions level
         if (user.role != admin.role && user.role != manager.role && user.role != regionalManager.role) {

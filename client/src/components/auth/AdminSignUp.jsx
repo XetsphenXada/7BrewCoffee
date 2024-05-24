@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
-
-export default function AdminSignUp() {
+//! prop for setToken needs to be changed to token when this gets put on the page
+export default function AdminSignUp({ setToken }) {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -21,7 +21,8 @@ export default function AdminSignUp() {
                 const response = await fetch("http://localhost:3000/signup", {
                     method: "POST",
                     headers: {
-                        "content-type": "application/json"
+                        "content-type": "application/json",
+                        "authorization": localStorage.getItem("jwt-token")
                     },
                     body: JSON.stringify({
                         firstName,
@@ -37,6 +38,10 @@ export default function AdminSignUp() {
                 //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
                 const body = await response.json();
                 if (response.status === 200) {
+                    //!token being stored in localstorage and saved as setToken (remove in production build)
+                    localStorage.setItem("jwt-token", body.token);
+                    setToken(body.token);
+                    console.log(body.token);
                 } else {
                     console.log(body.message);
                 }
@@ -69,16 +74,16 @@ export default function AdminSignUp() {
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
-                <select className='bg-primary text-secondary w-full'>
+                <select className='bg-primary text-secondary w-full' onChange={(e) => setRole(e.target.value)}>
                     <option value="">Please choose an option</option>
-                    <option onChange={(e) => setRole(e.target.value)}>Admin</option>
-                    <option onChange={(e) => setRole(e.target.value)}>Regional Manager</option>
-                    <option onChange={(e) => setRole(e.target.value)}>Manager</option>
+                    <option>Admin</option>
+                    <option>Regional Manager</option>
+                    <option>Manager</option>
                 </select>
             </label>
             <label>
                 <div className='text-black'>Password:</div>
-                <input placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
+                <input placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>

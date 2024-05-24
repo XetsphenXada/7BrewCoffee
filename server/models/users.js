@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const userSchema = new Schema({
     employeeID: String,
     createdBy: String,
-    passwordHash: {
+    password: {
         type: String,
         required: true
     },

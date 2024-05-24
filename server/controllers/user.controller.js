@@ -8,7 +8,7 @@ import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
 const router = Router();
 
 //Manager/Admin signup endpoint (For store manager/Admin use, will require admin check middleware)
-router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
+router.post("/signup", async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -17,7 +17,8 @@ router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (r
         if (doesUserExist === null) {
             const user = new User({
                 employeeID: request.body.employeeID,
-                createdBy: request.user.email,
+                //comment this back in once middleware is introduced
+                //createdBy: request.user.email,
                 firstName: request.body.firstName,
                 middleName: request.body.middleName,
                 lastName: request.body.lastName,
@@ -25,11 +26,12 @@ router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (r
                 storeLocation: request.body.storeLocation,
                 brewistas: request.body.brewistas,
                 email: request.body.email,
-                passwordHash: request.body.passwordHash
+                password: request.body.password
             });
             
             await user.save();
             
+            //this line used for testing, remove in production
             const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
             
             response.send({
