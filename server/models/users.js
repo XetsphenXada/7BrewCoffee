@@ -10,7 +10,10 @@ const userSchema = new Schema({
     firstName: String,
     middleName: String,
     lastName: String,
-    role: Schema.ObjectId,
+    role: {
+        type: String,
+        required: true
+    },
     storeLocation: String,
     brewistas: Array,
     email: {
