@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Flashcards from './components/Flashcards'
-import AdminSignUp from './components/auth/AdminSignUp';
 import { Route, Routes } from 'react-router-dom'
 import Flashcards from './components/Flashcards'
 import LogIn from './components/auth/Login'
@@ -11,12 +9,12 @@ function App() {
 	
 	return (
 		<>
-			<Routes>
+		<Routes>
         <Route
           path="/login"
           element={<LogIn></LogIn>}
         />
-      </Routes>
+      	</Routes>
 		</>
 	)
 }
