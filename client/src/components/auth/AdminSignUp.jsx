@@ -50,7 +50,8 @@ export default function AdminSignUp() {
     }
     
     return (
-        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col items-center border-2 border-black w-1/4 p-6 bg-white">
+        <div className='flex justify-center h-screen items-center'>
+        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col items-center justify-center border-2 border-black w-1/4 p-6 bg-white">
             <h1 className='text-primary'>Add Manager</h1>
             <label>
                 <div className='text-black'>Email:</div>
@@ -87,5 +88,6 @@ export default function AdminSignUp() {
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>
+        </div>
   )
 }
