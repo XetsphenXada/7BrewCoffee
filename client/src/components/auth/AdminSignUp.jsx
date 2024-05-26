@@ -54,27 +54,27 @@ export default function AdminSignUp({ setToken }) {
             <h1 className='text-primary'>Add Manager</h1>
             <label>
                 <div className='text-black'>Email:</div>
-                <input placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>First Name:</div>
-                <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Middle Name:</div>
-                <input placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Last Name:</div>
-                <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Store Location:</div>
-                <input placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
-                <select className='bg-primary text-secondary w-full' onChange={(e) => setRole(e.target.value)}>
+                <select className='bg-primary text-secondary w-full border-2 border-secondary' onChange={(e) => setRole(e.target.value)}>
                     <option value="">Please choose an option</option>
                     <option>Admin</option>
                     <option>Regional Manager</option>
@@ -83,7 +83,7 @@ export default function AdminSignUp({ setToken }) {
             </label>
             <label>
                 <div className='text-black'>Password:</div>
-                <input placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>
