@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
 //! prop for setToken needs to be changed to token when this gets put on the page
-export default function AdminSignUp({ setToken }) {
+export default function AdminSignUp() {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -39,8 +39,8 @@ export default function AdminSignUp({ setToken }) {
                 const body = await response.json();
                 if (response.status === 200) {
                     //!token being stored in localstorage and saved as setToken (remove in production build)
-                    localStorage.setItem("jwt-token", body.token);
-                    setToken(body.token);
+                    // localStorage.setItem("jwt-token", body.token);
+                    // setToken(body.token);
                     console.log(body.token);
                 } else {
                     console.log(body.message);
