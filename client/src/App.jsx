@@ -13,7 +13,7 @@ function App() {
 		<Routes>
         <Route
           path="/login"
-          element={<LogIn></LogIn>}
+          element={<LogIn setToken={setToken}></LogIn>}
         />
 		<Route path="/signup" element={<AdminSignUp />}/>
       	</Routes>

@@ -4,20 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
-  const [passwordHash, setPasswordHash] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   async function submitLogIn(event) {
     event.preventDefault();
     //sending username and password to backend
-    const response = await fetch("http://localhost:4000/user/login", {
+    const response = await fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
         email,
-        passwordHash,
+        password,
       }),
     });
 
@@ -28,7 +28,7 @@ export default function LogIn({ setToken }) {
       //saving jwt to local storage
       localStorage.setItem("jwt-token", body.token);
       setToken(body.token);
-      // navigate("/placeholder")
+      navigate("/signup")
     } else {
       console.log(body.response);
     }
@@ -61,7 +61,7 @@ export default function LogIn({ setToken }) {
           placeholder="Password"
           type="password"
           className=" input input-bordered w-full max-w-xs"
-          onChange={(e) => setPasswordHash(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         ></input>
       </label>
       <p className="m-4">Forgot your password? <button className="btn btn-secondary text-white">Click Here</button></p>
