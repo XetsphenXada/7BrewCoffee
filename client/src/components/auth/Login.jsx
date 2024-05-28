@@ -5,20 +5,20 @@ import { useState } from "react";
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function submitLogIn(event) {
     event.preventDefault(); //stop page from refreshing on submit
     //sending username and password to backend
-    const response = await fetch("http://localhost:4000/user/login", {
+    const response = await fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
         email,
-        password
-      })
+        password,
+      }),
     });
 
     const body = await response.json();
@@ -28,7 +28,7 @@ export default function LogIn({ setToken }) {
       //saving jwt to local storage
       localStorage.setItem("jwt-token", body.token);
       setToken(body.token);
-      // navigate("/placeholder")
+      navigate("/signup")
     } else {
       console.log(body.response);
     }

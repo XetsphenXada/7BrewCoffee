@@ -1,21 +1,23 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 // import Flashcards from './components/Flashcards'
-// import LogIn from './components/auth/Login'
 import Auth from './components/auth/Auth'
 import { useState } from 'react';
+import AdminSignUp from './components/auth/AdminSignUp';
+
 
 function App() {
-
-  const [token, setToken] = useState(localStorage.getItem("jwt-token"));
-
+	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
+	
 	return (
 		<>
-			<Routes>
+		<Routes>
         <Route
           path="/user/login"
           element={<Auth setToken={setToken} />} //pass update component as props
         />
-      </Routes>
+		<Route path="/signup" element={<AdminSignUp />}/>
+      	</Routes>
 		</>
 	)
 }
