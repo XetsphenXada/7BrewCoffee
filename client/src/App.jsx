@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 // import Flashcards from './components/Flashcards'
 import Auth from './components/auth/Auth'
-import { useState } from 'react';
 import AdminSignUp from './components/auth/AdminSignUp';
 import EmpCreation from './components/auth/EmpCreation';
 
