@@ -38,9 +38,6 @@ export default function AdminSignUp() {
                 //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
                 const body = await response.json();
                 if (response.status === 200) {
-                    //!token being stored in localstorage and saved as setToken (remove in production build)
-                    // localStorage.setItem("jwt-token", body.token);
-                    // setToken(body.token);
                     console.log(body.token);
                 } else {
                     console.log(body.message);

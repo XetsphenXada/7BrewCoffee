@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Flashcards from './components/Flashcards'
 import LogIn from './components/auth/Login'
 import AdminSignUp from './components/auth/AdminSignUp';
+import EmpCreation from './components/auth/EmpCreation';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           element={<LogIn setToken={setToken}></LogIn>}
         />
 		<Route path="/signup" element={<AdminSignUp />}/>
+		<Route path="/adduser" element={<EmpCreation />}/>
       	</Routes>
 		</>
 	)
