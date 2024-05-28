@@ -57,7 +57,7 @@ router.post("/login", async (request, response) => {
         response.status(401).json({message: "The username or password is incorrect"});
     }
     if(user) {
-        bcrypt.compare(request.body.password, user.passwordHash, (err, res) => {
+        bcrypt.compare(request.body.password, user.password, (err, res) => {
             if(res) {
                 const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
                 response.status(200).json({
