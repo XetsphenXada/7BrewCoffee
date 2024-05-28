@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
 //! prop for setToken needs to be changed to token when this gets put on the page
-export default function AdminSignUp({ setToken }) {
+export default function AdminSignUp() {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -38,9 +38,6 @@ export default function AdminSignUp({ setToken }) {
                 //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
                 const body = await response.json();
                 if (response.status === 200) {
-                    //!token being stored in localstorage and saved as setToken (remove in production build)
-                    localStorage.setItem("jwt-token", body.token);
-                    setToken(body.token);
                     console.log(body.token);
                 } else {
                     console.log(body.message);
@@ -50,7 +47,8 @@ export default function AdminSignUp({ setToken }) {
     }
     
     return (
-        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col items-center border-2 border-black w-1/4 p-6 bg-white">
+        <div className='flex justify-center h-screen items-center'>
+        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col items-center justify-center border-2 border-black w-1/4 p-6 bg-white">
             <h1 className='text-primary'>Add Manager</h1>
             <label>
                 <div className='text-black'>Email:</div>
@@ -87,5 +85,6 @@ export default function AdminSignUp({ setToken }) {
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>
+        </div>
   )
 }

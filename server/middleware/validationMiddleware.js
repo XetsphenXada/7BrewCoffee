@@ -11,6 +11,9 @@ export default async function validationMiddleware(request, response, next) {
             throw new error("ID from JWT doesn't response to User in database");
         }
         
+        //provides us with a deconstructed naming convention for use in our backend
+        request.user = user;
+        
         return next();
     } catch (error) {
         response.status(500).send({

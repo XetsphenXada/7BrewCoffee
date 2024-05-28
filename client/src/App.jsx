@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Auth from './components/auth/Auth'
 import { useState } from 'react';
 import AdminSignUp from './components/auth/AdminSignUp';
+import EmpCreation from './components/auth/EmpCreation';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           element={<Auth setToken={setToken} />} //pass update component as props
         />
 		<Route path="/signup" element={<AdminSignUp />}/>
+		<Route path="/adduser" element={<EmpCreation />}/>
       	</Routes>
 		</>
 	)

@@ -20,6 +20,9 @@ export default async function adminPermissionMiddleware(request, response, next)
             throw new error("Not Authorized")
         }
         
+        //provides us with a deconstructed naming convention for use in our backend
+        request.user = user;
+        
         return next();
     } catch (error) {
         response.status(401).send({
