@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Light Ice Mix Lines",
+        "quizParam": "lightIceMixLines",
         "questionType": "multipleChoice",
         "question": "How many ounces of liquid would you add to a light ice drink?",
         "answer": "choice2",
@@ -14,6 +15,7 @@
     },
     {
         "quizName": "Light Ice Mix Lines",
+        "quizParam": "lightIceMixLines",
         "questionType": "trueFalse",
         "question": "A large light ice drink will have 22 ounces of total liquid.",
         "answer": "choice2",

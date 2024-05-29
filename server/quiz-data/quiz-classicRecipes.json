@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Classic Recipes",
+        "quizParam": "classicRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large cappuccino?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Classic Recipes",
+        "quizParam": "classicRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium hot/iced almond milk hazelnut mocha?",
         "answer": "choice2",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Classic Recipes",
+        "quizParam": "classicRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a small hot/iced sugar-free mocha?",
         "answer": "choice1",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Classic Recipes",
+        "quizParam": "classicRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium hot/iced caramel-vanilla mocha?",
         "answer": "choice2",
@@ -49,6 +53,7 @@
     },
     {
         "quizName": "Classic Recipes",
+        "quizParam": "classicRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium hot/iced white chocolate-caramel breve?",
         "answer": "choice3",

@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "Smoothie scoops are ___.",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "When you make ANY type of Special 7 Mocha Chiller (inlcluding Originals), it will require ___ the total scoops of flavor to be dark chocolate.",
         "answer": "choice4",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "How do you build a half-sweet Mocha Chiller (no flavor/plain)?",
         "answer": "choice2",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "What is the correct way to drizzle if it is required?.",
         "answer": "choice3",
@@ -48,6 +52,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "trueFalse",
         "question": "If drizzle and whipped cream/cold foam is required, you do not have to put drizzle on top of the whipped cream or cold foam.",
         "answer": "choice2",
@@ -58,6 +63,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "trueFalse",
         "question": "If two smoothie flavors are requested in a drink, you must handblend both smoothie flavors together in a blender (example: strawberry mango smoothie).",
         "answer": "choice1",
@@ -68,6 +74,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "trueFalse",
         "question": "This is the correct way to make a medium plain decaf mocha chiller: 3 dark chocolate, 2 shots decaf espresso, then fill to the 9 with mocha mix.",
         "answer": "choice1",
@@ -78,6 +85,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "If a kid's iced blondie is ordered, how many shots of espresso are used?",
         "answer": "choice1",
@@ -90,6 +98,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "trueFalse",
         "question": "If an extra shot chiller is ordered, put the espresso straight into the plastic cup and then fill with chiller.",
         "answer": "choice2",
@@ -100,6 +109,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "multipleChoice",
         "question": "If a secret menu drink is requested with an additional flavor, the additional flavor will take up ___ of the total scoops of flavor unless otherwise requested (example: a strawberry Ocean Breeze).",
         "answer": "choice2",
@@ -112,6 +122,7 @@
     },
     {
         "quizName": "Updated Recipes Sept 2023",
+        "quizParam": "updatedRecipesSept2023",
         "questionType": "trueFalse",
         "question": "We do flat, even scoops for flavor.",
         "answer": "choice1",

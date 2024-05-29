@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Kids Drinks Principles and Recipes",
+        "quizParam": "kidsDrinksPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a kids cocoa?",
         "answer": "choice1",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Kids Drinks Principles and Recipes",
+        "quizParam": "kidsDrinksPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "How many shots of espresso go in kids coffee drinks?",
         "answer": "choice1",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Kids Drinks Principles and Recipes",
+        "quizParam": "kidsDrinksPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a kids chocolate shake?",
         "answer": "choice2",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Kids Drinks Principles and Recipes",
+        "quizParam": "kidsDrinksPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a bleu raspberry Kids Fizz?",
         "answer": "choice2",

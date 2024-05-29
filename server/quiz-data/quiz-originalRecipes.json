@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Original Recipes",
+        "quizParam": "originalRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a small, light ice, Make it a Triple 7 Smooth 7?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Original Recipes",
+        "quizParam": "originalRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium hot/iced almond milk Brunette?",
         "answer": "choice3",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Original Recipes",
+        "quizParam": "originalRecipes",
         "questionType": "multipleChoice",
         "question": "If no premix flavor bottles are available, what is the correct recipe for a small iced sugar-free German Chocolate?",
         "answer": "choice2",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Original Recipes",
+        "quizParam": "originalRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large hot oat milk Smooth 7?",
         "answer": "choice4",
@@ -49,6 +53,7 @@
     },
     {
         "quizName": "Original Recipes",
+        "quizParam": "originalRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium hot/iced skim milk White Chocolate Mocha?",
         "answer": "choice2",

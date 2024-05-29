@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Original and Sugar-Free Original Breve Scoops",
+        "quizParam": "originalAndSFOriginalBreveScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a small, medium, and large Original Breve?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Original and Sugar-Free Original Breve Scoops",
+        "quizParam": "originalAndSFOriginalBreveScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium sugar-free Smooth 7?",
         "answer": "choice2",

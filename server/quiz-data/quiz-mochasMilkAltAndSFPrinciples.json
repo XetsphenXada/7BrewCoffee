@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Mochas - Milk Alternative and Suger-Free Principles",
+        "quizParam": "mochasMilkAltAndSFPrinciples",
         "questionType": "selectAll",
         "question": "If a medium hot or iced German Chocolate is ordered with almond milk, select all of the folowwing that would chanmge about the recipe:",
         "answer": ["choice1", "choice3", "choice4"],
@@ -14,6 +15,7 @@
     },
     {
         "quizName": "Mochas - Milk Alternative and Suger-Free Principles",
+        "quizParam": "mochasMilkAltAndSFPrinciples",
         "questionType": "selectAll",
         "question": "If a small hot or iced caramel mocha is ordered 'Skinny', select all of the following that would change about the recipe:",
         "answer": ["choice1", "choice2", "choice4"],
@@ -27,6 +29,7 @@
     },
     {
         "quizName": "Mochas - Milk Alternative and Suger-Free Principles",
+        "quizParam": "mochasMilkAltAndSFPrinciples",
         "questionType": "selectAll",
         "question": "Select all applicable examples that would require a mocha to be made without any Mocha Mix:",
         "answer": ["choice3", "choice4", "choice5"],
@@ -40,6 +43,7 @@
     },
     {
         "quizName": "Mochas - Milk Alternative and Suger-Free Principles",
+        "quizParam": "mochasMilkAltAndSFPrinciples",
         "questionType": "selectAll",
         "question": "Select all drink orders that would use 1 total scoop of flavor for a small, 2 total scoops of flavor for a medium, and 2 total scoops of flavor for a large:",
         "answer": ["choice1", "choice3", "choice5", "choice6"],

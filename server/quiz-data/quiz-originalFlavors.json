@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a German Chocolate:",
         "answer": ["choice3", "choice5"],
@@ -15,6 +16,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a Brunette:",
         "answer": ["choice2", "choice5"],
@@ -29,6 +31,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a Blondie:",
         "answer": ["choice4", "choice6"],
@@ -43,6 +46,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a Smooth 7:",
         "answer": ["choice4", "choice5"],
@@ -58,6 +62,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a Sweet & Salty:",
         "answer": ["choice3", "choice6"],
@@ -74,6 +79,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a Cinnamon Roll:",
         "answer": ["choice4", "choice6"],
@@ -89,6 +95,7 @@
     },
     {
         "quizName": "Original Flavors",
+        "quizParam": "originalFlavors",
         "questionType": "selectAll",
         "question": "Select all syrups and/or sauces used to make a White Chocolate Mocha:",
         "answer": ["choice1"],

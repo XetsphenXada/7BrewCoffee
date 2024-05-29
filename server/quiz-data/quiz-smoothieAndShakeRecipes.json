@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Smoothie and Shake Recipes",
+        "quizParam": "smoothieAndShakeRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium mango smoothie?",
         "answer": "choice4",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Smoothie and Shake Recipes",
+        "quizParam": "smoothieAndShakeRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium vanilla shake?",
         "answer": "choice1",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Smoothie and Shake Recipes",
+        "quizParam": "smoothieAndShakeRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a small chocolate shake?",
         "answer": "choice2",

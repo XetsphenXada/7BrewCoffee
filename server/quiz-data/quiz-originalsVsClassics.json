@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Originals vs Classics",
+        "quizParam": "originalsVsClassics",
         "questionType": "selectAll",
         "question": "Select all Classic coffee drinks:",
         "answer": ["choice1", "choice5", "choice6", "choice7", "choice10", "choice11"],
@@ -20,6 +21,7 @@
     },
     {
         "quizName": "Originals vs Classics",
+        "quizParam": "originalsVsClassics",
         "questionType": "trueFalse",
         "question": "A caramel mocha, a hot House Blend, and an Irish cream latte are all Classic Drinks.",
         "answer": "choice1",

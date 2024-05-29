@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Make it a Triple 7 Shots",
+        "quizParam": "makeItATriple7Shots",
         "questionType": "multipleChoice",
         "question": "How many total espresso shots go in a drink with a 'Make it a Triple 7' modification?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Make it a Triple 7 Shots",
+        "quizParam": "makeItATriple7Shots",
         "questionType": "multipleChoice",
         "question": "How many total shots does a small EXTRA-SHOT 'Make it a Triple 7' have?",
         "answer": "choice4",

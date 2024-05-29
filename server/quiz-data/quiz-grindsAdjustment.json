@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Grinds Adjustment",
+        "quizParam": "grindsAdjustment",
         "questionType": "multipleChoice",
         "question": "What should you do if your espresso shots are pulling too short?",
         "answer": "choice4",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Grinds Adjustment",
+        "quizParam": "grindsAdjustment",
         "questionType": "multipleChoice",
         "question": "What should you do if your espresso shots are pulling too long?",
         "answer": "choice2",

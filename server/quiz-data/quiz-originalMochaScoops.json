@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Original Mocha Scoops",
+        "quizParam": "originalMochaScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a small, medium, and large Original Mocha?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Original Mocha Scoops",
+        "quizParam": "originalMochaScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium Original Mocha?",
         "answer": "choice1",

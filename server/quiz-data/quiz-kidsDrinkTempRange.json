@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Kid's Drink Temp Range",
+        "quizParam": "kidsDrinkTempRange",
         "questionType": "multipleChoice",
         "question": "What is the correct temperature range for serving kids' drinks?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Kid's Drink Temp Range",
+        "quizParam": "kidsDrinkTempRange",
         "questionType": "selectAll",
         "question": "Select all temperatures that are too hot for kids' dirnks:",
         "answer": ["choice4", "choice5", "choice6"],

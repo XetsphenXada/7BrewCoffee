@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Lemonade Iced Recipes",
+        "quizParam": "lemonadeIcedRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a large iced strawberry lemonade?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Lemonade Iced Recipes",
+        "quizParam": "lemonadeIcedRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium iced raspberry lemonade?",
         "answer": "choice1",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Lemonade Iced Recipes",
+        "quizParam": "lemonadeIcedRecipes",
         "questionType": "trueFalse",
         "question": "All lemonade scoops are 1-1-2.",
         "answer": "choice1",

@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Default Milk 1",
+        "quizParam": "defaultMilk1",
         "questionType": "multipleChoice",
         "question": "What milk goes in a breve?",
         "answer": "choice2",
@@ -14,6 +15,7 @@
     },
     {
         "quizName": "Default Milk 1",
+        "quizParam": "defaultMilk1",
         "questionType": "multipleChoice",
         "question": "Which milk goes in a cappuccino?",
         "answer": "choice4",

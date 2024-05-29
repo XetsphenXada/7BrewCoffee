@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Chai Recipes",
+        "quizParam": "chaiRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a small iced caramel chai latte?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Chai Recipes",
+        "quizParam": "chaiRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large iced vanilla chai latte?",
         "answer": "choice2",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Chai Recipes",
+        "quizParam": "chaiRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium brown sugar cinnamon chai Chiller?",
         "answer": "choice2",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Chai Recipes",
+        "quizParam": "chaiRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large chai Chiller?",
         "answer": "choice3",

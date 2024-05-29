@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Shot Window / Scoops",
+        "quizParam": "shotWindowScoops",
         "questionType": "multipleChoice",
         "question": "What is the 7 Brew shot window?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Shot Window / Scoops",
+        "quizParam": "shotWindowScoops",
         "questionType": "selectAll",
         "question": "Select all shot times that are within the acceptable 7 Brew shot window:",
         "answer": ["choice3", "choice4", "choice5"],
@@ -27,6 +29,7 @@
     },
     {
         "quizName": "Shot Window / Scoops",
+        "quizParam": "shotWindowScoops",
         "questionType": "multipleChoice",
         "question": "How many ounces are our scoops?",
         "answer": "choice3",

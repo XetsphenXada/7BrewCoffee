@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Special 7 Recipes",
+        "quizParam": "special7Recipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large almond milk Brunette Chiller?",
         "answer": "choice4",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Special 7 Recipes",
+        "quizParam": "special7Recipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium half-sweet oat milk Blondie Chiller?",
         "answer": "choice2",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Special 7 Recipes",
+        "quizParam": "special7Recipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large decaf mocha chiller?",
         "answer": "choice1",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Special 7 Recipes",
+        "quizParam": "special7Recipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large hot skinny vanilla mocha?",
         "answer": "choice2",

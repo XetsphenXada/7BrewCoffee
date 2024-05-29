@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Drinkable Temp",
+        "quizParam": "drinkableTemp",
         "questionType": "multipleChoice",
         "question": "What is the temperature range for a hot drink ordered 'drinkable'?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Drinkable Temp",
+        "quizParam": "drinkableTemp",
         "questionType": "selectAll",
         "question": "If a hot drink is ordered 'drinkable', select all of the following temperatures that would be too hot to serve:",
         "answer": ["choice4", "choice5"],

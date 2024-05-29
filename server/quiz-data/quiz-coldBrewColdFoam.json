@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Cold Brew / Cold Foam",
+        "quizParam": "coldBrewColdFoam",
         "questionType": "multipleChoice",
         "question": "What are the correct flavor scoops for Cold Brew?",
         "answer": "choice3",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Cold Brew / Cold Foam",
+        "quizParam": "coldBrewColdFoam",
         "questionType": "multipleChoice",
         "question": "What are the correct cream scoops that goes into Cold Brew, if requested?",
         "answer": "choice2",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Cold Brew / Cold Foam",
+        "quizParam": "coldBrewColdFoam",
         "questionType": "multipleChoice",
         "question": "What are the correct order to build a COld Brew if cream and flavor are requested?",
         "answer": "choice1",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Cold Brew / Cold Foam",
+        "quizParam": "coldBrewColdFoam",
         "questionType": "multipleChoice",
         "question": "What is the correct way to add cold foam to a drink?",
         "answer": "choice2",
@@ -47,6 +51,7 @@
     },
     {
         "quizName": "Cold Brew / Cold Foam",
+        "quizParam": "coldBrewColdFoam",
         "questionType": "trueFalse",
         "question": "Cold foam is a $.75 upcharge.",
         "answer": "choice1",

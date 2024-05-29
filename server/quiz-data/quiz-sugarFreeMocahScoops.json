@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Sugar-Free Mocha Scoops",
+        "quizParam": "sugarFreeMochaScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a small, medium, and large sugar-free German Chocolate Mocha?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Sugar-Free Mocha Scoops",
+        "quizParam": "sugarFreeMochaScoops",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium sugar-free Caramel Mocha?",
         "answer": "choice2",

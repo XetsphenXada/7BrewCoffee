@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Default Milk 2",
+        "quizParam": "defaultMilk2",
         "questionType": "multipleChoice",
         "question": "Which milk goes in an iced sugar-free mocha?",
         "answer": "choice1",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Default Milk 2",
+        "quizParam": "defaultMilk2",
         "questionType": "multipleChoice",
         "question": "Which milk goes in a hot skinny latte?",
         "answer": "choice4",

@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Mix Lines",
+        "quizParam": "mixLines",
         "questionType": "multipleChoice",
         "question": "What are the fill lines for kids, small, medium, large iced drinks?",
         "answer": "choice2",

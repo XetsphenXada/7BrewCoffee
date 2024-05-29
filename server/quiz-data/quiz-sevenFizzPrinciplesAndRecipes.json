@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a small 7 fizz?",
         "answer": "choice2",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium 7 fizz?",
         "answer": "choice3",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a large 7 fizz?",
         "answer": "choice2",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "Which question should you ask a customer who orders a 7 Fizz?",
         "answer": "choice2",
@@ -49,6 +53,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "What is the default cream for a 7 Fizz?",
         "answer": "choice3",
@@ -61,6 +66,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "trueFalse",
         "question": "Seven Fizz's are made with flavor first, then 7 Fizz, pour over ice, tom-tom, and then add cream if requested.",
         "answer": "choice2",
@@ -71,6 +77,7 @@
     },
     {
         "quizName": "Seven Fizz Principles and Recipes",
+        "quizParam": "sevenFizzPrinciplesAndRecipes",
         "questionType": "multipleChoice",
         "question": "The default cream for 7 Fizz's are:",
         "answer": "choice3",

@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct way to build a large iced pineapple 7 Energy?",
         "answer": "choice1",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a medium peach-raspberry 7 Energy Chiiller?",
         "answer": "choice2",
@@ -25,6 +27,7 @@
     },
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "How many scoops of flavor go in a small watermelon 7 Energy Chiiller?",
         "answer": "choice1",
@@ -37,6 +40,7 @@
     },
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium iced blue raspberry 7 Energy?",
         "answer": "choice4",
@@ -49,6 +53,7 @@
     },
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a large sugar-free coconut 7 Energy Chiller?",
         "answer": "choice3",
@@ -61,6 +66,7 @@
     },
     {
         "quizName": "Iced / Chiller 7 Energy Recipes",
+        "quizParam": "icedChiller7EnergyRecipes",
         "questionType": "multipleChoice",
         "question": "What is the correct recipe for a medium sugar-free strawberry 7 Energy Chiller?",
         "answer": "choice4",

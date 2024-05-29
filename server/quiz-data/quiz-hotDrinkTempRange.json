@@ -1,6 +1,7 @@
 [
     {
         "quizName": "Hot Drink Temp Range",
+        "quizParam": "hotDrinkTempRange",
         "questionType": "multipleChoice",
         "question": "What is the correct temperature range for regular hot drinks (not including 'extra hot' or 'drinkable')?",
         "answer": "choice1",
@@ -13,6 +14,7 @@
     },
     {
         "quizName": "Hot Drink Temp Range",
+        "quizParam": "hotDrinkTempRange",
         "questionType": "trueFalse",
         "question": "Other than a kids drink, if you burn your milk or get it too hot, you can add cold milk to bring it down to the correct temperature.",
         "answer": "choice2",
