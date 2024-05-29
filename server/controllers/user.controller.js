@@ -108,4 +108,41 @@ router.post("/adduser", adminPermissionMiddleware, async (request, response) => 
     };
 });
 
+//Returns all users that are found in the database, will be used to filter the users by store location on the front end
+router.get("/users", adminPermissionMiddleware, async (request, response) => {
+    try {
+        const allUsers = await User.find({});
+        response.send(allUsers);
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    };
+});
+
+//Endpoint to allow user profiles to be updated by an admin / manager
+router.put("/users/:_id", adminPermissionMiddleware, async (request, response) => {
+    try {
+        filter = { _id: request.params._id };
+        update = request.body 
+        const editUser = await User.findOneAndUpdate(filter, update, {new: true})
+        response.send(editUser)
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    };
+});
+
+//Endpoint to allow user profiles to be deleted by an admin / manager
+router.delete("/users/:_id", adminPermissionMiddleware, async (request, response) => {
+    try {
+        const userDelete = await User.deleteOne({ _id: request.params._id })
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    };
+});
+
 export default router;

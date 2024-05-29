@@ -5,6 +5,7 @@ import Auth from './components/auth/Auth'
 import AdminSignUp from './components/auth/AdminSignUp';
 import Layout from './components/testpagelayoutcode';
 import EmpCreation from './components/auth/EmpCreation';
+import ViewAllUsers from './components/auth/ViewAllUsers';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 		<Route path="/signup" element={<AdminSignUp />}/>
     <Route path="/layout" element={<Layout />}/>
 		<Route path="/adduser" element={<EmpCreation />}/>
+		<Route path="/allusers" element={<ViewAllUsers />}/>
       	</Routes>
 		</>
 	)
