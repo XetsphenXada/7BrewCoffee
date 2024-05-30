@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function Quiz() {
     const [quiz, setQuiz] = useState([]);
 
-    const param = "grindsAdjustment"; // !! need params from react router
+    const param = "coffeeChillerAndSpecial7Principles"; // !! need params from react router
 
     // retrieve selected quiz data on load
     useEffect(() => { // needs useLoaderData to retrieve quiz data on first load
@@ -23,14 +23,29 @@ export default function Quiz() {
                 {quiz.map((singleQuestion, i) => (
                     <div>
                         <div key={i}>{singleQuestion.question}</div>
-                        {Object.values(singleQuestion.answerChoices).map((choice, j) => (
-                            <div className="form-control flex-row">
-                                <label className="label cursor-pointer">
-                                    <input type="radio" name={`radio-${i}`} className="radio m-3" />
-                                    <span key={j}>{choice}</span>
-                                </label>
-                            </div>
-                        ))}
+                        {singleQuestion.questionType === "selectAll" ? (
+                            <>
+                                {Object.values(singleQuestion.answerChoices).map((choice, j) => (
+                                    <div className="form-control flex-row">
+                                        <label className="label cursor-pointer">
+                                            <input type="checkbox" name={`checkbox-${i}`} className="checkbox m-3" />
+                                            <span key={j}>{choice}</span>
+                                        </label>
+                                    </div>
+                                ))}
+                            </>
+                        ) : (
+                            <>
+                                {Object.values(singleQuestion.answerChoices).map((choice, j) => (
+                                    <div className="form-control flex-row">
+                                        <label className="label cursor-pointer">
+                                            <input type="radio" name={`radio-${i}`} className="radio m-3" />
+                                            <span key={j}>{choice}</span>
+                                        </label>
+                                    </div>
+                                ))}
+                            </>
+                        )}
                     </div>
                 ))}
             </form>
