@@ -1,10 +1,12 @@
 import Flashcards from './components/Flashcards'
+import Quiz from './components/Quiz'
+
 
 function App() {
 
 	return (
 		<>
-			<Flashcards />
+			<Quiz />
 		</>
 	)
 }
