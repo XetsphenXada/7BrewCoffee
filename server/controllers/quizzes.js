@@ -23,8 +23,13 @@ router.get("/quiz/:quizParam", (request, response) => { // !! will need user val
 router.get("/quiznames", (request, response) => {
     try {
         // make array of different quiz names
-        const quizNames = allQuizzes.filter((quiz) => {
-            
+        let quizNames = [];
+        let quizParams = [];
+        allQuizzes.forEach((quiz) => {
+            if(!quizParams.includes(quiz.quizParam)) {
+                quizNames.push(quiz.quizName);
+                quizParams.push(quiz.quizParam);
+            }
         });
         
         // send quiz names as array
