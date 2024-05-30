@@ -14,11 +14,13 @@
     "csv": "^6.3.8",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.3.1",
+    "react-csv": "^2.2.2",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",
     "reactstrap": "^9.2.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.5.0",

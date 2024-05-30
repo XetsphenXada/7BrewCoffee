@@ -2,13 +2,12 @@ import User from "../models/users.js";
 import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import validationMiddleware from "../middleware/validationMiddleware.js";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
 
 const router = Router();
 
 //Manager/Admin signup endpoint (For store manager/Admin use, will require admin check middleware)
-router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
+router.post("/signup", adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -25,12 +24,10 @@ router.post("/signup", validationMiddleware, adminPermissionMiddleware, async (r
                 storeLocation: request.body.storeLocation,
                 brewistas: request.body.brewistas,
                 email: request.body.email,
-                passwordHash: request.body.passwordHash
+                password: request.body.password
             });
             
             await user.save();
-            
-            const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
             
             response.send({
                 message: "Success",
@@ -57,7 +54,7 @@ router.post("/login", async (request, response) => {
         response.status(401).json({message: "The username or password is incorrect"});
     }
     if(user) {
-        bcrypt.compare(request.body.password, user.passwordHash, (err, res) => {
+        bcrypt.compare(request.body.password, user.password, (err, res) => {
             if(res) {
                 const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
                 response.status(200).json({
@@ -74,7 +71,7 @@ router.post("/login", async (request, response) => {
 });
 
 //Employee account creation (For store manager use, will require admin check middleware)
-router.post("/adduser", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
+router.post("/adduser", adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -90,12 +87,10 @@ router.post("/adduser", validationMiddleware, adminPermissionMiddleware, async (
                 role: request.body.role,
                 storeLocation: request.body.storeLocation,
                 email: request.body.email,
-                passwordHash: request.body.passwordHash
+                password: request.body.password
             });
             
             await user.save();
-            
-            const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
             
             response.send({
                 message: "Success",
