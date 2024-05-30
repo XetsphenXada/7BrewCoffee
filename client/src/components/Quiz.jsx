@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 export default function Quiz() {
     const [quiz, setQuiz] = useState([]);
 
-    const param = "flavorScoopExamples"; // !! need params from react router
+    const param = "grindsAdjustment"; // !! need params from react router
 
     // retrieve selected quiz data on load
-    useEffect(() => {
+    useEffect(() => { // needs useLoaderData to retrieve quiz data on first load
         async function getSelectedQuizData() {
             const response = await fetch(`http://localhost:3000/quiz/${param}`);
             const quizJson = await response.json();
@@ -24,9 +24,11 @@ export default function Quiz() {
                     <div>
                         <div key={i}>{singleQuestion.question}</div>
                         {Object.values(singleQuestion.answerChoices).map((choice, j) => (
-                            <div className="flex">
-                                <input type="radio" className="radio" />
-                                <div key={j}>{choice}</div>
+                            <div className="form-control flex-row">
+                                <label className="label cursor-pointer">
+                                    <input type="radio" name={`radio-${i}`} className="radio m-3" />
+                                    <span key={j}>{choice}</span>
+                                </label>
                             </div>
                         ))}
                     </div>
