@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import userRouter from "./controllers/user.controller.js";
 import flashcardRouter from "./controllers/flashcards.js";
+import quizRouter from "./controllers/quizzes.js";
 
 //creating variables
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors());
 //routes being used
 app.use("/", userRouter);
 app.use("/", flashcardRouter);
+app.use("/", quizRouter);
 
 //printing to the console when connection is established
 db.once('open', () => console.log(`connected to Mongo Atlas DB`));

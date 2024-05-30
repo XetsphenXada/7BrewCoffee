@@ -1,5 +1,5 @@
 import { Router } from "express";
-import flashcardData from "../initial-data/flashcardData.json" with { type: "json" };
+import flashcardData from "../flashcard-data/flashcardData.json" with { type: "json" };
 
 const router = Router();
 

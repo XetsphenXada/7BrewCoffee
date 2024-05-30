@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
-// import Flashcards from './components/Flashcards'
 import Auth from './components/auth/Auth'
 import AdminSignUp from './components/auth/AdminSignUp';
 import Layout from './components/testpagelayoutcode';
 import EmpCreation from './components/auth/EmpCreation';
+import Flashcards from './components/Flashcards'
+import Quiz from './components/Quiz'
 
 
 function App() {
