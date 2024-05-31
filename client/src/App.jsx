@@ -13,15 +13,15 @@ function App() {
 	
 	return (
 		<>
-		<Routes>
-        <Route
-          path="/user/login"
-          element={<Auth setToken={setToken} />} //pass update component as props
-        />
-		<Route path="/signup" element={<AdminSignUp />}/>
-    <Route path="/layout" element={<Layout />}/>
-		<Route path="/adduser" element={<EmpCreation />}/>
-      	</Routes>
+			<Routes>
+				<Route
+				path="/user/login"
+				element={<Auth setToken={setToken} />} //pass update component as props
+				/>
+				<Route path="/signup" element={<AdminSignUp />}/>
+				<Route path="/layout" element={<Layout />}/>
+				<Route path="/adduser" element={<EmpCreation />}/>
+			</Routes>
 		</>
 	)
 }
