@@ -1,8 +1,10 @@
 import User from "../models/users.js";
-import { Router } from "express";
+import { Router, request } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
+import "dotenv/config";
+import nodemailer from "nodemailer"
 
 const router = Router();
 
@@ -107,5 +109,54 @@ router.post("/adduser", adminPermissionMiddleware, async (request, response) => 
         });
     };
 });
+
+router.post("/forgotEmail", async (request, response) => {
+    try {
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false, // use SSL
+            auth: {
+              user: process.env.EMAIL_USERNAME, //sender gmail address
+              pass: process.env.APP_PASSWORD, // App password from Gmail account
+            },
+          });
+        
+          // Configure the mailoptions object
+          
+          const mailOptions = {
+            from: "7brewnoreplytest@gmail.com",
+            to: request.body.email,
+            subject: "Sending Email using Node.js",
+            text: "That was easy!",
+          };
+        
+          const sendMail = async (transporter, mailOptions) => {
+            try {
+              await transporter.sendMail(mailOptions);
+              console.log("Email has been sent");
+            } catch (error) {
+              console.error(error);
+            }
+          };
+        
+          sendMail(transporter, mailOptions);
+        
+          // verify connection configuration
+          transporter.verify(function (error, success) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("Server is ready to take our messages");
+            }
+          });
+        
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    };
+});
+
 
 export default router;
