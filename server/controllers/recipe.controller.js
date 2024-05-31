@@ -9,7 +9,7 @@ router.post("/newRecipe", async (request, response) => {
             name: request.body.name
         });
         if (doesRecipeExist === null) {
-            const recipe = new Recipes({
+            const recipe = new Recipe({
                 name: request.body.name,
                 ingredients: request.body.ingredients,
                 directions: request.body.directions
