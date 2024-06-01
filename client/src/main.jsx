@@ -1,13 +1,57 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import Layout from './components/testpagelayoutcode.jsx'
 import './index.css'
-import { BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Flashcards from './components/Flashcards.jsx'
+import EmpCreation from './components/auth/EmpCreation.jsx'
+import AdminSignUp from './components/auth/AdminSignUp.jsx'
+import Quiz, { quizLoader } from './components/Quiz.jsx'
+
+// router for when regular employee is logged in
+const employeeRouter = createBrowserRouter([
+	{
+		path: "/",
+		element: <Layout />,
+		children: [
+			{
+				path: "/flashcards",
+				element: <Flashcards />
+			},
+			{
+				path: "/quiz/:quizParam",
+				element: <Quiz />,
+				loader: quizLoader
+			}
+		]
+	}
+]);
+
+// router for when manager/admin is logged in
+const adminRouter = createBrowserRouter([
+	{
+		path: "/",
+		element: <testpagelayoutcode />,
+		children: [
+			{
+				path: "/flashcards",
+				element: <Flashcards />
+			},
+			{
+				path: "/adduser",
+				element: <EmpCreation />
+			},
+			{
+				path: "/signup",
+				element: <AdminSignUp />
+			}
+		]
+	}
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+		<RouterProvider router={employeeRouter}/>
 	</React.StrictMode>,
 )

@@ -20,7 +20,7 @@ router.get("/quiz/:quizParam", (request, response) => { // !! will need user val
 });
 
 // return list of quiz names
-router.get("/quiznames", (request, response) => {
+router.get("/quiz", (request, response) => {
     try {
         // make array of different quiz names
         let quizNames = [];

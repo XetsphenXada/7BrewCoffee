@@ -5,7 +5,8 @@ import AdminSignUp from './components/auth/AdminSignUp';
 import Layout from './components/testpagelayoutcode';
 import EmpCreation from './components/auth/EmpCreation';
 import Flashcards from './components/Flashcards'
-import Quiz from './components/Quiz'
+import Quiz, { quizLoader } from './components/Quiz'
+
 
 
 function App() {
@@ -21,6 +22,12 @@ function App() {
 				<Route path="/signup" element={<AdminSignUp />}/>
 				<Route path="/layout" element={<Layout />}/>
 				<Route path="/adduser" element={<EmpCreation />}/>
+				<Route path="/flashcards" element={<Flashcards />} />
+				<Route 
+					path="/quiz/:quizParam" 
+					loader={quizLoader}
+					element={<Quiz />} 
+				/>
 			</Routes>
 		</>
 	)
