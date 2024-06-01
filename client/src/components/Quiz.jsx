@@ -1,36 +1,23 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from 'react-router-dom'
 
-export async function quizLoader() {
-    const { quizParam } = useParams();
-    const response = await fetch(`http://localhost:3000/quiz/${quizParam}`);
+export async function quizLoader({ params }) {
+    // const { quizParam } = useParams();
+    const response = await fetch(`http://localhost:3000/quiz/${params.quizParam}`);
     const quizJson = await response.json();
     return { quizJson };
 }
 
 export default function Quiz() {
-    // const [quiz, setQuiz] = useState([]);
-
-    const quiz = useLoaderData();
-    // console.log(quiz) 
-
 
     // retrieve selected quiz data on load
-    // useEffect(() => { // needs useLoaderData to retrieve quiz data on first load
-    //     async function getSelectedQuizData() {
-    //         const response = await fetch(`http://localhost:3000/quiz/${quizParam}`);
-    //         const quizJson = await response.json();
-    //         console.log(quizJson)
-    //         setQuiz(quizJson);
-    //     }
-    //     getSelectedQuizData();
-    // }, []);
+    const quiz = useLoaderData();
 
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="text-5xl mb-7">quiz name</div>
+            <div className="text-5xl mb-7">{quiz.quizJson[0].quizName}</div>
             <form>
-                {quiz.map((singleQuestion, i) => (
+                {quiz.quizJson.map((singleQuestion, i) => (
                     <>
                         <div key={i} className="text-2xl">{singleQuestion.question}</div>
                         {singleQuestion.questionType === "selectAll" ? (
