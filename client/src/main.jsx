@@ -13,7 +13,7 @@ import Quiz, { quizLoader } from './components/Quiz.jsx'
 const employeeRouter = createBrowserRouter([
 	{
 		path: "/",
-		element: <Layout />,
+		element: <App />,
 		children: [
 			{
 				path: "/flashcards",
@@ -32,7 +32,7 @@ const employeeRouter = createBrowserRouter([
 const adminRouter = createBrowserRouter([
 	{
 		path: "/",
-		element: <testpagelayoutcode />,
+		element: <App />,
 		children: [
 			{
 				path: "/flashcards",
