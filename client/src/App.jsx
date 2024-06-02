@@ -14,7 +14,14 @@ function App() {
 	
 	return (
 		<>
-			<Routes>
+			{token ? (
+				<Layout />
+			) : (
+				<>
+					<Auth setToken={setToken} />
+				</>
+			)}
+			{/* <Routes>
 				<Route
 				path="/user/login"
 				element={<Auth setToken={setToken} />} //pass update component as props
@@ -28,7 +35,7 @@ function App() {
 					loader={quizLoader}
 					element={<Quiz />} 
 				/>
-			</Routes>
+			</Routes> */}
 		</>
 	)
 }
