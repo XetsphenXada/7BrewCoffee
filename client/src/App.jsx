@@ -7,6 +7,8 @@ import Email from './components/auth/Password-Reset-Email-Page';
 import Flashcards from './components/Flashcards'
 import Quiz, { quizLoader } from './components/Quiz'
 
+import Quiz, { quizLoader } from './components/Quiz'
+
 
 
 function App() {
@@ -14,6 +16,14 @@ function App() {
 	
 	return (
 		<>
+			{token ? (
+				<Layout />
+			) : (
+				<>
+					<Auth setToken={setToken} />
+				</>
+			)}
+			{/* <Routes>
 			{token ? (
 				<Layout />
 			) : (
