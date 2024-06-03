@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ViewAllUsers() {
     const [records, setRecords] = useState([]);
-    const [selectedLocation, setSelectedLocation] = useState("Select Location");
+    const [selectedLocation, setSelectedLocation] = useState("--Select Location--");
     
     //this useEffect block allows us to fetch from the /user get request we set on the back end, then save each user into our setRecords useState
     useEffect(() => {
@@ -17,8 +17,11 @@ export default function ViewAllUsers() {
         .catch(err => console.log(err))
     }, [selectedLocation])
     
+    //returns only array entries with values that match the location set in selectedLocation useState
+    const locationRecords = records.filter((element) => element.storeLocation === selectedLocation)
+    
     //returns an array that only lists the store locations of each user
-    const storeLocations = records.map((records) => records.storeLocation)
+    const storeLocations = records.map((records) => records.storeLocation);
     
     //returns an array that only lists one instance of each store location returned in the previous array using spread operator and Set constructor
     const uniqueLocation = [...new Set(storeLocations)];
@@ -33,8 +36,7 @@ export default function ViewAllUsers() {
         <div className='flex flex-col w-72'>
           <label className='text-secondary text-lg font-bold flex justify-center'>Choose a store location:</label>
           <select className='mb-[16px] border-2 border-secondary' onChange={ (e) => {console.log("options changed"); setSelectedLocation(e.target.value)}}>
-            <option value="">--Select Location--</option>
-            {console.log(uniqueLocation)}
+            <option value="--Select Location--">--Select Location--</option>
             {uniqueLocation.map((i) => (
                 <option key={i}>{i}</option>
             ))}
@@ -51,11 +53,16 @@ export default function ViewAllUsers() {
                 <th>Role</th>
                 <th>Store Location</th>
                 <th>Created By</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {records.map((list, index) => (
+              { //check if selectedLocation is default value "--Select Location--"
+              (selectedLocation === "--Select Location--") 
+                //render all users if selected location is default
+              ? records.map((list, index) => (
                 <tr key={index} className='border-secondary text-secondary'>
                       <td>{list.firstName}</td>
                       <td>{list.middleName}</td>
@@ -65,7 +72,22 @@ export default function ViewAllUsers() {
                       <td>{list.storeLocation}</td>
                       <td>{list.createdBy}</td>
                 </tr>
-              ))}
+              ))
+                //else render the location that is selected from the drop down
+              : locationRecords.map((list, index) => (
+                <tr key={index} className='border-secondary text-secondary'>
+                      <td>{list.firstName}</td>
+                      <td>{list.middleName}</td>
+                      <td>{list.lastName}</td>
+                      <td>{list.email}</td>
+                      <td>{list.role}</td>
+                      <td>{list.storeLocation}</td>
+                      <td>{list.createdBy}</td>
+                </tr>
+              ))
+              }
+              
+              
             </tbody>
           </table>
         </div>
