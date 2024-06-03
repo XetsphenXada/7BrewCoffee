@@ -6,7 +6,7 @@ import LogOut from "./auth/LogOut"
 
 function Layout() {
 	return (
-		<form>
+		<div>
 			<div className="flex card card-side bg-primary sticky top-0 md:w-screen">
 				<figure className="flex size-0 m-2 md:size-28">
 					<img src="https://scontent-den2-1.xx.fbcdn.net/v/t39.30808-6/247100083_4815187798532861_3976554082664717673_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-p34XeXkeCsQ7kNvgFv9iVY&_nc_ht=scontent-den2-1.xx&oh=00_AYDFueaA-eAPxUfnTLOgbn3Gyth36lk06kAfxZnXt5vsJg&oe=665586B9" alt="7 Brew Logo"/>
@@ -34,7 +34,7 @@ function Layout() {
 			<div className="flex flex-col m-9 items-center">
 				<Outlet />
 			</div>
-			<div className="flex card card-side bg-secondary fixed bottom-0 md:w-screen">
+			<div className="flex card card-side bg-secondary sticky bottom-0 md:w-screen">
 				<figure className="flex size-1/3 m-2 md:size-28">
 					<img src="https://scontent-den2-1.xx.fbcdn.net/v/t39.30808-6/247100083_4815187798532861_3976554082664717673_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-p34XeXkeCsQ7kNvgFv9iVY&_nc_ht=scontent-den2-1.xx&oh=00_AYDFueaA-eAPxUfnTLOgbn3Gyth36lk06kAfxZnXt5vsJg&oe=665586B9" alt="7 Brew Logo"/>
 				</figure>
@@ -43,7 +43,7 @@ function Layout() {
 					<p className="card-title flex justify-end text-white">479-358-9274</p>
 				</div>
 			</div>
-		</form>
+		</div>
 	)
 }
 
