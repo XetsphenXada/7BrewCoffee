@@ -1,5 +1,6 @@
 import { Router } from "express";
 import allQuizzes from "../quiz-data/quiz-all.json" with { type: "json" }
+import TestResult from "../models/testResults.js";
 
 const router = Router();
 
@@ -17,6 +18,37 @@ router.get("/quiz/:quizParam", (request, response) => { // !! will need user val
             message: err.message
         });
     }
+});
+
+// send quiz reults to database
+router.post("/quiz", async (request, response) => { // need to add validationMiddleware once log in works
+    // if(request.user) {
+        try {
+            const quizResults = new TestResult({
+                user: request.body.user,
+                testName: request.body.testName,
+                numCorrect: request.body.numCorrect,
+                numIncorrect: request.body.numIncorrect,
+                questions: request.body.questions,
+                score: request.body.score
+            })
+            await quizResults.save();
+
+            response.send({
+                message: "Quiz results successfully added to database."
+            });
+        }
+        catch(err) {
+            response.status(500).send({
+                message: err.message
+            });
+        }
+    // }
+    // else {
+    //     response.status(500).send({
+    //         message: "You must be logged in to submit a quiz."
+    //     })
+    // }
 });
 
 // return list of quiz names
