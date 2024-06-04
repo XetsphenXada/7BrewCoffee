@@ -54,25 +54,26 @@ export default function EditUserButton({ list }) {
           <h3 className="font-bold text-lg mb-4">Edit {list.firstName} {list.lastName}</h3>
           <div className='flex flex-col justify-center items-center'>
           <form method="dialog" className='flex flex-col' onSubmit={submitUserEdit}>
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <label>
               <div className='text-black mb-0.5'>First Name:</div>
-              <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
+              <input className='border-2 border-secondary w-full' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Middle Name:</div>
-                <input className='border-2 border-secondary' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Last Name:</div>
-                <input className='border-2 border-secondary' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Email:</div>
-                <input className='border-2 border-secondary' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Store Location:</div>
-                <input className='border-2 border-secondary' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
@@ -88,8 +89,8 @@ export default function EditUserButton({ list }) {
             {/* if there is a button in form, it will close the modal */}
             <button type='submit' className='btn btn-primary mt-4'>Submit</button>
           </form>
-          </div>
           <p className="py-4">Submit your edit, or press ESC key to close</p>
+          </div>
         </div>
       </dialog>
     </>
