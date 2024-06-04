@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import EditUserButton from './EditUserButton';
+import DeleteUserButton from './DeleteUserButton';
 
 export default function ViewAllUsers() {
     const [records, setRecords] = useState([]);
@@ -35,7 +37,7 @@ export default function ViewAllUsers() {
         <div className='border-2 border-secondary mb-[16px] w-[30rem]'></div>
         <div className='flex flex-col w-72'>
           <label className='text-secondary text-lg font-bold flex justify-center'>Choose a store location:</label>
-          <select className='mb-[16px] border-2 border-secondary' onChange={ (e) => {console.log("options changed"); setSelectedLocation(e.target.value)}}>
+          <select className='mb-[16px] border-2 border-secondary' onChange={(e) => {setSelectedLocation(e.target.value)}}>
             <option value="--Select Location--">--Select Location--</option>
             {uniqueLocation.map((i) => (
                 <option key={i}>{i}</option>
@@ -59,7 +61,7 @@ export default function ViewAllUsers() {
               </tr>
             </thead>
             <tbody>
-              { //check if selectedLocation is default value "--Select Location--"
+              { //check if selectedLocation is default value: "--Select Location--"
               (selectedLocation === "--Select Location--") 
                 //render all users if selected location is default
               ? records.map((list, index) => (
@@ -71,6 +73,8 @@ export default function ViewAllUsers() {
                       <td>{list.role}</td>
                       <td>{list.storeLocation}</td>
                       <td>{list.createdBy}</td>
+                      <td><EditUserButton list={list}/></td>
+                      <td><DeleteUserButton list={list}/></td>
                 </tr>
               ))
                 //else render the location that is selected from the drop down
@@ -83,6 +87,8 @@ export default function ViewAllUsers() {
                       <td>{list.role}</td>
                       <td>{list.storeLocation}</td>
                       <td>{list.createdBy}</td>
+                      <td><EditUserButton list={list}/></td>
+                      <td><DeleteUserButton list={list}/></td>
                 </tr>
               ))
               }
