@@ -7,7 +7,7 @@ import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
 const router = Router();
 
 //Manager/Admin signup endpoint (For store manager/Admin use, will require admin check middleware)
-router.post("/signup", adminPermissionMiddleware, async (request, response) => {
+router.post("/addAdmin", adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -70,7 +70,7 @@ router.post("/login", async (request, response) => {
 });
 
 //Employee account creation (For store manager use, will require admin check middleware)
-router.post("/adduser", adminPermissionMiddleware, async (request, response) => {
+router.post("/addEmployee", adminPermissionMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -121,8 +121,8 @@ router.get("/allusers", adminPermissionMiddleware, async (request, response) => 
 //Endpoint to allow user profiles to be updated by an admin / manager
 router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
     try {
-        filter = { _id: request.params._id };
-        update = request.body 
+        const filter = { _id: request.params._id };
+        const update = request.body 
         const editUser = await User.findOneAndUpdate(filter, update, {new: true})
         response.send(editUser)
     } catch (error) {

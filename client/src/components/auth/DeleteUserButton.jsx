@@ -1,15 +1,15 @@
 import React from 'react'
 
-export default function DeleteUserButton() {
+export default function DeleteUserButton({ list }) {
   return (
     <>
       <button
         className="btn"
-        onClick={() => document.getElementById("my_modal_3").showModal()}
+        onClick={() => document.getElementById("my_modal_2").showModal()}
       >
-        open modal
+        Delete
       </button>
-      <dialog id="my_modal_3" className="modal">
+      <dialog id="my_modal_2" className="modal" list={list}>
         <div className="modal-box">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}

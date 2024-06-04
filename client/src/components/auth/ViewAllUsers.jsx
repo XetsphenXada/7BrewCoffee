@@ -44,7 +44,7 @@ export default function ViewAllUsers() {
             ))}
           </select>
         </div>
-        <div className='overflow-x-auto border-2 border-secondary'>
+        <div className='overflow-x-auto border-2 border-secondary mb-12'>
           <table className='table'>
             <thead>
               <tr className='border-primary text-primary'>

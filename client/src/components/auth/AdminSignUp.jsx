@@ -17,7 +17,7 @@ export default function AdminSignUp() {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/signup", {
+                const response = await fetch("http://localhost:3000/addAdmin", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -37,7 +37,7 @@ export default function AdminSignUp() {
                 
                 const body = await response.json();
                 if (response.status === 200) {
-                    console.log(body.token);
+                    console.log("Admin has been created");
                 } else {
                     console.log(body.message);
                 }

@@ -18,9 +18,9 @@ function App() {
           path="/user/login"
           element={<Auth setToken={setToken} />} //pass update component as props
         />
-		<Route path="/signup" element={<AdminSignUp />}/>
+		<Route path="/addAdmin" element={<AdminSignUp />}/>
     	<Route path="/layout" element={<Layout />}/>
-		<Route path="/adduser" element={<EmpCreation />}/>
+		<Route path="/addEmployee" element={<EmpCreation />}/>
 		<Route path="/allusers" element={<ViewAllUsers />}/>
       	</Routes>
 		</>
