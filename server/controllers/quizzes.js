@@ -8,7 +8,7 @@ const router = Router();
 router.get("/quiz/:quizParam", (request, response) => { // !! will need user validation middleware 
     try {
         // find quiz questions that match quizParam
-        const quizQuestions = allQuizzes.filter((quiz) => quiz.quizParam === request.params.quizParam);
+        const quizQuestions = allQuizzes.filter((quiz) => quiz.quizParam.toLowerCase() === request.params.quizParam.toLowerCase());
 
         // send quiz data as response
         response.send(quizQuestions);

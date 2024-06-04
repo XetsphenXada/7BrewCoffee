@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom'
 import Auth from './components/auth/Auth'
 import AdminSignUp from './components/auth/AdminSignUp';
 import EmpCreation from './components/auth/EmpCreation';
 import Email from './components/auth/Password-Reset-Email-Page';
 import Flashcards from './components/Flashcards'
 import Quiz, { quizLoader } from './components/Quiz'
-
-import Quiz, { quizLoader } from './components/Quiz'
+import Header from './components/Header';
+import { Outlet } from 'react-router-dom';
+import Footer from './components/Footer';
 
 
 
@@ -17,7 +17,11 @@ function App() {
 	return (
 		<>
 			{token ? (
-				<Layout />
+				<>
+					<Header />
+					<Outlet />
+					<Footer />
+				</>
 			) : (
 				<>
 					<Auth setToken={setToken} />

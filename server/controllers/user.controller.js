@@ -1,5 +1,5 @@
 import User from "../models/users.js";
-import { Router, request } from "express";
+import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
