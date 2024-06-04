@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export default function EditUserButton({ list }) {
-    const [firstName, setFirstName] = useState("");
-    const [middleName, setMiddleName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [role, setRole] = useState("");
-    const [storeLocation, setStoreLocation] = useState("");
+    const [firstName, setFirstName] = useState(`${list.firstName}`);
+    const [middleName, setMiddleName] = useState(`${list.middleName}`);
+    const [lastName, setLastName] = useState(`${list.lastName}`);
+    const [email, setEmail] = useState(`${list.email}`);
+    const [role, setRole] = useState(`${list.role}`);
+    const [storeLocation, setStoreLocation] = useState(`${list.storeLocation}`);
     
     let { listId } = useParams();
     listId = list._id
@@ -37,6 +37,8 @@ export default function EditUserButton({ list }) {
       } else {
         console.log(body.message);
       }
+      
+      location.reload();
     };
     
   return (
@@ -52,10 +54,6 @@ export default function EditUserButton({ list }) {
           <h3 className="font-bold text-lg mb-4">Edit {list.firstName} {list.lastName}</h3>
           <div className='flex flex-col justify-center items-center'>
           <form method="dialog" className='flex flex-col' onSubmit={submitUserEdit}>
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
             <label>
               <div className='text-black mb-0.5'>First Name:</div>
               <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
@@ -87,10 +85,11 @@ export default function EditUserButton({ list }) {
                     <option>Brewista</option>
                 </select>
             </label>
+            {/* if there is a button in form, it will close the modal */}
             <button type='submit' className='btn btn-primary mt-4'>Submit</button>
           </form>
           </div>
-          <p className="py-4">Press ESC key or click on ✕ button to close</p>
+          <p className="py-4">Submit your edit, or press ESC key to close</p>
         </div>
       </dialog>
     </>
