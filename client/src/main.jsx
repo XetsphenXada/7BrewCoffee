@@ -7,6 +7,7 @@ import Flashcards from './components/Flashcards.jsx'
 import EmpCreation from './components/auth/EmpCreation.jsx'
 import AdminSignUp from './components/auth/AdminSignUp.jsx'
 import Quiz, { quizLoader } from './components/Quiz.jsx'
+import QuizList, { quizListLoader } from './components/QuizList.jsx'
 
 // router for when regular employee is logged in
 const employeeRouter = createBrowserRouter([
@@ -17,6 +18,11 @@ const employeeRouter = createBrowserRouter([
 			{
 				path: "/flashcards",
 				element: <Flashcards />
+			},
+			{
+				path: "/quiz",
+				element: <QuizList />,
+				loader: quizListLoader
 			},
 			{
 				path: "/quiz/:quizParam",

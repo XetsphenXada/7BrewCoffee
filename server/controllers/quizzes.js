@@ -56,17 +56,17 @@ router.post("/quiz", validationMiddleware, async (request, response) => { // nee
 router.get("/quiz", (request, response) => {
     try {
         // make array of different quiz names
-        let quizNames = [];
         let quizParams = [];
+        let quizList = [];
         allQuizzes.forEach((quiz) => {
             if(!quizParams.includes(quiz.quizParam)) {
-                quizNames.push(quiz.quizName);
                 quizParams.push(quiz.quizParam);
+                quizList.push({quizName: quiz.quizName, quizParam: quiz.quizParam});
             }
         });
         
         // send quiz names as array
-        response.send(quizNames)
+        response.send(quizList)
     }
     catch(err) {
         response.status(500).send({

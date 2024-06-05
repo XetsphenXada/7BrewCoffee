@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData, useParams } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom'
 
 export async function quizLoader({ params }) {
     const quizResponse = await fetch(`http://localhost:3000/quiz/${params.quizParam.toLowerCase()}`);
