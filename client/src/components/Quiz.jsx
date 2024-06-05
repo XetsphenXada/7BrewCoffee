@@ -2,25 +2,48 @@ import { useState } from "react";
 import { useLoaderData, useParams } from 'react-router-dom'
 
 export async function quizLoader({ params }) {
-    const response = await fetch(`http://localhost:3000/quiz/${params.quizParam.toLowerCase()}`);
-    const quizJson = await response.json();
-    return { quizJson };
+    const quizResponse = await fetch(`http://localhost:3000/quiz/${params.quizParam.toLowerCase()}`);
+    const userResponse = await fetch("http://localhost:3000/user", {
+        method: "GET",
+        headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
+    });
+    
+    if(quizResponse.status === 200 && userResponse.status === 200) {
+        const quiz = await quizResponse.json();
+        const user = await userResponse.json();
+        return { 
+            quiz,
+            user,
+            error: false
+         };
+    }
+    else {
+        const quiz = await quizResponse.text();
+        const user = await userResponse.text();
+        return { 
+            quiz,
+            user,
+            error: true
+         };
+    }
 }
 
 export default function Quiz() {
     // retrieve selected quiz data on load
-    const quiz = useLoaderData();
+    const { quiz, user, error } = useLoaderData();
+    if(error) {
+        return <div>{quiz}{user}</div>
+    }
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     async function submitQuiz(event) {
         event.preventDefault();
         // only allow submit if all questions are answered
-        if(quiz.quizJson.length !== selectedAnswers.length) {
+        if(quiz.length !== selectedAnswers.length) {
             console.log("all questions must be answered")
             return;
         }
-        console.log(selectedAnswers)
         // calculate number correct and incorrect
         let numCorrect = 0;
         let numIncorrect = 0;
@@ -33,7 +56,6 @@ export default function Quiz() {
             }
         });
 
-        // 
         // convert answers to full answers for database
         let uploadQuestions = [];
         selectedAnswers.forEach((answer) => {
@@ -46,13 +68,15 @@ export default function Quiz() {
         });
 
         // calculate score 
-        const score = (numCorrect / quiz.quizJson.length) * 100;
+        const score = (numCorrect / quiz.length) * 100;
         const testResults = {
             user: {
-                firstName: "name-from-user-request",
-                userId: "12345"
+                firstName: user.userInfo.firstName,
+                lastName: user.userInfo.lastName,
+                email: user.userInfo.email,
+                userId: user.userInfo.userId
             },
-            testName: quiz.quizJson[0].quizName,
+            testName: quiz[0].quizName,
             numCorrect,
             numIncorrect,
             questions: uploadQuestions,
@@ -62,8 +86,9 @@ export default function Quiz() {
         // send quiz results to database
         const response = await fetch("http://localhost:3000/quiz", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
+            headers: { 
+                "Content-type": "application/json", 
+                authorization: localStorage.getItem("jwt-token") 
             },
             body: JSON.stringify(testResults)
         });
@@ -72,8 +97,7 @@ export default function Quiz() {
             console.error("Failed to upload test results to database");
             return;
         }
-        console.log("success")
-        // redirect back to quiz list
+        // !!! redirect back to quiz list
         console.log("redirect to quiz list")
     }
 
@@ -130,7 +154,7 @@ export default function Quiz() {
             // set isCorrect
             isCorrect = (singleQuestion.answerChoices[chosenAnswer] === singleQuestion.answerChoices[correctAnswer]);
             // add question, chosen answer, and correct answer to selectedAnswers
-            setSelectedAnswers([...selectedAnswers, { question, chosenAnswer, correctAnswerText, isCorrect }]);
+            setSelectedAnswers([...selectedAnswers, { question, chosenAnswer, chosenAnswerText, correctAnswerText, isCorrect }]);
         }
         // if question is already in selectedAnswers...
         else {
@@ -149,10 +173,10 @@ export default function Quiz() {
 
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="text-5xl mb-7">{quiz.quizJson[0].quizName}</div>
+            <div className="text-5xl mb-7">{quiz[0].quizName}</div>
             <form onSubmit={submitQuiz}>
                 <div>
-                    {quiz.quizJson.map((singleQuestion, i) => (
+                    {quiz.map((singleQuestion, i) => (
                         <div key={i}>
                             <div className="text-2xl">{singleQuestion.question}</div>
                             {singleQuestion.questionType === "selectAll" ? (

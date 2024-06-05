@@ -1,6 +1,7 @@
 import { Router } from "express";
 import allQuizzes from "../quiz-data/quiz-all.json" with { type: "json" }
 import TestResult from "../models/testResults.js";
+import validationMiddleware from "../middleware/validationMiddleware.js";
 
 const router = Router();
 
@@ -21,8 +22,8 @@ router.get("/quiz/:quizParam", (request, response) => { // !! will need user val
 });
 
 // send quiz reults to database
-router.post("/quiz", async (request, response) => { // need to add validationMiddleware once log in works
-    // if(request.user) {
+router.post("/quiz", validationMiddleware, async (request, response) => { // need to add validationMiddleware once log in works
+    if(request.user) {
         try {
             const quizResults = new TestResult({
                 user: request.body.user,
@@ -43,12 +44,12 @@ router.post("/quiz", async (request, response) => { // need to add validationMid
                 message: err.message
             });
         }
-    // }
-    // else {
-    //     response.status(500).send({
-    //         message: "You must be logged in to submit a quiz."
-    //     })
-    // }
+    }
+    else {
+        response.status(500).send({
+            message: "You must be logged in to submit a quiz."
+        })
+    }
 });
 
 // return list of quiz names

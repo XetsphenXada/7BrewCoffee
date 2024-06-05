@@ -24,7 +24,7 @@ function App() {
 				</>
 			) : (
 				<>
-					<Auth setToken={setToken} />
+					<Auth setToken={setToken} />=
 				</>
 			)}
 			{/* <Routes>
