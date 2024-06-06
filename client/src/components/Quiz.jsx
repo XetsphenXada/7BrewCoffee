@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData, useNavigate } from 'react-router-dom'
 
 export async function quizLoader({ params }) {
     const quizResponse = await fetch(`http://localhost:3000/quiz/${params.quizParam.toLowerCase()}`);
@@ -36,6 +36,7 @@ export default function Quiz() {
     }
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
+    const navigate = useNavigate();
 
     async function submitQuiz(event) {
         event.preventDefault();
@@ -97,8 +98,8 @@ export default function Quiz() {
             console.error("Failed to upload test results to database");
             return;
         }
-        // !!! redirect back to quiz list
-        console.log("redirect to quiz list")
+        // send user back to quiz list page
+        navigate("/quiz");
     }
 
     function gatherCheckboxAnswers(event, singleQuestion) {
@@ -206,7 +207,9 @@ export default function Quiz() {
                     ))}
                 </div>
                 <div className="flex justify-around w-full">
-                    <button className="btn btn-neutral">Cancel</button>
+                    <button className="btn btn-neutral">
+                        <Link to={"../quiz"}>Cancel</Link>
+                    </button>
                     <button className="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
