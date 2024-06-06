@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //list prop contains the data we fetched from our get request in "ViewAllUsers.jsx"
 export default function EditUserButton({ list }) {
     
     async function submitUserEdit(event) {
-      event.preventDefault();
       // console.log(event.target);
       // console.log(event.target.firstName);
       // console.log(event.target.firstName.value);
@@ -37,6 +36,10 @@ export default function EditUserButton({ list }) {
       location.reload();
     };
     
+    function closeModal() {
+      document.getElementById(list._id+"edit").close();
+    }
+    
   return (
     <>
       <button
@@ -49,8 +52,8 @@ export default function EditUserButton({ list }) {
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">Edit {list.firstName} {list.lastName}</h3>
           <div className='flex flex-col justify-center items-center'>
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={closeModal}>✕</button>
           <form method="dialog" className='flex flex-col' onSubmit={submitUserEdit}>
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <label>
               <div className='text-black mb-0.5'>First Name:</div>
               <input className='border-2 border-secondary w-full' placeholder="First Name" name="firstName"></input>

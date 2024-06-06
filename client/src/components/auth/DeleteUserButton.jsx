@@ -31,9 +31,11 @@ export default function DeleteUserButton({ list }) {
       } else {
         console.log("To delete a user please type: DELETE")
       }
-      
-      
     };
+    
+    function closeModal() {
+      document.getElementById(list._id+"delete").close();
+    }
   
   return (
     <>
@@ -47,8 +49,8 @@ export default function DeleteUserButton({ list }) {
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">Delete {list.firstName} {list.lastName}</h3>
           <div className='flex flex-col justify-center items-center'>
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={closeModal}>✕</button>
           <form method="dialog" className='flex flex-col items-center' onSubmit={deleteUser}>
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <label className='font-bold'>Type DELETE to confirm your deletion:</label>
             <input placeholder='DELETE' className='border-2 border-secondary' onChange={(e) => setDeleteId(e.target.value)}></input>
             {/* if there is a button in form, it will close the modal */}
