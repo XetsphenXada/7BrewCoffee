@@ -14,9 +14,7 @@ export default function QuizList() {
             <div className="text-5xl mb-7">Quizzes</div>
             <ul className="menu bg-base-200 w-3/5 rounded-box items-center">
                 {quizList.map((quiz, i) => (
-                    <div key={i} className="m-3">
-                        <Link to={`${quiz.quizParam}`}>{quiz.quizName}</Link>
-                    </div>
+                    <Link to={`${quiz.quizParam}`} key={i} className="m-4 w-10/12 flex flex-col items-center text-2xl rounded-lg hover:bg-neutral-300">{quiz.quizName}</Link>
                 ))}
             </ul>
         </div>
