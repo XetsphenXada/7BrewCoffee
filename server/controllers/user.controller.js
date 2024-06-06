@@ -120,9 +120,11 @@ router.get("/allusers", adminPermissionMiddleware, async (request, response) => 
 
 //Endpoint to allow user profiles to be updated by an admin / manager
 router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
+    console.log("Edit was requested")
     try {
         const filter = { _id: request.params._id };
-        const update = request.body 
+        const update = request.body;
+        console.log(request.body);
         const editUser = await User.findOneAndUpdate(filter, update, {new: true})
         response.send(editUser)
     } catch (error) {
@@ -134,8 +136,10 @@ router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response
 
 //Endpoint to allow user profiles to be deleted by an admin / manager
 router.delete("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
+    console.log("Delete was requested")
     try {
         const userDelete = await User.deleteOne({ _id: request.params._id })
+        response.send(userDelete);
     } catch (error) {
         response.status(500).send({
             message: error.message

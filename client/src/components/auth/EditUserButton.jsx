@@ -1,35 +1,30 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 
+//list prop contains the data we fetched from our get request in "ViewAllUsers.jsx"
 export default function EditUserButton({ list }) {
-    const [firstName, setFirstName] = useState(`${list.firstName}`);
-    const [middleName, setMiddleName] = useState(`${list.middleName}`);
-    const [lastName, setLastName] = useState(`${list.lastName}`);
-    const [email, setEmail] = useState(`${list.email}`);
-    const [role, setRole] = useState(`${list.role}`);
-    const [storeLocation, setStoreLocation] = useState(`${list.storeLocation}`);
     
-    let { listId } = useParams();
-    listId = list._id
-    
-    async function submitUserEdit() {
+    async function submitUserEdit(event) {
+      event.preventDefault();
+      // console.log(event.target);
+      // console.log(event.target.firstName);
+      // console.log(event.target.firstName.value);
       
-      const response = await fetch(`http://localhost:3000/allusers/${listId}`, {
+      const data = new FormData(event.target);
+      
+      console.log(data);
+      
+      //fetch request for our edit endpoint
+      const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {
         method: "PUT",
         headers: {
           "content-type" : "application/json",
           "authorization": localStorage.getItem("jwt-token")
         },
-        body: JSON.stringify({
-          firstName,
-          middleName,
-          lastName,
-          email,
-          role,
-          storeLocation
+        body: JSON.stringify(
+          Object.fromEntries(data)
+        )
         })
-      })
-
+          
       const body = await response.json();
 
       if(response.status === 200) {
@@ -38,6 +33,7 @@ export default function EditUserButton({ list }) {
         console.log(body.message);
       }
       
+      //refreshes the page when the form is submitted
       location.reload();
     };
     
@@ -45,11 +41,11 @@ export default function EditUserButton({ list }) {
     <>
       <button
         className="btn"
-        onClick={() => document.getElementById(list._id).showModal()}
+        onClick={() => document.getElementById(list._id+"edit").showModal()}
       >
         Edit
       </button>
-      <dialog id={list._id} className="modal" list={list}>
+      <dialog id={list._id+"edit"} className="modal" list={list}>
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">Edit {list.firstName} {list.lastName}</h3>
           <div className='flex flex-col justify-center items-center'>
@@ -57,27 +53,27 @@ export default function EditUserButton({ list }) {
           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <label>
               <div className='text-black mb-0.5'>First Name:</div>
-              <input className='border-2 border-secondary w-full' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
+              <input className='border-2 border-secondary w-full' placeholder="First Name" name="firstName"></input>
             </label>
             <label>
                 <div className='text-black'>Middle Name:</div>
-                <input className='border-2 border-secondary w-full' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Middle Name" name="middleName"></input>
             </label>
             <label>
                 <div className='text-black'>Last Name:</div>
-                <input className='border-2 border-secondary w-full' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Last Name" name="lastName"></input>
             </label>
             <label>
                 <div className='text-black'>Email:</div>
-                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Email" name="email"></input>
             </label>
             <label>
                 <div className='text-black'>Store Location:</div>
-                <input className='border-2 border-secondary w-full' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Store Location" name="storeLocation"></input>
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
-                <select className='bg-primary text-secondary w-full border-2 border-secondary' onChange={(e) => setRole(e.target.value)}>
+                <select className='bg-primary text-secondary w-full border-2 border-secondary' name="role">
                     <option value="">Please choose an option</option>
                     <option>Admin</option>
                     <option>Regional Manager</option>
