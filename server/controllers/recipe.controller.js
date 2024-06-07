@@ -1,5 +1,5 @@
 import { Router, response } from "express"
-import Recipe from "../models/recipes"
+import Recipe from "../models/recipes.js"
 const router = Router()
 
 //adds new recipe
