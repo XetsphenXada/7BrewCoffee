@@ -28,7 +28,7 @@ export default function LogIn({ setToken }) {
       //saving jwt to local storage
       localStorage.setItem("jwt-token", body.token);
       setToken(body.token);
-      navigate("/layout")
+      navigate("/")
     } else {
       console.log(body.response);
     }

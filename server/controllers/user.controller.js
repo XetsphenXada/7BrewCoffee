@@ -1,5 +1,5 @@
 import User from "../models/users.js";
-import { Router, request } from "express";
+import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
@@ -199,6 +199,27 @@ router.post("/resetPassword/:_id", async (request, response) => {
         });
     }
 })
+
+// get user info
+router.get("/user", validationMiddleware, (request, response) => {
+    try {
+        const userInfo = {
+            firstName: request.user.firstName,
+            lastName: request.user.lastName,
+            email: request.user.email,
+            userId: request.user._id
+        }
+
+        response.send({
+            userInfo
+        });
+    }
+    catch(err) {
+        response.status(500).send({
+            message: err.message
+        });
+    }
+});
 
 
 export default router;

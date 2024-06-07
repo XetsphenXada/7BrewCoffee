@@ -33,7 +33,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -44,7 +44,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -55,7 +55,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -66,7 +66,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -77,7 +77,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -88,7 +88,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -99,7 +99,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -110,7 +110,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -121,7 +121,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -132,7 +132,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -143,7 +143,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -361,7 +361,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -372,7 +372,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -383,7 +383,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -444,7 +444,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -761,7 +761,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -956,7 +956,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -993,7 +993,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1018,7 +1018,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1374,7 +1374,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1437,7 +1437,7 @@
         "answer": "choice3",
         "answerChoices": {
             "choice1": "Skim Milk",
-            "chocie2": "Whole Milk",
+            "choice2": "Whole Milk",
             "choice3": "Smooth Mix",
             "choice4": "Ice Cream Mix"
         }
@@ -1450,7 +1450,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1515,7 +1515,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1526,7 +1526,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1783,7 +1783,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1794,7 +1794,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1805,7 +1805,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1829,7 +1829,7 @@
         "answer": "choice2",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     },
     {
@@ -1853,7 +1853,7 @@
         "answer": "choice1",
         "answerChoices": {
             "choice1": "true",
-            "chocie2": "false"
+            "choice2": "false"
         }
     }
 ]
