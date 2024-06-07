@@ -10,13 +10,13 @@ function Email() {
   async function submitEmail(event) {
     event.preventDefault(); //stop page from refreshing on submit
     //sending username and password to backend
-    const response = await fetch("http://localhost:3000/forgotEmail", {
+    const response = await fetch("http://localhost:3000/forgotPassword", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        email
+        email,
       }),
     });
 
@@ -24,6 +24,9 @@ function Email() {
     if (response.status === 200) {
       console.log(body);
 
+       //saving jwt to local storage
+       localStorage.setItem("jwt-token", body.token);
+       setToken(body.token);
       navigate("/login");
       
     } else {

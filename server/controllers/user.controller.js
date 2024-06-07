@@ -111,8 +111,12 @@ router.post("/adduser", adminPermissionMiddleware, async (request, response) => 
     };
 });
 
-router.post("/forgotEmail", async (request, response) => {
+router.post("/forgotPassword", async (request, response) => {
     try {
+        console.log(request.body.email)
+        const user = await User.findOne({ email: request.body.email })
+        console.log(user)
+        if (user) {
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
             port: 587,
@@ -128,8 +132,9 @@ router.post("/forgotEmail", async (request, response) => {
           const mailOptions = {
             from: "7brewnoreplytest@gmail.com",
             to: request.body.email,
-            subject: "Sending Email using Node.js",
-            text: "That was easy!",
+            subject: "please reset password here:",
+            html: `<p>Click <a href='http://localhost:5173/newPassword/${user._id}'>here</a> to reset your password</p>`
+            
           };
         
           const sendMail = async (transporter, mailOptions) => {
@@ -151,13 +156,49 @@ router.post("/forgotEmail", async (request, response) => {
               console.log("Server is ready to take our messages");
             }
           });
-        
+        } else {
+            response.status(500).send({
+                message: "Email is not in database"
+            });
+        }
     } catch (error) {
         response.status(500).send({
             message: error.message
         });
     };
 });
+
+router.post("/resetPassword/:_id", async (request, response) => {
+    const requestedUser = await User.findById(request.params._id)
+    console.log("TEST")
+    try {
+        console.log(request.body.password)
+        console.log(request.body.confirmPassword)
+        if (request.body.password === request.body.confirmPassword) {
+            // const user=  await User.findById(requestedUser);
+            const user = requestedUser
+            user.password = request.body.password
+        await user.save();
+        console.log("TEST8")
+        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+        response.status(200).json({
+            message: "Success",
+            token
+        })
+        console.log("test9")
+        } else {
+            console.log("test5")
+            response.status(500).send({
+                message: "Passwords do not match"
+            });
+        }
+    } catch (error) {
+        console.log("test6")
+        response.status(500).send({
+            message: error.message
+        });
+    }
+})
 
 // get user info
 router.get("/user", validationMiddleware, (request, response) => {
