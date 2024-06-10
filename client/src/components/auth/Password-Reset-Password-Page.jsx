@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer";
 import Header from "../Header";
-// import { hash } from "bcryptjs";
+import { hash } from "bcryptjs";
 import { useParams } from "react-router-dom";
 
 export default function Password() {
@@ -15,7 +15,7 @@ export default function Password() {
     event.preventDefault(); //stop page from refreshing on submit
     //sending username and password to backend
 
-    // hash(password, 10, async (err, passwordHash, confirmPasswordHash) => {
+    // hash(password, 10, async (err, passwordHash) => {
     //   if (err) {
     //     console.log(err);
     //   } else {
@@ -26,8 +26,8 @@ export default function Password() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        password,
-        confirmPassword
+        password: password,
+        confirmPassword: confirmPassword
       })
     });
     console.log("test3", response);
@@ -43,11 +43,11 @@ export default function Password() {
       console.log("test4", body.response);
     }
   }
-  //     });
-  //   }
+    //   });
+    // }
   return (
     <div>
-        <Header></Header>
+        {/* <Header></Header> */}
     <form
       name="userPassword"
       onSubmit={submitPassword}
@@ -74,7 +74,7 @@ export default function Password() {
         </button>
       </label>
       </form>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }

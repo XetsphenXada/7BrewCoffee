@@ -8,6 +8,9 @@ import EmpCreation from './components/auth/EmpCreation.jsx'
 import AdminSignUp from './components/auth/AdminSignUp.jsx'
 import Quiz, { quizLoader } from './components/Quiz.jsx'
 import QuizList, { quizListLoader } from './components/QuizList.jsx'
+import Email from './components/auth/Password-Reset-Email-Page.jsx'
+import LogIn from './components/auth/Login.jsx'
+import Password from './components/auth/Password-Reset-Password-Page.jsx'
 
 // router for when regular employee is logged in
 const employeeRouter = createBrowserRouter([
@@ -28,6 +31,18 @@ const employeeRouter = createBrowserRouter([
 				path: "/quiz/:quizParam",
 				element: <Quiz />,
 				loader: quizLoader
+			},
+			{
+				path: "/email",
+				element: <Email />
+			},
+			{
+				path: "/user/login",
+				element: <LogIn />
+			},
+			{
+				path: "/newPassword/:_id",
+				element: <Password />
 			}
 		]
 	}
