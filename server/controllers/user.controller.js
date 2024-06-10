@@ -172,7 +172,6 @@ router.get("/edit/:_id", validationMiddleware, async (request, response) => {
 
 //route for editing currently logged in user, (required due to the difference in middleware between the above edit and this ediit)
 router.put("/edit/:_id", validationMiddleware, async (request, response) => {
-    console.log("Edit was requested")
     try {
         //checks to see if the user exists
         const doesUserExist = await User.exists({
@@ -181,7 +180,6 @@ router.put("/edit/:_id", validationMiddleware, async (request, response) => {
         const filter = { _id: request.params._id };
         const update = request.body;
         if (doesUserExist === null) {
-            console.log(request.body);
             const editUser = await User.findOneAndUpdate(filter, update, {new: true})
             response.send(editUser)
         } else if (doesUserExist._id.toString() === filter._id.toString()) {
