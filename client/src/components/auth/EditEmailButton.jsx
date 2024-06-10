@@ -18,11 +18,30 @@ export default function EditEmailButton({ user }) {
           }
         }
         
+        //check to see if the email stored in the dataObj is a valid email address
         var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var email = dataObj.email.toString();
-
-        if (regexEmail.test(email)) {
-            alert("It's Okay")
+        var email = dataObj.email
+        
+        if (email === undefined) {
+            const response = await fetch(`http://localhost:3000/edit/${user._id}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: localStorage.getItem("jwt-token"),
+                },
+                body: JSON.stringify(dataObj),
+                });
+            
+                const body = await response.json();
+            
+                if (response.status === 200) {
+                console.log("User has been updated");
+                } else {
+                console.log(body.message);
+                }
+            //refreshes the page when the form is submitted
+            location.reload();
+        } else if (regexEmail.test(email)) {
             const response = await fetch(`http://localhost:3000/edit/${user._id}`, {
             method: "PUT",
             headers: {
@@ -39,12 +58,11 @@ export default function EditEmailButton({ user }) {
             } else {
             console.log(body.message);
             }
-            
-            //refreshes the page when the form is submitted
-            location.reload();
-        } else {
-            alert("Please enter a valid Email Address")
-        }
+            } else {
+                alert("Please enter a valid Email Address")
+                }
+        //refreshes the page when the form is submitted
+        location.reload();
     }
       
     //function to handle closing the Modal, added as an onClick event handler in our HTML

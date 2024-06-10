@@ -40,7 +40,7 @@ export default function DeleteUserButton({ list }) {
   return (
     <>
       <button
-        className="btn"
+        className="btn bg-primary"
         onClick={() => document.getElementById(list._id+"delete").showModal()}
       >
         Delete

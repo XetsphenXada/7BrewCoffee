@@ -20,25 +20,52 @@ export default function EditUserButton({ list }) {
           dataObj[key] = value
         };
       }
-
+    
+    //variable to check to see if the email stored in the dataObj is a valid email address
+    var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var email = dataObj.email
+    
     //fetch request for our edit endpoint
-    const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-        authorization: localStorage.getItem("jwt-token"),
-      },
-      body: JSON.stringify(dataObj),
-    });
+    //only fetches if the email is 'undefined' (in the case of no email field being edited)
+    if (email === undefined) {
+      const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          authorization: localStorage.getItem("jwt-token"),
+        },
+        body: JSON.stringify(dataObj),
+      });
+      
+      const body = await response.json();
 
-    const body = await response.json();
+      if (response.status === 200) {
+        console.log("User has been updated");
+      } else {
+        console.log(body.message);
+      }
+    //or if the email entered passes the validation check for valid email addresses
+    } else if (regexEmail.test(email)) {
+      const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          authorization: localStorage.getItem("jwt-token"),
+        },
+        body: JSON.stringify(dataObj),
+      });
+      
+      const body = await response.json();
 
-    if (response.status === 200) {
-      console.log("User has been updated");
+      if (response.status === 200) {
+        console.log("User has been updated");
+      } else {
+        console.log(body.message);
+      }
     } else {
-      console.log(body.message);
+      alert("Please enter a valid Email Address")
     }
-
+    
     //refreshes the page when the form is submitted
     location.reload();
   }
@@ -51,7 +78,7 @@ export default function EditUserButton({ list }) {
   return (
     <>
       <button
-        className="btn"
+        className="btn bg-primary"
         onClick={() => document.getElementById(list._id + "edit").showModal()}
       >
         Edit
