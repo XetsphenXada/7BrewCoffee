@@ -19,9 +19,9 @@ function Header() {
   }, [theme]);
 
     return (
-        <div className="flex justify-between bg-primary sticky top-0 md:w-screen">
-			<figure className="flex size-0 m-2 md:size-28"><img src={roundlogo} alt="7 Brew Logo"/></figure>
-			<label className="swap swap-rotate">
+        <div className="flex justify-between bg-primary sticky top-0  max-w-full md:w-screen">
+			<figure className="flex size-0 m-1 md:size-28"><img src={roundlogo} alt="7 Brew Logo"/></figure>
+			<label className="swap swap-rotate text-accent"> Light/Dark
 				{/* this hidden checkbox controls the state */}
 				<input type="checkbox" onChange={handleToggle}/>
 				{/* sun icon */}
@@ -30,16 +30,16 @@ function Header() {
 				<svg className="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
 			</label>
 			<div className="navbar bg-primary">
-				<div className=" navbar-end bg-primary lg:flex">
+				<div className="navbar bg-primary lg:flex">
 					<button className="btn btn-square btn-white">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 					</button>
-					<div className= "menu-horizontal text-accent text-xl px-1">
-						<div>Daily News </div>
-						<div>Study </div>
-						<div>Testing </div>
 					</div>
-				</div>
+					<div className= " navbar text-accent flex justify-evenly">
+						<div className='btn hover:bg-violet-600 m-1'><a href="http://localhost:5173/quiz">Daily News</a></div>
+						<div className='btn hover:bg-violet-600 m-1'><a href="http://localhost:5173/quiz">Study</a></div>
+						<div className='btn hover:bg-violet-600 m-1'><a href="http://localhost:5173/quiz">Testing</a></div>
+					</div>
 			</div>
     	</div>
     )

@@ -175,7 +175,6 @@ router.post("/resetPassword/:_id", async (request, response) => {
         console.log(request.body.password)
         console.log(request.body.confirmPassword)
         if (request.body.password === request.body.confirmPassword) {
-            // const user=  await User.findById(requestedUser);
             const user = requestedUser
             user.password = request.body.password
         await user.save();

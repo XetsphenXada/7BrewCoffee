@@ -34,13 +34,13 @@ function Email() {
     }
   }
   return (
-    <form
+    <form 
       name="userEmail"
       onSubmit={submitEmail}
-      className="flex flex-col items-center"
+      className="flex flex-col h-max"
     >
-      <Header></Header>
-      <label className="flex form-control items-center justify-center">
+      {/* <Header></Header> */}
+      <label className="flex form-control m-auto">
         <span>Please enter email to recieve link to reset password</span>
         <input
           type="text"
@@ -52,7 +52,7 @@ function Email() {
           Submit
         </button>
       </label>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </form>
   );
 }
