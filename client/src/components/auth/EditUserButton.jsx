@@ -20,8 +20,6 @@ export default function EditUserButton({ list }) {
           dataObj[key] = value
         };
       }
-        
-    console.log(dataObj);
 
     //fetch request for our edit endpoint
     const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {

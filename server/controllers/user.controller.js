@@ -3,6 +3,7 @@ import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
+import validationMiddleware from "../middleware/validationMiddleware.js";
 
 const router = Router();
 
@@ -120,20 +121,17 @@ router.get("/allusers", adminPermissionMiddleware, async (request, response) => 
 
 //Endpoint to allow user profiles to be updated by an admin / manager
 router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
-    console.log("Edit was requested")
     try {
         const doesUserExist = await User.exists({
             email: request.body.email
         });
         const filter = { _id: request.params._id };
+        const update = request.body;
         if (doesUserExist === null) {
-            const update = request.body;
-            console.log(request.body);
             const editUser = await User.findOneAndUpdate(filter, update, {new: true})
             response.send(editUser)
         } else if (doesUserExist._id.toString() === filter._id.toString()) {
             const update = request.body;
-            console.log(request.body);
             const editUser = await User.findOneAndUpdate(filter, update, {new: true})
             response.send(editUser)
         } else {
@@ -150,7 +148,6 @@ router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response
 
 //Endpoint to allow user profiles to be deleted by an admin / manager
 router.delete("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
-    console.log("Delete was requested")
     try {
         const userDelete = await User.deleteOne({ _id: request.params._id })
         response.send(userDelete);
@@ -160,5 +157,47 @@ router.delete("/allusers/:_id", adminPermissionMiddleware, async (request, respo
         });
     };
 });
+
+//Returns the user who's ID matches the _id found in the parameter
+router.get("/edit/:_id", validationMiddleware, async (request, response) => {
+    try {
+        const currentUser = await User.find({ _id: request.user._id });
+        response.send(currentUser);
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    };
+});
+
+//route for editing currently logged in user, (required due to the difference in middleware between the above edit and this ediit)
+router.put("/edit/:_id", validationMiddleware, async (request, response) => {
+    console.log("Edit was requested")
+    try {
+        //checks to see if the user exists
+        const doesUserExist = await User.exists({
+            email: request.body.email
+        });
+        const filter = { _id: request.params._id };
+        const update = request.body;
+        if (doesUserExist === null) {
+            console.log(request.body);
+            const editUser = await User.findOneAndUpdate(filter, update, {new: true})
+            response.send(editUser)
+        } else if (doesUserExist._id.toString() === filter._id.toString()) {
+            const update = request.body;
+            const editUser = await User.findOneAndUpdate(filter, update, {new: true})
+            response.send(editUser)
+        } else {
+            response.status(500).send({
+                message: "Email is already in use"
+            });
+        }
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    }
+})
 
 export default router;
