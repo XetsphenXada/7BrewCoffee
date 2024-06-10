@@ -12,9 +12,6 @@ export default function EditUserButton({ list }) {
     
     //!TODO: If user sends in data that already exists it will still send it to the database (this shouldn't be happen ideally)
     
-    //!TODO: Need to provide a check for current Email Addresses in the database,
-    //!TODO  and dissallow the user from updating their user with existing email addresses
-    
     //This for of loop validates the data being entered into our request.body by checking for empty strings and
     // preventing them from being entered into the object being used for the body in our fetch request
     for (let [key, value] of data.entries())
@@ -45,9 +42,10 @@ export default function EditUserButton({ list }) {
     }
 
     //refreshes the page when the form is submitted
-    //location.reload();
+    location.reload();
   }
-
+  
+  //function to handle closing the Modal, added as an onClick event handler in our HTML
   function closeModal() {
     document.getElementById(list._id + "edit").close();
   }
@@ -65,6 +63,7 @@ export default function EditUserButton({ list }) {
           <h3 className="font-bold text-lg mb-4">
             Edit {list.firstName} {list.lastName}
           </h3>
+          <div className="mb-0.5">Please edit only the fields you would like to be changed:</div>
           <div className="flex flex-col justify-center items-center">
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -77,8 +76,9 @@ export default function EditUserButton({ list }) {
               className="flex flex-col"
               onSubmit={submitUserEdit}
             >
+              <div className="flex items-center gap-2">
               <label>
-                <div className="text-black mb-0.5">First Name:</div>
+                <div className="text-black">First Name:</div>
                 <input
                   className="border-2 border-secondary w-full"
                   placeholder="First Name"
@@ -101,6 +101,7 @@ export default function EditUserButton({ list }) {
                   name="lastName"
                 ></input>
               </label>
+              </div>
               <label>
                 <div className="text-black">Email:</div>
                 <input
@@ -136,7 +137,7 @@ export default function EditUserButton({ list }) {
                 Submit
               </button>
             </form>
-            <p className="py-4">Submit your edit, or press ESC key to close</p>
+            <p className="py-4">Submit your edit, or click the X to close</p>
           </div>
         </div>
       </dialog>

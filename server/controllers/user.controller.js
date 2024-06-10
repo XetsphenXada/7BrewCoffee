@@ -122,11 +122,25 @@ router.get("/allusers", adminPermissionMiddleware, async (request, response) => 
 router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
     console.log("Edit was requested")
     try {
+        const doesUserExist = await User.exists({
+            email: request.body.email
+        });
         const filter = { _id: request.params._id };
-        const update = request.body;
-        console.log(request.body);
-        const editUser = await User.findOneAndUpdate(filter, update, {new: true})
-        response.send(editUser)
+        if (doesUserExist === null) {
+            const update = request.body;
+            console.log(request.body);
+            const editUser = await User.findOneAndUpdate(filter, update, {new: true})
+            response.send(editUser)
+        } else if (doesUserExist._id.toString() === filter._id.toString()) {
+            const update = request.body;
+            console.log(request.body);
+            const editUser = await User.findOneAndUpdate(filter, update, {new: true})
+            response.send(editUser)
+        } else {
+            response.status(500).send({
+                message: "Email is already in use"
+            });
+        }
     } catch (error) {
         response.status(500).send({
             message: error.message
