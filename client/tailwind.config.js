@@ -2,6 +2,7 @@
 export default {
   
 }
+
 module.exports = {
   //...
   content: [
@@ -14,13 +15,17 @@ module.exports = {
   daisyui: {
   themes: [
     {
-    sevenBrewTheme: {
-      ...require("daisyui/src/theming/themes")["[data-theme=sevenBrewTheme]"],
+    light: {
+      ...require("daisyui/src/theming/themes")["light"],
       "primary": "#8a2432", //7Brew Maroon
       "secondary": "231F20", //7Brew Black
-      "accent": "#37cdbe",
-      "neutral": "#3d4451",
-      "base-100": "#ffffff",
+      "accent": "white"
+    },
+    dark: {
+      ...require("daisyui/src/theming/themes")["dark"],
+      "primary":  "#8a2432", //7Brew Maroon
+      "secondary": "#8a2432", //7Brew Maroon
+      "accent": "black"
     },
   },
 ],
