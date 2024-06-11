@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import roundlogo from "../images/sevenBrew_Secondary.png";
 import LogOut from "./auth/LogOut";
+import DropDownMenuLinkAdmin from "./auth/DropDownMenuLinkAdmin";
 
 function Header() {
   const [theme, setTheme] = useState(
@@ -49,7 +50,7 @@ function Header() {
       <div className="navbar bg-primary">
         <div className="navbar bg-primary lg:flex">
 			  {/* Sandwich Button */}
-          <div class="dropdown dropdown-right dropdown-end">
+          <div class="dropdown dropdown-bottom dropdown-start">
             <div
               tabindex="0"
               role="button"
@@ -74,7 +75,7 @@ function Header() {
               class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <DropDownMenuLinkAdmin />
               </li>
               <li>
                 <a>Item 2</a>

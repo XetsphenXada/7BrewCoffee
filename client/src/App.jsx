@@ -1,12 +1,5 @@
 import { useState } from 'react';
 import Auth from './components/auth/Auth'
-import AdminSignUp from './components/auth/AdminSignUp';
-import EmpCreation from './components/auth/EmpCreation';
-import Email from './components/auth/Password-Reset-Email-Page';
-import Flashcards from './components/Flashcards'
-import Quiz, { quizLoader } from './components/Quiz'
-import Password from './components/auth/Password-Reset-Password-Page';
-import Recipes from './components/Recipes';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
