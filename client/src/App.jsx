@@ -1,59 +1,38 @@
 import { useState } from 'react';
-import Auth from './components/auth/Auth'
-import AdminSignUp from './components/auth/AdminSignUp';
-import EmpCreation from './components/auth/EmpCreation';
-import Email from './components/auth/Password-Reset-Email-Page';
-import Flashcards from './components/Flashcards'
-import Quiz, { quizLoader } from './components/Quiz'
-import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
+import Auth from './components/auth/Auth'
+import Header from './components/Header';
 import Footer from './components/Footer';
 
-
-
-function App() {
+export default function App() {
 	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
+	const [userInfo, setUserInfo] = useState({});
+
+	async function getUserInfo() {
+		const response = await fetch("http://localhost:3000/user", {
+			method: "GET",
+			headers: { "Content-type": "application/json", authorization: token }
+		});
+		const body = await response.json();
+		setUserInfo(body.userInfo);
+	}
+	if(token && Object.keys(userInfo).length === 0) {
+		getUserInfo();
+	}
 	
 	return (
 		<>
 			{token ? (
 				<>
 					<Header />
-					<Outlet />
+					<Outlet context={{ userInfo }} />
 					<Footer />
 				</>
-			) : (
-				<>
-					<Auth setToken={setToken} />=
-				</>
-			)}
-			{/* <Routes>
-			{token ? (
-				<Layout />
 			) : (
 				<>
 					<Auth setToken={setToken} />
 				</>
 			)}
-			{/* <Routes>
-				<Route
-				path="/user/login"
-				element={<Auth setToken={setToken} />} //pass update component as props
-				/>
-				<Route path="/signup" element={<AdminSignUp />}/>
-				<Route path="/layout" element={<Layout />}/>
-				<Route path="/adduser" element={<EmpCreation />}/>
-				<Route path="/flashcards" element={<Flashcards />} />
-				<Route 
-					path="/quiz/:quizParam" 
-					loader={quizLoader}
-					element={<Quiz />} 
-				/>
-				<Route path="/adduser" element={<EmpCreation />}/>
-				<Route path="/email" element={<Email />}/>
-			</Routes> */}
 		</>
 	)
 }
-
-export default App

@@ -166,7 +166,8 @@ router.get("/user", validationMiddleware, (request, response) => {
             firstName: request.user.firstName,
             lastName: request.user.lastName,
             email: request.user.email,
-            userId: request.user._id
+            userId: request.user._id,
+            role: request.user.role
         }
 
         response.send({

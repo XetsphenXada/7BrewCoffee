@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import "../../index.css"
 
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
