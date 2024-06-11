@@ -3,6 +3,10 @@ import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
+
+import "dotenv/config";
+import nodemailer from "nodemailer"
+
 import validationMiddleware from "../middleware/validationMiddleware.js";
 
 const router = Router();
@@ -107,6 +111,7 @@ router.post("/addEmployee", adminPermissionMiddleware, async (request, response)
     };
 });
 
+
 //Returns all users that are found in the database, will be used to filter the users by store location on the front end
 router.get("/allusers", adminPermissionMiddleware, async (request, response) => {
     try {
@@ -137,6 +142,56 @@ router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response
         } else {
             response.status(500).send({
                 message: "Email is already in use"
+
+router.post("/forgotPassword", async (request, response) => {
+    try {
+        console.log(request.body.email)
+        const user = await User.findOne({ email: request.body.email })
+        console.log(user)
+        if (user) {
+        const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false, // use SSL
+            auth: {
+              user: process.env.EMAIL_USERNAME, //sender gmail address
+              pass: process.env.APP_PASSWORD, // App password from Gmail account
+            },
+          });
+        
+          // Configure the mailoptions object
+          
+          const mailOptions = {
+            from: "7brewnoreplytest@gmail.com",
+            to: request.body.email,
+            subject: "please reset password here:",
+            html: `<p>Click <a href='http://localhost:5173/newPassword/${user._id}'>here</a> to reset your password</p>`
+            
+          };
+        
+          const sendMail = async (transporter, mailOptions) => {
+            try {
+              await transporter.sendMail(mailOptions);
+              console.log("Email has been sent");
+            } catch (error) {
+              console.error(error);
+            }
+          };
+        
+          sendMail(transporter, mailOptions);
+        
+          // verify connection configuration
+          transporter.verify(function (error, success) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("Server is ready to take our messages");
+            }
+          });
+        } else {
+            response.status(500).send({
+                message: "Email is not in database"
+
             });
         }
     } catch (error) {
@@ -145,6 +200,7 @@ router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response
         });
     };
 });
+
 
 //Endpoint to allow user profiles to be deleted by an admin / manager
 router.delete("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
@@ -197,5 +253,59 @@ router.put("/edit/:_id", validationMiddleware, async (request, response) => {
         });
     }
 })
+
+router.post("/resetPassword/:_id", async (request, response) => {
+    const requestedUser = await User.findById(request.params._id)
+    console.log("TEST")
+    try {
+        console.log(request.body.password)
+        console.log(request.body.confirmPassword)
+        if (request.body.password === request.body.confirmPassword) {
+            const user = requestedUser
+            user.password = request.body.password
+        await user.save();
+        console.log("TEST8")
+        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+        response.status(200).json({
+            message: "Success",
+            token
+        })
+        console.log("test9")
+        } else {
+            console.log("test5")
+            response.status(500).send({
+                message: "Passwords do not match"
+            });
+        }
+    } catch (error) {
+        console.log("test6")
+        response.status(500).send({
+            message: error.message
+        });
+    }
+})
+
+// get user info
+router.get("/user", validationMiddleware, (request, response) => {
+    try {
+        const userInfo = {
+            firstName: request.user.firstName,
+            lastName: request.user.lastName,
+            email: request.user.email,
+            userId: request.user._id
+        }
+
+        response.send({
+            userInfo
+        });
+    }
+    catch(err) {
+        response.status(500).send({
+            message: err.message
+        });
+    }
+});
+
+
 
 export default router;

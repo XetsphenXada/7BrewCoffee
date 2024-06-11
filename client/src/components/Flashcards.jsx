@@ -17,7 +17,7 @@ export default function Flashcards() {
         "recipe-questions": false
     });
 
-    // retrieve flashcard data and set cards
+    // retrieve flashcard data on load and set cards
     useEffect(() => {
         async function getFlashcardData() {
             const response = await fetch("http://localhost:3000/flashcards");
@@ -28,7 +28,7 @@ export default function Flashcards() {
         getFlashcardData();
     }, []);
 
-    // set cards
+    // set cards with category change
     useEffect(() => {
         if(cardCategory.length > 0) {
             // find cards that match categories in array
