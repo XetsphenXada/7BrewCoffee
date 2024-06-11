@@ -17,7 +17,7 @@ export default function EmpCreation() {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/adduser", {
+                const response = await fetch("http://localhost:3000/addEmployee", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
-//! prop for setToken needs to be changed to token when this gets put on the page
 export default function AdminSignUp() {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
@@ -18,7 +17,7 @@ export default function AdminSignUp() {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/signup", {
+                const response = await fetch("http://localhost:3000/addAdmin", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -35,10 +34,10 @@ export default function AdminSignUp() {
                     })
                 })
                 console.log(response);
-                //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
+                
                 const body = await response.json();
                 if (response.status === 200) {
-                    console.log(body.token);
+                    console.log("Admin has been created");
                 } else {
                     console.log(body.message);
                 }
