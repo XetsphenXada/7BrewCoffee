@@ -3,6 +3,7 @@ import Auth from './components/auth/Auth'
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
+import LogIn from './components/auth/Login';
 
 
 
@@ -23,7 +24,7 @@ function App() {
 				</>
 			) : (
 				<>
-					<Auth setToken={setToken} />=
+					<Auth path='/user/login' setToken={setToken} />
 				</>
 			)}
 			{/* <Routes>

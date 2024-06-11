@@ -7,8 +7,8 @@ function Auth() {
   const [token, setToken] = useState(localStorage.getItem("jwt-token"));
     return (
       <div>
-
-        <LogIn setToken={setToken}/>
+        
+        <LogIn path='/user/login' setToken={setToken}/>
 
       </div>
     )
