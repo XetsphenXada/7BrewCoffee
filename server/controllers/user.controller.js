@@ -126,6 +126,7 @@ router.get("/allusers", adminPermissionMiddleware, async (request, response) => 
 
 //Endpoint to allow user profiles to be updated by an admin / manager
 router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response) => {
+    
     try {
         const doesUserExist = await User.exists({
             email: request.body.email
@@ -142,6 +143,14 @@ router.put("/allusers/:_id", adminPermissionMiddleware, async (request, response
         } else {
             response.status(500).send({
                 message: "Email is already in use"
+            })
+        }
+    } catch (error) {
+        response.status(500).send({
+            message: error.message
+        });
+    }
+    })
 
 router.post("/forgotPassword", async (request, response) => {
     try {
