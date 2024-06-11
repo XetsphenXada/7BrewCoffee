@@ -235,7 +235,7 @@ router.get("/edit/:_id", validationMiddleware, async (request, response) => {
     };
 });
 
-//route for editing currently logged in user, (required due to the difference in middleware between the above edit and this ediit)
+//route for editing currently logged in user, (required due to the difference in middleware between the Admin edit and this ediit)
 router.put("/edit/:_id", validationMiddleware, async (request, response) => {
     try {
         //checks to see if the user exists

@@ -30,7 +30,7 @@ export default function ViewAllUsers() {
     
   return (
     <>
-      <div className='flex flex-col justify-center items-center h-screen'>
+      <div className='flex flex-col justify-center items-center overflow-y-auto h-3/4'>
         <div className='text-6xl font-bold text-primary mb-[12px]'>
           All Employees
         </div>
@@ -44,7 +44,7 @@ export default function ViewAllUsers() {
             ))}
           </select>
         </div>
-        <div className='overflow-x-auto border-2 border-secondary mb-12'>
+        <div className='overflow-y-auto border-2 border-secondary mb-12'>
           <table className='table'>
             <thead>
               <tr className='border-primary text-primary sticky top-0 bg-secondary'>

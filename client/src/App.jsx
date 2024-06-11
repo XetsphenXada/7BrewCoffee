@@ -15,9 +15,11 @@ function App() {
 
 			{token ? (
 				<>
+					<div className='flex flex-col h-screen overflow-y-auto'>
 					<Header />
 					<Outlet />
 					<Footer />
+					</div>
 				</>
 			) : (
 				<>

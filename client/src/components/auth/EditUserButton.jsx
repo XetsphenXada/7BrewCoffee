@@ -102,30 +102,30 @@ export default function EditUserButton({ list }) {
               onSubmit={submitUserEdit}
             >
               <div className="flex items-center gap-2">
-              <label>
-                <div className="text-black">First Name:</div>
-                <input
-                  className="border-2 border-secondary w-full"
-                  placeholder="First Name"
-                  name="firstName"
-                ></input>
-              </label>
-              <label>
-                <div className="text-black">Middle Name:</div>
-                <input
-                  className="border-2 border-secondary w-full"
-                  placeholder="Middle Name"
-                  name="middleName"
-                ></input>
-              </label>
-              <label>
-                <div className="text-black">Last Name:</div>
-                <input
-                  className="border-2 border-secondary w-full"
-                  placeholder="Last Name"
-                  name="lastName"
-                ></input>
-              </label>
+                <label>
+                  <div className="text-black">First Name:</div>
+                  <input
+                    className="border-2 border-secondary w-full"
+                    placeholder="First Name"
+                    name="firstName"
+                  ></input>
+                </label>
+                <label>
+                  <div className="text-black">Middle Name:</div>
+                  <input
+                    className="border-2 border-secondary w-full"
+                    placeholder="Middle Name"
+                    name="middleName"
+                  ></input>
+                </label>
+                <label>
+                  <div className="text-black">Last Name:</div>
+                  <input
+                    className="border-2 border-secondary w-full"
+                    placeholder="Last Name"
+                    name="lastName"
+                  ></input>
+                </label>
               </div>
               <label>
                 <div className="text-black">Email:</div>

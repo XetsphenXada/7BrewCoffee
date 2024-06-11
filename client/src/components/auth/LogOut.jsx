@@ -6,7 +6,7 @@ export default function LogOut() {
   return (
     <Link 
     to="/user/login" 
-    className='btn btn-accent mx-8 border-x-[16px]'
+    className='btn btn-accent bg-primary rounded-xl mx-8'
     onClick={() => {
         localStorage.removeItem("jwt-token")
     }}
