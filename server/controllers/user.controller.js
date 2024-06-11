@@ -173,8 +173,7 @@ router.post("/resetPassword/:_id", async (request, response) => {
     console.log("TEST")
     try {
         console.log(request.body.password)
-        console.log(request.body.confirmPassword)
-        if (request.body.password === request.body.confirmPassword) {
+        // if (request.body.password === request.body.confirmPassword) {
             const user = requestedUser
             user.password = request.body.password
         await user.save();
@@ -185,12 +184,12 @@ router.post("/resetPassword/:_id", async (request, response) => {
             token
         })
         console.log("test9")
-        } else {
-            console.log("test5")
-            response.status(500).send({
-                message: "Passwords do not match"
-            });
-        }
+        // } else {
+        //     console.log("test5")
+        //     response.status(500).send({
+        //         message: "Passwords do not match"
+        //     });
+        // }
     } catch (error) {
         console.log("test6")
         response.status(500).send({

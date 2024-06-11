@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer";
-import Header from "../Header";
 
 function Email() {
   const [email, setEmail] = useState("");
@@ -39,7 +37,6 @@ function Email() {
       onSubmit={submitEmail}
       className="flex flex-col h-max"
     >
-      {/* <Header></Header> */}
       <label className="flex form-control m-auto">
         <span>Please enter email to recieve link to reset password</span>
         <input
@@ -52,7 +49,6 @@ function Email() {
           Submit
         </button>
       </label>
-      {/* <Footer></Footer> */}
     </form>
   );
 }

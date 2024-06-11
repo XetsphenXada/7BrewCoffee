@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer";
-import Header from "../Header";
 import { hash } from "bcryptjs";
 import { useParams } from "react-router-dom";
 
@@ -14,11 +12,13 @@ export default function Password() {
   async function submitPassword(event) {
     event.preventDefault(); //stop page from refreshing on submit
     //sending username and password to backend
-
-    // hash(password, 10, async (err, passwordHash) => {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
+    console.log(password)
+    console.log(confirmPassword)
+    if (password === confirmPassword) {
+    hash(password, 10, async (err, passwordHash) => {
+      if (err) {
+        console.log(err);
+      } else {
     console.log("test", _id);
     const response = await fetch(`http://localhost:3000/resetPassword/${_id}`, {
       method: "POST",
@@ -26,8 +26,7 @@ export default function Password() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        password: password,
-        confirmPassword: confirmPassword
+        password: passwordHash
       })
     });
     console.log("test3", response);
@@ -43,17 +42,22 @@ export default function Password() {
       console.log("test4", body.response);
     }
   }
-    //   });
-    // }
+      });
+    } else {
+      console.log("test5")
+      response.status(500).send({
+          message: "Passwords do not match"
+      });
+  }
+  } 
   return (
     <div>
-        {/* <Header></Header> */}
     <form
       name="userPassword"
       onSubmit={submitPassword}
-      className="flex flex-col items-center"
+      className="flex-inline flex-col items-center"
     >
-      <label className="flex form-control items-center justify-center">
+      <label className="flex form-control items-center justify-center gap-4 h-fit">
         <span>Please enter new password to reset password</span>
         <input
           name="new password"
@@ -74,7 +78,6 @@ export default function Password() {
         </button>
       </label>
       </form>
-      {/* <Footer></Footer> */}
     </div>
   );
 }
