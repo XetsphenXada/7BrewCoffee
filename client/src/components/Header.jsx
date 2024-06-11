@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import roundlogo from "../images/sevenBrew_Secondary.png";
 import LogOut from "./auth/LogOut";
+import DropDownMenuLinkAdmin from "./auth/DropDownMenuLinkAdmin";
+import DropDownMenuLinkUser from "./auth/DropDownMenuLinkUser";
 
 function Header() {
   const [theme, setTheme] = useState(
@@ -22,7 +24,7 @@ function Header() {
   }, [theme]);
 
   return (
-    <div className="flex justify-between bg-primary sticky top-0  max-w-full md:w-screen">
+    <div className="flex justify-between bg-primary sticky absolute z-10 top-0  max-w-full md:w-screen">
       <figure className="flex size-0 m-1 md:size-28">
         <img src={roundlogo} alt="7 Brew Logo" />
       </figure>
@@ -49,7 +51,7 @@ function Header() {
       <div className="navbar bg-primary">
         <div className="navbar bg-primary lg:flex">
 			  {/* Sandwich Button */}
-          <div class="dropdown dropdown-right dropdown-end">
+          <div class="dropdown dropdown-bottom dropdown-start">
             <div
               tabindex="0"
               role="button"
@@ -74,10 +76,13 @@ function Header() {
               class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <DropDownMenuLinkAdmin />
               </li>
               <li>
-                <a>Item 2</a>
+                <DropDownMenuLinkUser />
+              </li>
+              <li>
+                <LogOut>Log Out</LogOut>
               </li>
             </ul>
           </div>
@@ -92,7 +97,6 @@ function Header() {
           <div className="btn hover:bg-primary hover:text-accent m-1">
             <a href="http://localhost:5173/quiz">Testing</a>
           </div>
-          <LogOut>Log Out</LogOut>
         </div>
       </div>
     </div>

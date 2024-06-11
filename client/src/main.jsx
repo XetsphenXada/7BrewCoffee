@@ -11,6 +11,8 @@ import QuizList, { quizListLoader } from './components/QuizList.jsx'
 import Email from './components/auth/Password-Reset-Email-Page.jsx'
 import Password from './components/auth/Password-Reset-Password-Page.jsx'
 import Auth from './components/auth/Auth.jsx'
+import ViewAllUsers from './components/auth/ViewAllUsers.jsx'
+import EditProileCard from './components/auth/EditProfileCard.jsx'
 
 // router for when regular employee is logged in
 const employeeRouter = createBrowserRouter([
@@ -43,6 +45,22 @@ const employeeRouter = createBrowserRouter([
 			{
 				path: "/newPassword/:_id",
 				element: <Password />
+			},
+			{
+				path: "/allusers",
+				element: <ViewAllUsers />
+			},
+			{
+				path: "/addAdmin",
+				element: <AdminSignUp />
+			},
+			{
+				path: "/addEmployee",
+				element: <EmpCreation />
+			},
+			{
+				path: "/edit",
+				element: <EditProileCard />
 			}
 		]
 	}
@@ -57,14 +75,6 @@ const adminRouter = createBrowserRouter([
 			{
 				path: "/flashcards",
 				element: <Flashcards />
-			},
-			{
-				path: "/adduser",
-				element: <EmpCreation />
-			},
-			{
-				path: "/signup",
-				element: <AdminSignUp />
 			}
 		]
 	}

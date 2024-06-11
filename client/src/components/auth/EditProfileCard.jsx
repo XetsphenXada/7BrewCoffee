@@ -10,21 +10,21 @@ export default function EditProfileCard() {
 
   //useEffect to get data from user whom is currently logged in
   useEffect(() => {
-      fetch(`http://localhost:3000/edit/${_id}`, {
-          headers: {
-          "content-type": "application/json",
-          "authorization": localStorage.getItem("jwt-token")
-          }
-      })
-      .then(response => response.json())
-      .then(data => setRecords(data))
-      .catch(err => console.log(err))
-  }, [])
-
+    fetch(`http://localhost:3000/edit/${_id}`, {
+      headers: {
+        "content-type": "application/json",
+        "authorization": localStorage.getItem("jwt-token")
+        }
+        })
+        .then(response => response.json())
+        .then(data => setRecords(data))
+        .catch(err => console.log(err))
+        }, [])
+        
   return ( 
   <>
-    <div className="flex justify-center items-center h-screen">
-        <div className="card w-fit bg-base-100 shadow-xl">
+    <div className="flex justify-center items-center my-20">
+        <div className="card w-fit border-2 border-secondary bg-base-100 shadow-2xl">
             <div className="card-body">
                 <div className="card-title text-primary">Edit Profile</div>
                 {records.map((user, index) => (
