@@ -25,14 +25,14 @@ export default function DropDownMenuLinkAdmin() {
         
     let user = getUser();
     // console.log(user.then((promiseData) => promiseData))
-    let userRole = user.then((promiseData) => promiseData.userInfo.role)
-    console.log(userRole);
+    // let userRole = user.then((promiseData) => promiseData.userInfo.role)
+    // console.log(userRole);
     
-    if (userRole === "Admin") {
-        console.log(true)
-    } else {
-        console.log(false)
-    }
+    // if (userRole === "Admin") {
+    //     console.log(true)
+    // } else {
+    //     console.log(false)
+    // }
     
   return (
     <>
