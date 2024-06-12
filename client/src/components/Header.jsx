@@ -51,11 +51,11 @@ function Header() {
       <div className="navbar bg-primary">
         <div className="navbar bg-primary lg:flex">
 			  {/* Sandwich Button */}
-          <div class="dropdown dropdown-bottom dropdown-start">
+          <div className="dropdown dropdown-bottom dropdown-start">
             <div
-              tabindex="0"
+              tabIndex="0"
               role="button"
-              class="btn btn-square btn-white m-1"
+              className="btn btn-square btn-white m-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +72,8 @@ function Header() {
               </svg>
             </div>
             <ul
-              tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              tabIndex="0"
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <DropDownMenuLinkAdmin />
