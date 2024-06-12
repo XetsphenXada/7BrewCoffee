@@ -1,21 +1,25 @@
 import { useState } from 'react';
-import Auth from './components/auth/Auth'
-import AdminSignUp from './components/auth/AdminSignUp';
-import EmpCreation from './components/auth/EmpCreation';
-import Email from './components/auth/Password-Reset-Email-Page';
-import Flashcards from './components/Flashcards'
-import Quiz, { quizLoader } from './components/Quiz'
-import Password from './components/auth/Password-Reset-Password-Page';
-import Recipes from './components/Recipes';
-import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
+import Auth from './components/auth/Auth'
+import Header from './components/Header';
 import Footer from './components/Footer';
 
-
-
-function App() {
+export default function App() {
 	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
-	//new password route may need "setToken={setToken}" however it currently does issue a token, so I wasn't sure at the moment
+	const [userInfo, setUserInfo] = useState({});
+
+	async function getUserInfo() {
+		const response = await fetch("http://localhost:3000/user", {
+			method: "GET",
+			headers: { "Content-type": "application/json", authorization: token }
+		});
+		const body = await response.json();
+		setUserInfo(body.userInfo);
+	}
+	if(token && Object.keys(userInfo).length === 0) {
+		getUserInfo();
+	}
+	
 	return (
 		<>
 			{token ? (
@@ -30,38 +34,9 @@ function App() {
 				</>
 			) : (
 				<>
-					<Auth path='/user/login' setToken={setToken} />
-				</>
-			)}
-			{/* <Routes>
-			{token ? (
-				<Layout />
-			) : (
-				<>
 					<Auth setToken={setToken} />
 				</>
 			)}
-			{/* <Routes>
-				<Route
-				path="/user/login"
-				element={<Auth setToken={setToken} />} //pass update component as props
-				/>
-				<Route path="/signup" element={<AdminSignUp />}/>
-				<Route path="/layout" element={<Layout />}/>
-				<Route path="/adduser" element={<EmpCreation />}/>
-				<Route path="/flashcards" element={<Flashcards />} />
-				<Route 
-					path="/quiz/:quizParam" 
-					loader={quizLoader}
-					element={<Quiz />} 
-				/>
-				<Route path="/adduser" element={<EmpCreation />}/>
-				<Route path="/email" element={<Email />}/>
-		<Route path="/newPassword/:_id" element={<Password />}/>
-		<Route path="/recipes" element={<Recipes />}/>
-			</Routes> */}
 		</>
 	)
 }
-
-export default App
