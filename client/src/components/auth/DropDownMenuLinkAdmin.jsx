@@ -17,22 +17,22 @@ export default function DropDownMenuLinkAdmin() {
         
         if (response.status === 200) {
             // console.log(body.userInfo.role)
-            return await body
+            const promiseReturn = await body
+            console.log(promiseReturn.userInfo.role)
+            const userRole = promiseReturn.userInfo.role
+            return userRole
         } else {
             console.log(body.message);
         }
-    }
-        
-    let user = getUser();
-    // console.log(user.then((promiseData) => promiseData))
-    let userRole = user.then((promiseData) => promiseData.userInfo.role)
-    console.log(userRole);
-    
     if (userRole === "Admin") {
         console.log(true)
     } else {
         console.log(false)
     }
+    }
+    
+    getUser();
+    
     
   return (
     <>
