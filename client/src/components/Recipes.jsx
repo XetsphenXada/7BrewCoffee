@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
-import Header from "./Header";
 
 function Recipes() {
   const [name, setName] = useState("");
@@ -40,7 +38,6 @@ function Recipes() {
       onSubmit={newRecipe}
       className="flex flex-col items-center"
     >
-      <Header></Header>
       <label className="flex form-control items-center justify-center">
         <span>Please enter name of new recipe</span>
         <input
@@ -67,7 +64,6 @@ function Recipes() {
           Submit
         </button>
       </label>
-      <Footer></Footer>
     </form>
   );
 }

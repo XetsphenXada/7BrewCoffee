@@ -7,11 +7,11 @@ const testResultSchema = new Schema({
     },
     date: {
         type: "Date",
-        default: Date.now(),
+        default: Date.now,
         required: true
     },
-    testName: {
-        type: "String",
+    quiz: {
+        type: "Object",
         required: true
     },
     numCorrect: {

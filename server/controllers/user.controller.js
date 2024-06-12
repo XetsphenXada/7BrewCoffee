@@ -195,6 +195,10 @@ router.post("/forgotPassword", async (request, response) => {
               console.log(error);
             } else {
               console.log("Server is ready to take our messages");
+              response.status(200).send({
+                message: "Recovery email sent succesfully"
+
+            });
             }
           });
         } else {

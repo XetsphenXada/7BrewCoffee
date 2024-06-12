@@ -1,47 +1,27 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate } from 'react-router-dom'
+import { Link, useLoaderData, useNavigate, useOutletContext } from 'react-router-dom'
 
 export async function quizLoader({ params }) {
-    const quizResponse = await fetch(`http://localhost:3000/quiz/${params.quizParam.toLowerCase()}`);
-    const userResponse = await fetch("http://localhost:3000/user", {
-        method: "GET",
-        headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
-    });
+    const response = await fetch(`http://localhost:3000/quiz/test/${params.quizParam.toLowerCase()}`);
     
-    if(quizResponse.status === 200 && userResponse.status === 200) {
-        const quiz = await quizResponse.json();
-        const user = await userResponse.json();
-        return { 
-            quiz,
-            user,
-            error: false
-         };
-    }
-    else {
-        const quiz = await quizResponse.text();
-        const user = await userResponse.text();
-        return { 
-            quiz,
-            user,
-            error: true
-         };
-    }
+    const quiz = await response.json();
+    return { quiz };
 }
 
 export default function Quiz() {
     // retrieve selected quiz data on load
-    const { quiz, user, error } = useLoaderData();
-    if(error) {
-        return <div>{quiz}{user}</div>
-    }
+    const { quiz } = useLoaderData();
+    const { userInfo } = useOutletContext();
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
     const navigate = useNavigate();
 
     async function submitQuiz(event) {
         event.preventDefault();
+
         // only allow submit if all questions are answered
         if(quiz.length !== selectedAnswers.length) {
+            // add pop up that says must answer all questions
             console.log("all questions must be answered")
             return;
         }
@@ -70,37 +50,89 @@ export default function Quiz() {
 
         // calculate score 
         const score = (numCorrect / quiz.length) * 100;
-        const testResults = {
-            user: {
-                firstName: user.userInfo.firstName,
-                lastName: user.userInfo.lastName,
-                email: user.userInfo.email,
-                userId: user.userInfo.userId
-            },
-            testName: quiz[0].quizName,
-            numCorrect,
-            numIncorrect,
-            questions: uploadQuestions,
-            score
-        }
-
-        // send quiz results to database
-        const response = await fetch("http://localhost:3000/quiz", {
-            method: "POST",
-            headers: { 
-                "Content-type": "application/json", 
-                authorization: localStorage.getItem("jwt-token") 
-            },
-            body: JSON.stringify(testResults)
+        
+        // get user's test results from database
+        const response = await fetch("http://localhost:3000/quiz/results", {
+            method: "GET",
+            headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
         });
+        const testResults = await response.json();
+        const sameTestResult = testResults.find((test) => test.quizParam === quiz[0].quizParam);
+        
+        // check if already taken quiz
+        if(sameTestResult) {
+            // replace with new score if higher score 
+            if(score > sameTestResult.score) {
+                const results = {score, numCorrect, numIncorrect, questions: uploadQuestions};
+                console.log(results)
 
-        if(!response.ok) {
-            console.error("Failed to upload test results to database");
-            return;
+                // send updated quiz results to database
+                const response = await fetch(`http://localhost:3000/quiz/${sameTestResult.resultId}`, {
+                    method: "POST",
+                    headers: { 
+                        "Content-type": "application/json", 
+                        authorization: localStorage.getItem("jwt-token") 
+                    },
+                    body: JSON.stringify(results)
+                });
+
+                if(!response.ok) {
+                    console.log(response)
+                    console.error("Failed to upload test results to database");
+                    return;
+                }
+            }
         }
+        else {
+            const results = {
+                user: {
+                    firstName: userInfo.firstName,
+                    lastName: userInfo.lastName,
+                    email: userInfo.email,
+                    userId: userInfo.userId
+                },
+                quiz: {
+                    quizName: quiz[0].quizName,
+                    quizParam: quiz[0].quizParam
+                },
+                numCorrect,
+                numIncorrect,
+                questions: uploadQuestions,
+                score
+            }
+
+            // send quiz results to database
+            const response = await fetch("http://localhost:3000/quiz", {
+                method: "POST",
+                headers: { 
+                    "Content-type": "application/json", 
+                    authorization: localStorage.getItem("jwt-token") 
+                },
+                body: JSON.stringify(results)
+            });
+            const body = await response.json();
+
+            if(!response.ok) {
+                console.error(body.message);
+                return;
+            }
+        }
+
         // send user back to quiz list page
         navigate("/quiz");
     }
+
+    async function getTestResults() {
+        // get user's test results from database
+        const response = await fetch("http://localhost:3000/quiz/list/results", {
+            method: "GET",
+            headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
+        });
+        const testResults = await response.json();
+        console.log(testResults.find((test) => test.quizParam === quiz[0].quizParam))
+        return testResults;
+    }
+
 
     function gatherCheckboxAnswers(event, singleQuestion) {
         const question = singleQuestion.question;
@@ -174,12 +206,12 @@ export default function Quiz() {
 
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="text-5xl mb-7">{quiz[0].quizName}</div>
+            <div className="text-5xl m-7">{quiz[0].quizName}</div>
             <form onSubmit={submitQuiz}>
-                <div>
+                <div className="m-5">
                     {quiz.map((singleQuestion, i) => (
                         <div key={i}>
-                            <div className="text-2xl">{singleQuestion.question}</div>
+                            <div className="text-2xl mt-4">{singleQuestion.question}</div>
                             {singleQuestion.questionType === "selectAll" ? (
                                 <>
                                     {Object.keys(singleQuestion.answerChoices).map((choice, j) => (
