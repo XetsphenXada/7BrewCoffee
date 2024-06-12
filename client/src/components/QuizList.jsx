@@ -28,23 +28,33 @@ export async function quizListLoader() {
 
 export default function QuizList() {
     const { quizList } = useLoaderData();
-    const { userInfo } = useOutletContext();
+
+    const totalPossibleScore = quizList.length * 100;
+    let userTotalScore = 0;
+    quizList.forEach((quiz) => {
+        if(quiz.score) {
+            userTotalScore += quiz.score;
+        }
+    });
+    const radialProgressAmount = Math.round((userTotalScore/totalPossibleScore) * 100);
 
     async function findUserTestData(event) {
         event.preventDefault();
-        console.log(userInfo)
         console.log(quizList)
+        console.log(totalPossibleScore)
+        console.log(userTotalScore)
+        console.log(radialProgressAmount)
     }
 
-
-
-    // use testResult
-    // if isPassing doesn't exist, display nothing next to test name
-    // if isPassing is false, display red X for failure
-    // if isPassing is true, display green check for passing
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="text-5xl mb-7">Quizzes</div>
+            <div className="flex w-8/12 justify-around">
+                <div className="text-5xl mb-7">Quizzes</div>
+                <div className="flex gap-3">
+                    <h2>Total Progress:</h2>
+                    <div className="radial-progress text-primary" style={{"--value": radialProgressAmount, "--size": "12rem", "--thickness": "1rem"}} role="progressbar">{radialProgressAmount}%</div>
+                </div>
+            </div>
             <button className="btn bg-primary" onClick={findUserTestData}>Test</button>
             <ul className="menu flex flex-col bg-base-200 w-3/5 rounded-box items-center">
                 {quizList.map((quiz, i) => (
@@ -87,23 +97,3 @@ export default function QuizList() {
         </div>
     )
 }
-
-            // green perfect score checkmark
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="green" className="size-10">
-            //     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            // </svg>
-
-            // yellow passing score checkmark
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="darkorange" className="size-10">
-            //     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            // </svg>
-
-            // red failing score x
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="red" className="size-10">
-            //     <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            // </svg>
-
-            // line for not yet taken
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="size-10">
-            //     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-            // </svg>
