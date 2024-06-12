@@ -40,10 +40,6 @@ const employeeRouter = createBrowserRouter([
 				element: <Email />
 			},
 			{
-				path: "/user/login",
-				element: <Auth />
-			},
-			{
 				path: "/newPassword/:_id",
 				element: <Password />
 			},
