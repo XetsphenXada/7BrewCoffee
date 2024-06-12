@@ -19,13 +19,15 @@ module.exports = {
       ...require("daisyui/src/theming/themes")["light"],
       "primary": "#8a2432", //7Brew Maroon
       "secondary": "231F20", //7Brew Black
-      "accent": "white"
+      "accent": "white",
+      "neutral": "black"
     },
     dark: {
       ...require("daisyui/src/theming/themes")["dark"],
       "primary":  "#8a2432", //7Brew Maroon
       "secondary": "#8a2432", //7Brew Maroon
-      "accent": "black"
+      "accent": "black",
+      "neutral": "white"
     },
   },
 ],
