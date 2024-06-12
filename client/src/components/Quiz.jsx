@@ -206,13 +206,12 @@ export default function Quiz() {
 
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="text-5xl mb-7">{quiz[0].quizName}</div>
-            <button className="btn bg-primary" onClick={getTestResults}>Test</button>
+            <div className="text-5xl m-7">{quiz[0].quizName}</div>
             <form onSubmit={submitQuiz}>
-                <div>
+                <div className="m-5">
                     {quiz.map((singleQuestion, i) => (
                         <div key={i}>
-                            <div className="text-2xl">{singleQuestion.question}</div>
+                            <div className="text-2xl mt-4">{singleQuestion.question}</div>
                             {singleQuestion.questionType === "selectAll" ? (
                                 <>
                                     {Object.keys(singleQuestion.answerChoices).map((choice, j) => (

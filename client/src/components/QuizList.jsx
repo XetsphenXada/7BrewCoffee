@@ -29,6 +29,7 @@ export async function quizListLoader() {
 export default function QuizList() {
     const { quizList } = useLoaderData();
 
+    // set values for radial progress bar
     const totalPossibleScore = quizList.length * 100;
     let userTotalScore = 0;
     quizList.forEach((quiz) => {
@@ -36,31 +37,22 @@ export default function QuizList() {
             userTotalScore += quiz.score;
         }
     });
-    const radialProgressAmount = Math.round((userTotalScore/totalPossibleScore) * 100);
-
-    async function findUserTestData(event) {
-        event.preventDefault();
-        console.log(quizList)
-        console.log(totalPossibleScore)
-        console.log(userTotalScore)
-        console.log(radialProgressAmount)
-    }
+    const radialProgressAmount = Math.trunc((userTotalScore/totalPossibleScore) * 100);
 
     return (
         <div className="flex flex-col items-center m-5">
-            <div className="flex w-8/12 justify-around">
-                <div className="text-5xl mb-7">Quizzes</div>
-                <div className="flex gap-3">
-                    <h2>Total Progress:</h2>
-                    <div className="radial-progress text-primary" style={{"--value": radialProgressAmount, "--size": "12rem", "--thickness": "1rem"}} role="progressbar">{radialProgressAmount}%</div>
+            <div className="flex w-8/12 justify-around items-center">
+                <div className="text-6xl mb-7">Quizzes</div>
+                <div className="flex gap-3 items-center">
+                    <div className="text-xl">Total Progress:</div>
+                    <div className="radial-progress text-primary text-2xl m-4" style={{"--value": radialProgressAmount, "--size": "12rem", "--thickness": "1rem"}} role="progressbar">{radialProgressAmount}%</div>
                 </div>
             </div>
-            <button className="btn bg-primary" onClick={findUserTestData}>Test</button>
             <ul className="menu flex flex-col bg-base-200 w-3/5 rounded-box items-center">
                 {quizList.map((quiz, i) => (
                     <div key={i} className="m-4 w-11/12 h-full flex justify-between">
                         <Link to={`${quiz.quizParam}`} className="p-2 text-2xl rounded-lg hover:bg-neutral-300">{quiz.quizName}</Link>
-                        <div className="w-1/5 flex justify-between">
+                        <div className="w-1/5 flex justify-between items-center">
                             {quiz.score ? (
                                 <>
                                     <div>{quiz.score}%</div>
@@ -85,7 +77,7 @@ export default function QuizList() {
                             ) : (
                                 <>
                                     <div>-%</div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="size-10">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                                     </svg>
                                 </>
