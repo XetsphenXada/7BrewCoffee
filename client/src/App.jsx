@@ -3,8 +3,6 @@ import Auth from './components/auth/Auth'
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
-import LogIn from './components/auth/Login';
-
 
 
 
@@ -17,9 +15,11 @@ function App() {
 			{token ? (
 				<>
 					<div className='flex flex-col h-screen overflow-y-auto'>
-					<Header />
-					<Outlet />
-					<Footer />
+						<Header />
+						<div className='flex flex-col overflow-y-auto'>
+						<Outlet />
+						</div>
+						<Footer />
 					</div>
 				</>
 			) : (

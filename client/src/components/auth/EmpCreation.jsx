@@ -48,7 +48,7 @@ export default function EmpCreation() {
     
     
     return (
-        <div className='flex justify-center mt-20'>
+        <div className='flex justify-center'>
         <form onSubmit={employeeCreation} className="prose flex flex-col card border-2 border-black shadow-2xl p-6">
             <div className='flex justify-center'>
             <h1 className='text-primary'>Add Employee</h1>
