@@ -13,6 +13,7 @@ import Password from './components/auth/Password-Reset-Password-Page.jsx'
 import Auth from './components/auth/Auth.jsx'
 import ViewAllUsers from './components/auth/ViewAllUsers.jsx'
 import EditProileCard from './components/auth/EditProfileCard.jsx'
+import Recipes from './components/Recipes.jsx'
 
 // router for when regular employee is logged in
 const employeeRouter = createBrowserRouter([
@@ -61,6 +62,10 @@ const employeeRouter = createBrowserRouter([
 			{
 				path: "/edit",
 				element: <EditProileCard />
+			},
+			{
+				path: "/recipes",
+				element: <Recipes />
 			}
 		]
 	}
