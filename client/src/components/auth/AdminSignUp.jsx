@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { hash } from "bcryptjs";
 
-//! prop for setToken needs to be changed to token when this gets put on the page
 export default function AdminSignUp() {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
@@ -18,7 +17,7 @@ export default function AdminSignUp() {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/signup", {
+                const response = await fetch("http://localhost:3000/addAdmin", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -35,10 +34,10 @@ export default function AdminSignUp() {
                     })
                 })
                 console.log(response);
-                //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
+                
                 const body = await response.json();
                 if (response.status === 200) {
-                    console.log(body.token);
+                    console.log("Admin has been created");
                 } else {
                     console.log(body.message);
                 }
@@ -47,28 +46,32 @@ export default function AdminSignUp() {
     }
     
     return (
-        <div className='flex justify-center h-screen items-center'>
-        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col items-center justify-center border-2 border-black w-1/4 p-6 bg-white">
+        <div className='flex justify-center  overflow-y-auto  h-1/8'>
+        <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col card border-2 border-secondary shadow-2xl p-6 overflow-y-auto">
+            <div className='flex justify-center'>
             <h1 className='text-primary'>Add Manager</h1>
+            </div>
             <label>
                 <div className='text-black'>Email:</div>
-                <input className='border-2 border-secondary' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
             </label>
+            <div className='flex gap-1'>
             <label>
                 <div className='text-black'>First Name:</div>
                 <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Middle Name:</div>
-                <input className='border-2 border-secondary' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
+                <input className='border-2 border-secondary w-11/12' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Last Name:</div>
                 <input className='border-2 border-secondary' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
             </label>
+            </div>
             <label>
                 <div className='text-black'>Store Location:</div>
-                <input className='border-2 border-secondary' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
@@ -81,7 +84,7 @@ export default function AdminSignUp() {
             </label>
             <label>
                 <div className='text-black'>Password:</div>
-                <input className='border-2 border-secondary' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>

@@ -17,7 +17,7 @@ export default function EmpCreation() {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/adduser", {
+                const response = await fetch("http://localhost:3000/addEmployee", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -48,28 +48,32 @@ export default function EmpCreation() {
     
     
     return (
-        <div className='flex justify-center h-screen items-center'>
-        <form onSubmit={employeeCreation} className="prose flex flex-col items-center justify-center border-2 border-black w-1/4 p-6 bg-white">
+        <div className='flex justify-center'>
+        <form onSubmit={employeeCreation} className="prose flex flex-col card border-2 border-black shadow-2xl p-6">
+            <div className='flex justify-center'>
             <h1 className='text-primary'>Add Employee</h1>
+            </div>
             <label>
                 <div className='text-black'>Email:</div>
-                <input className='border-2 border-secondary' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
             </label>
+            <div className='flex gap-1'>
             <label>
                 <div className='text-black'>First Name:</div>
                 <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Middle Name:</div>
-                <input className='border-2 border-secondary' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
+                <input className='border-2 border-secondary  w-11/12' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-black'>Last Name:</div>
                 <input className='border-2 border-secondary' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
             </label>
+            </div>
             <label>
                 <div className='text-black'>Store Location:</div>
-                <input className='border-2 border-secondary' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
             </label>
             <label>
                 <div className='text-left text-black'>Role:</div>
@@ -81,7 +85,7 @@ export default function EmpCreation() {
             </label>
             <label>
                 <div className='text-black'>Password:</div>
-                <input className='border-2 border-secondary' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>

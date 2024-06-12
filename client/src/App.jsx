@@ -24,9 +24,13 @@ export default function App() {
 		<>
 			{token ? (
 				<>
-					<Header />
-					<Outlet context={{ userInfo }} />
-					<Footer />
+					<div className='flex flex-col h-screen overflow-y-auto'>
+						<Header />
+						<div className='flex flex-col overflow-y-auto'>
+						<Outlet />
+						</div>
+						<Footer />
+					</div>
 				</>
 			) : (
 				<>

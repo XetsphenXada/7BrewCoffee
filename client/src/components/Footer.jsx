@@ -2,7 +2,7 @@ import roundlogo from '../images/sevenBrew_Secondary.png'
 
 function Footer() {
     return (
-		<div className="flex bg-secondary sticky bottom-0 md:w-screen">
+		<div className="flex bg-secondary fixed absolute z-10 bottom-0 md:w-screen">
 			<figure className="flex size-1/3 m-2 md:size-28"><img src={roundlogo} alt="7 Brew Logo"/></figure>
 			<div className="flex card-body">
 				<h2 className="card-title flex justify-end text-accent">info@7Brew.com</h2>

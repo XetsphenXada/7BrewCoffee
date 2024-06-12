@@ -6,9 +6,10 @@ export default function LogOut() {
   return (
     <Link 
     to="/user/login" 
-    className='btn btn-secondary mx-8 border-x-[16px]'
+    className='btn bg-neutral text-accent hover:bg-primary hover:text-accent rounded-xl mx-8'
     onClick={() => {
         localStorage.removeItem("jwt-token")
+        location.reload()
     }}
     >
         Log Out

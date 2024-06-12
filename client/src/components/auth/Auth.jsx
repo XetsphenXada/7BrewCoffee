@@ -1,12 +1,14 @@
+import { useState } from "react";
 import LogIn from "./Login"
 
 
 //adding signup and login routes to auth component
-function Auth({setToken}) {
+function Auth() {
+  const [token, setToken] = useState(localStorage.getItem("jwt-token"));
     return (
       <div>
-
-        <LogIn setToken={setToken}/>
+        
+        <LogIn path='/user/login' setToken={setToken}/>
 
       </div>
     )
