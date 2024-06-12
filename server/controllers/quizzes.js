@@ -67,7 +67,7 @@ router.post("/quiz/:quizResultId", validationMiddleware, async (request, respons
             });
             quizToEdit.save();
             response.send({
-                message: "Quiz results successfully updated to database."
+                message: "Quiz results successfully updated in database."
             });
         }
         catch(err) {

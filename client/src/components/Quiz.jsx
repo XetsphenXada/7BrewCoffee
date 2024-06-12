@@ -21,6 +21,7 @@ export default function Quiz() {
 
         // only allow submit if all questions are answered
         if(quiz.length !== selectedAnswers.length) {
+            // add pop up that says must answer all questions
             console.log("all questions must be answered")
             return;
         }
@@ -60,7 +61,6 @@ export default function Quiz() {
         
         // check if already taken quiz
         if(sameTestResult) {
-            console.log("quiz already taken")
             // replace with new score if higher score 
             if(score > sameTestResult.score) {
                 const results = {score, numCorrect, numIncorrect, questions: uploadQuestions};
