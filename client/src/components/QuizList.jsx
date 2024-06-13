@@ -48,9 +48,9 @@ export default function QuizList() {
                     <div className="radial-progress text-primary text-2xl m-4" style={{"--value": radialProgressAmount, "--size": "12rem", "--thickness": "1rem"}} role="progressbar">{radialProgressAmount}%</div>
                 </div>
             </div>
-            <ul className="menu flex flex-col bg-base-200 w-3/5 rounded-box items-center">
+            <ul className="menu flex flex-col bg-base-200 w-3/5 h-full rounded-box items-center">
                 {quizList.map((quiz, i) => (
-                    <div key={i} className="m-4 w-11/12 h-full flex justify-between">
+                    <div key={i} className="m-4 w-11/12 flex justify-between overflow-visible">
                         <Link to={`${quiz.quizParam}`} className="p-2 text-2xl rounded-lg hover:bg-neutral-300">{quiz.quizName}</Link>
                         <div className="w-1/5 flex justify-between items-center">
                             {quiz.score ? (

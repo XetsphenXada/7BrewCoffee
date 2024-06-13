@@ -16,7 +16,7 @@ import EditProileCard from './components/auth/EditProfileCard.jsx'
 import Recipes from './components/Recipes.jsx'
 
 // router for when regular employee is logged in
-const employeeRouter = createBrowserRouter([
+const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
@@ -67,24 +67,10 @@ const employeeRouter = createBrowserRouter([
 	}
 ]);
 
-// router for when manager/admin is logged in
-const adminRouter = createBrowserRouter([
-	{
-		path: "/",
-		element: <App />,
-		children: [
-			{
-				path: "/flashcards",
-				element: <Flashcards />
-			}
-		]
-	}
-]);
-
 ReactDOM.createRoot(document.getElementById('root')).render(
 
 	<React.StrictMode>
-		<RouterProvider router={employeeRouter}/>
+		<RouterProvider router={router}/>
 	</React.StrictMode>,
 
 )

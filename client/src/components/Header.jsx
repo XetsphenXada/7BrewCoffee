@@ -3,11 +3,13 @@ import roundlogo from "../images/sevenBrew_Secondary.png";
 import LogOut from "./auth/LogOut";
 import DropDownMenuLinkAdmin from "./auth/DropDownMenuLinkAdmin";
 import DropDownMenuLinkUser from "./auth/DropDownMenuLinkUser";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+
 
   const handleToggle = (e) => {
     if (e.target.checked) {
@@ -24,7 +26,7 @@ function Header() {
   }, [theme]);
   
   return (
-    <div className="flex justify-between bg-primary sticky absolute z-10 top-0  max-w-full md:w-screen">
+    <div className="flex justify-between bg-primary sticky z-10 top-0  max-w-full md:w-screen">
       <figure className="flex size-0 m-1 md:size-28">
         <img src={roundlogo} alt="7 Brew Logo" />
       </figure>
@@ -88,15 +90,9 @@ function Header() {
           </div>
         </div>
         <div className=" navbar text-accent flex justify-evenly md:justify-space-between">
-          <div className="btn hover:bg-neutral hover:text-accent m-1">
-            <a href="http://localhost:5173/quiz">Daily News</a>
-          </div>
-          <div className="btn hover:bg-neutral hover:text-accent m-1">
-            <a href="http://localhost:5173/quiz">Study</a>
-          </div>
-          <div className="btn hover:bg-neutral hover:text-accent m-1">
-            <a href="http://localhost:5173/quiz">Testing</a>
-          </div>
+          <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/"}>Daily News</NavLink>
+          <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/flashcards"} end>Study</NavLink>
+          <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/quiz"} end>Testing</NavLink>
         </div>
       </div>
     </div>
