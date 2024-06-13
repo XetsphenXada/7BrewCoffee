@@ -17,16 +17,16 @@ export default function EditUserButton({ list }) {
     for (let [key, value] of data.entries())
       {
         if (value.trim() !== ''){
-          dataObj[key] = value
+          dataObj[key] = value.trim().toLowerCase();
         };
       }
     
     //variable to check to see if the email stored in the dataObj is a valid email address
-    var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var email = dataObj.email
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let email = dataObj.email
     
     //fetch request for our edit endpoint
-    //only fetches if the email is 'undefined' (in the case of no email field being edited)
+    //fetches if the email is 'undefined' (in the case of no email field being edited)
     if (email === undefined) {
       const response = await fetch(`http://localhost:3000/allusers/${list._id}`, {
         method: "PUT",

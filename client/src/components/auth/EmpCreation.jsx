@@ -43,6 +43,8 @@ export default function EmpCreation() {
                 }
             }
         })
+        //refresh the page after submission
+        location.reload();
         }
         
     
@@ -55,7 +57,7 @@ export default function EmpCreation() {
             </div>
             <label>
                 <div className='text-black'>Email:</div>
-                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value.trim().toLowerCase())}></input>
             </label>
             <div className='flex gap-1'>
             <label>

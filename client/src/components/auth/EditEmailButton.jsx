@@ -14,7 +14,7 @@ export default function EditEmailButton({ user }) {
         // preventing them from being entered into the object being used for the body in our fetch request
         for (let [key, value] of data.entries()) {
           if (value.trim() !== "") {
-            dataObj[key] = value;
+            dataObj[key] = value.trim().toLowerCase();
           }
         }
         
