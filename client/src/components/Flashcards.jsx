@@ -176,12 +176,16 @@ export default function Flashcards() {
                                 <input type="checkbox" title={card.cardNumber} onClick={swapClick} />
                                 <div className="card w-96 h-72 shadow-md bg-primary text-primary-content flex-col justify-center swap-off">
                                     <div className="card-body flex-col justify-center">
-                                        <h2 className="w-full h-full card-title justify-center">{card.question}</h2>
+                                        <div className="w-full h-full card-title justify-center">{card.question}</div>
                                     </div>
                                 </div> 
                                 <div className="card w-96 h-72 shadow-md bg-primary text-primary-content flex-col justify-center swap-on">
-                                    <div className="card-body flex-col justify-center">
-                                        <h2 className="w-full h-full card-title justify-center">{card.answer}</h2>
+                                    <div className="card-body flex-col max-h-full justify-center">
+                                        {card.answer.length < 238 ? (
+                                            <div className="w-full h-full card-title justify-center">{card.answer}</div>
+                                        ) : (
+                                            <div className="w-full h-full card-title justify-center text-base">{card.answer}</div>
+                                        )}
                                     </div>
                                 </div>
                             </label>
