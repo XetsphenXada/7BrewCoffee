@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function DropDownMenuLinkAdmin() {
     const [user, setUser] = useState([]);
-    //TODO: Add conditional rendering so that non admin level users will not see this return
-    
+
     //useEffect to fetch our current user from our database
     useEffect(() => {
         const fetchResults = async () => {
