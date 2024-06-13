@@ -37,35 +37,34 @@ export default function LogIn({ setToken }) {
   //login page render
   return (
     <div>
-    <form
-      onSubmit={submitLogIn}
-      className="flex flex-col items-center justify-center"
-    >
-      <h1 className="text-4xl m-3">Log In</h1>
-      <label className="form-control w-full max-w-xs">
-        <span className="text-3xl m-4">Email:</span>
-        <input
-          type="text"
-          placeholder="Email"
-          className=" input input-bordered w-full max-w-xs text-3xl"
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-      </label>
-      <label className="form-control w-full max-w-xs">
-        <span className="text-3xl m-4">Password:</span>
-        <input
-          placeholder="Password"
-          type="password"
-          className=" input input-bordered w-full max-w-xs"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </label>
-      <button className="btn btn-secondary text-white text-2xl m-4"><a href="http://localhost:5173/email">Forgot your password?</a></button>
-      <button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
-        Submit
-      </button>
-    </form>
-    <Footer />
+		<form
+			onSubmit={submitLogIn}
+			className="flex flex-col items-center justify-center"
+		>
+			<h1 className="text-4xl m-3">Log In</h1>
+			<label className="form-control w-full max-w-xs">
+			<span className="text-3xl m-4">Email:</span>
+			<input
+				type="text"
+				placeholder="Email"
+				className=" input input-bordered w-full max-w-xs text-3xl"
+				onChange={(e) => setEmail(e.target.value)}
+			></input>
+			</label>
+			<label className="form-control w-full max-w-xs">
+			<span className="text-3xl m-4">Password:</span>
+			<input
+				placeholder="Password"
+				type="password"
+				className=" input input-bordered w-full max-w-xs"
+				onChange={(e) => setPassword(e.target.value)}
+			></input>
+			</label>
+			<button className="btn btn-secondary text-white text-2xl m-4"><a href="http://localhost:5173/email">Forgot your password?</a></button>
+			<button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
+			Submit
+			</button>
+		</form>
     </div>
   );
 }

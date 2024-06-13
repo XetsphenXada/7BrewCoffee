@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function LogOut() {
     
   return (
-    <Link 
-    to="/user/login" 
+    <NavLink 
+    to="/" 
     className='btn bg-neutral text-accent hover:bg-primary hover:text-accent rounded-xl mx-8'
     onClick={() => {
         localStorage.removeItem("jwt-token")
@@ -13,6 +13,6 @@ export default function LogOut() {
     }}
     >
         Log Out
-    </Link>
+    </NavLink>
   )
 }
