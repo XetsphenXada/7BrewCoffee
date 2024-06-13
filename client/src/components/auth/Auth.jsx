@@ -1,5 +1,7 @@
 import { useState } from "react";
 import LogIn from "./Login"
+// import Email from "./Password-Reset-Email-Page";
+// import Password from "./Password-Reset-Password-Page";
 
 
 //adding signup and login routes to auth component
@@ -8,7 +10,9 @@ function Auth() {
     return (
       <div>
         
-        <LogIn path='/user/login' setToken={setToken}/>
+        <LogIn path='/' setToken={setToken} />
+        {/* <Email path='/email' />
+        <Password path='/newPassword/:_id' /> */}
 
       </div>
     )

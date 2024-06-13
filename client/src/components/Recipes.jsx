@@ -26,7 +26,7 @@ function Recipes() {
     if (response.status === 200) {
       console.log(body);
 
-      navigate("/login");
+      navigate("/");
       
     } else {
       console.log(body.response);
@@ -54,12 +54,18 @@ function Recipes() {
           onChange={(e) => setIngredients(e.target.value)}
         ></input>
         <span>Please enter directions for preparing new recipe</span>
-        <input
+        {/* <input
           type="text"
-          className=" textarea textarea-bordered text-wrap break-normal h-40 w-full max-w-xs text-xl"
+          className=" textarea textarea-bordered text-3xl"
           placeholder="Directions"
           onChange={(e) => setDirections(e.target.value)}
-        ></input>
+        ></input> */}
+        <textarea
+          type="text"
+          className=" textarea textarea-bordered w-full max-w-xs text-3xl"
+          placeholder="Directions"
+          onChange={(e) => setDirections(e.target.value)}
+        ></textarea>
         <button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
           Submit
         </button>

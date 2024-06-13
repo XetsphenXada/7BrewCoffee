@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Auth from './components/auth/Auth'
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Email from './components/auth/Password-Reset-Email-Page';
 
 export default function App() {
 	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
