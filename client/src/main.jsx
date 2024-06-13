@@ -18,7 +18,7 @@ import DisplayRecipes from './components/Display-Recipes.jsx'
 import PasswordReset from './components/auth/Password- Reset-Rendering.jsx'
 
 // router for when regular employee is logged in
-const employeeRouter = createBrowserRouter([
+const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
@@ -87,41 +87,10 @@ const employeeRouter = createBrowserRouter([
 	}
 ]);
 
-// router for when manager/admin is logged in
-const adminRouter = createBrowserRouter([
-	{
-		path: "/",
-		element: <App />,
-		children: [
-			{
-				path: "/flashcards",
-				element: <Flashcards />
-			}
-		]
-	}
-]);
-
-// const passwordResetRouter = createBrowserRouter([
-// 	{
-// 		path:"/",
-// 		element: <PasswordReset />,
-// 		children: [
-// 			{
-// 				path: "/email",
-// 				element: <Email />
-// 			},
-// 			{
-// 				path: "/newPassword/:_id",
-// 				element: <Password />
-// 			}
-// 		]
-// 	}
-// ])
-
 ReactDOM.createRoot(document.getElementById('root')).render(
 
 	<React.StrictMode>
-		<RouterProvider router={employeeRouter}/>
-	</React.StrictMode>
+		<RouterProvider router={router}/>
+	</React.StrictMode>,
 
 )

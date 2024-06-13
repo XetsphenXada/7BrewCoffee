@@ -27,8 +27,8 @@ export default function App() {
 				<>
 					<div className='flex flex-col h-screen overflow-y-auto'>
 						<Header />
-						<div className='flex flex-col overflow-y-auto'>
-						<Outlet />
+						<div className='flex flex-col h-full overflow-y-auto'>
+							<Outlet context={{userInfo}} />
 						</div>
 						<Footer />
 					</div>

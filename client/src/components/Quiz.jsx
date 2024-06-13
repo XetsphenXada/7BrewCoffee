@@ -122,18 +122,6 @@ export default function Quiz() {
         navigate("/quiz");
     }
 
-    async function getTestResults() {
-        // get user's test results from database
-        const response = await fetch("http://localhost:3000/quiz/list/results", {
-            method: "GET",
-            headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
-        });
-        const testResults = await response.json();
-        console.log(testResults.find((test) => test.quizParam === quiz[0].quizParam))
-        return testResults;
-    }
-
-
     function gatherCheckboxAnswers(event, singleQuestion) {
         const question = singleQuestion.question;
         const correctAnswer = singleQuestion.answer;
