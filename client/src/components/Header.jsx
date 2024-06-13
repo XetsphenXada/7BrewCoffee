@@ -24,7 +24,7 @@ function Header() {
   }, [theme]);
   
   return (
-    <div className="flex justify-between bg-primary sticky absolute z-10 top-0  max-w-full md:w-screen">
+    <div className="flex justify-between bg-primary sticky z-10 top-0  max-w-full md:w-screen">
       <figure className="flex size-0 m-1 md:size-28">
         <img src={roundlogo} alt="7 Brew Logo" />
       </figure>
