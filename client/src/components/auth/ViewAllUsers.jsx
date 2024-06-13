@@ -30,7 +30,7 @@ export default function ViewAllUsers() {
     
   return (
     <>
-      <div className='flex flex-col justify-center items-center overflow-y-auto h-3/4'>
+      <div className='flex flex-col justify-center items-center overflow-y-auto h-full mb-40'>
         <div className='text-6xl font-bold text-primary mb-[12px]'>
           All Employees
         </div>

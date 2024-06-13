@@ -319,6 +319,19 @@ router.get("/user", validationMiddleware, (request, response) => {
     }
 });
 
+// get user role
+router.get("/user/role", validationMiddleware, async (request, response) => {
+    try {
+        const currentUser = await User.find({
+            _id: request.user._id
+         });
+        response.send(currentUser);
+    } catch (error) {
+        response.status(500).send({
+            message: err.message
+        });
+    }
+})
 
 
 export default router;
