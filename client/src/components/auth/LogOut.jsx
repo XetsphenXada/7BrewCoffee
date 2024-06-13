@@ -9,8 +9,8 @@ export default function LogOut() {
     className='btn bg-neutral text-accent hover:bg-primary hover:text-accent rounded-xl mx-8'
     onClick={() => {
         localStorage.removeItem("jwt-token")
-        location.reload()
     }}
+    reloadDocument
     >
         Log Out
     </NavLink>

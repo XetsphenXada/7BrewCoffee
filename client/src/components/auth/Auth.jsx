@@ -9,7 +9,7 @@ function Auth() {
     return (
         <div className='flex flex-col justify-between h-screen overflow-y-auto'>
           
-          <LogIn path='/user/login' setToken={setToken}/>
+          <LogIn setToken={setToken}/>
           <Footer />
 
         </div>
