@@ -40,7 +40,33 @@ export default function ReactCSV() {
     ];
 
     return (
-        <div className="m-5 self-center">
+        <div className="m-5 self-center flex">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra">
+                    {/* headers */}
+                    <thead>
+                        <tr>
+                            {headers.map((header, i) => (
+                                <th key={i}>{header.label}</th>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {resultsData.map((result, i) => (
+                                <tr key={i}>
+                                    <td>{result.quizName}</td>
+                                    <td>{result.user.firstName}</td>
+                                    <td>{result.user.lastName}</td>
+                                    <td>{result.user.email}</td>
+                                    <td>{result.totalQuestions}</td>
+                                    <td>{result.numCorrect}</td>
+                                    <td>{result.score}</td>
+                                    <td>{result.date}</td>
+                                </tr>
+                            ))}
+                    </tbody>
+                </table>
+            </div>
             <CSVLink
                 data={resultsData}
                 headers={headers}
@@ -48,7 +74,9 @@ export default function ReactCSV() {
                 className="btn btn-primary"
                 target="_blank"
             >
-                Download
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
             </CSVLink>
         </div>
     )
