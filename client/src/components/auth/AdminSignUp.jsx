@@ -10,8 +10,7 @@ export default function AdminSignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    function submitAdminManagerSignup(event) {
-        event.preventDefault();
+    function submitAdminManagerSignup() {
         
         hash(password, 10, async (err, passwordHash) => {
             if (err) {
@@ -43,8 +42,6 @@ export default function AdminSignUp() {
                 }
             }
         })
-        //refresh the page after submission
-        location.reload();
     }
     
     return (

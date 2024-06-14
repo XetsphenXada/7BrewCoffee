@@ -20,13 +20,13 @@ export default function EditUserButton({ list }) {
     // preventing them from being entered into the object being used for the body in our fetch request
     for (let [key, value] of data.entries())
       {
-        console.log(key)
-        console.log(value)
         if (value.trim() !== ''){
+          //add emails to dataObj if they are valid, trim them and send them to lowercase
           if (regexEmail.test(value)) {
             dataObj[key] = value.trim().toLowerCase();
           } else {
-            dataObj[key] = value;
+          //add all other data to dataObj with trimmed white space
+            dataObj[key] = value.trim();
           }
         };
       }
