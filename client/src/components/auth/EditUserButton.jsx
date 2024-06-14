@@ -12,18 +12,24 @@ export default function EditUserButton({ list }) {
     
     //!TODO: If user sends in data that already exists it will still send it to the database (this shouldn't be happen ideally)
     
+    //variable to check to see if the email stored in the dataObj is a valid email address
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let email = dataObj.email
+    
     //This for of loop validates the data being entered into our request.body by checking for empty strings and
     // preventing them from being entered into the object being used for the body in our fetch request
     for (let [key, value] of data.entries())
       {
+        console.log(key)
+        console.log(value)
         if (value.trim() !== ''){
-          dataObj[key] = value.trim().toLowerCase();
+          if (regexEmail.test(value)) {
+            dataObj[key] = value.trim().toLowerCase();
+          } else {
+            dataObj[key] = value;
+          }
         };
       }
-    
-    //variable to check to see if the email stored in the dataObj is a valid email address
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    let email = dataObj.email
     
     //fetch request for our edit endpoint
     //fetches if the email is 'undefined' (in the case of no email field being edited)
