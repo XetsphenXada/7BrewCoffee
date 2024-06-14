@@ -12,7 +12,7 @@ import Email from './components/auth/Password-Reset-Email-Page.jsx'
 import Password from './components/auth/Password-Reset-Password-Page.jsx'
 import Auth from './components/auth/Auth.jsx'
 import ViewAllUsers from './components/auth/ViewAllUsers.jsx'
-import EditProileCard from './components/auth/EditProfileCard.jsx'
+import EditProfileCard from './components/auth/EditProfileCard.jsx'
 import Recipes from './components/Recipes.jsx'
 import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
 
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/edit",
-				element: <EditProileCard />
+				element: <EditProfileCard />
 			},
 			{
 				path: "/recipes",
