@@ -174,7 +174,7 @@ router.post("/forgotPassword", async (request, response) => {
             from: "7brewnoreplytest@gmail.com",
             to: request.body.email,
             subject: "please reset password here:",
-            html: `<p>Click <a href='http://localhost:5173/newPassword/${user._id}'>here</a> to reset your password</p>`
+            html: `<p>Click <a href='http://localhost:5173/user/newPassword/${user._id}'>here</a> to reset your password</p>`
             
           };
         

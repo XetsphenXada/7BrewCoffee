@@ -14,6 +14,8 @@ import Auth from './components/auth/Auth.jsx'
 import ViewAllUsers from './components/auth/ViewAllUsers.jsx'
 import EditProfileCard from './components/auth/EditProfileCard.jsx'
 import Recipes from './components/Recipes.jsx'
+import DisplayRecipes from './components/Display-Recipes.jsx'
+import PasswordReset from './components/auth/Password- Reset-Rendering.jsx'
 import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
 
 // router for when regular employee is logged in
@@ -63,6 +65,24 @@ const router = createBrowserRouter([
 			{
 				path: "/recipes",
 				element: <Recipes />
+			},
+			{
+				path: "/allRecipes",
+				element: <DisplayRecipes />
+			}
+		]
+	},
+	{
+		path: "/user",
+		element: <PasswordReset />,
+		children: [
+			{
+				path: "/user/email",
+				element: <Email />
+			},
+			{
+				path: "/user/newPassword/:_id",
+				element: <Password />
 			},
 			{
 				path: "/testResults",

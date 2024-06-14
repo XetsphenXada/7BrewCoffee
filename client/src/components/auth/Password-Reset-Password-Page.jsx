@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { hash } from "bcryptjs";
 import { useParams } from "react-router-dom";
+import roundlogo from '../../images/sevenBrew_Secondary.png'
+import Footer from "../Footer";
 
 export default function Password() {
   const [password, setPassword] = useState("");
@@ -37,13 +39,14 @@ export default function Password() {
     //   //saving jwt to local storage
     //   localStorage.setItem("jwt-token", body.token);
     //   setToken(body.token);
-      navigate("/user/login", {replace: true});
+      navigate("/", {replace: true});
     } else {
       console.log("test4", body.response);
     }
   }
       });
     } else {
+      alert("Passwords do not match")
       console.log("test5")
       response.status(500).send({
           message: "Passwords do not match"
@@ -55,8 +58,9 @@ export default function Password() {
     <form
       name="userPassword"
       onSubmit={submitPassword}
-      className="flex-inline flex-col items-center"
+      className="flex flex-col items-center justify-center"
     >
+       <figure className="flex size-1/3 m-2 md:size-44"><img src={roundlogo} alt="7 Brew Logo"/></figure>
       <label className="flex form-control items-center justify-center gap-4 h-fit">
         <span>Please enter new password to reset password</span>
         <input
@@ -78,6 +82,7 @@ export default function Password() {
         </button>
       </label>
       </form>
+      <Footer />
     </div>
   );
 }

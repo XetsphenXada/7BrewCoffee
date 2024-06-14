@@ -1,5 +1,6 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import Footer from "../Footer";
+import roundlogo from '../../images/sevenBrew_Secondary.png'
 
 export default function Email() {
   // const navigate = useNavigate();
@@ -56,12 +57,14 @@ export default function Email() {
     }
   }
   return (
+    <div>
     <form 
       name="userEmail"
       onSubmit={submitEmail}
-      className="flex flex-col h-max"
+      className="flex flex-col h-max items-center justify-center"
     >
-      <label className="flex form-control m-auto">
+       <figure className="flex size-1/3 m-2 md:size-44"><img src={roundlogo} alt="7 Brew Logo"/></figure>
+      <label className="flex form-control m-3 p-3 gap-5 items-center">
         <span>Please enter email to recieve link to reset password</span>
         <input
           type="text"
@@ -74,5 +77,7 @@ export default function Email() {
         </button>
       </label>
     </form>
+    <Footer />
+    </div>
   );
 }
