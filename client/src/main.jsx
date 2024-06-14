@@ -69,6 +69,11 @@ const router = createBrowserRouter([
 			{
 				path: "/allRecipes",
 				element: <DisplayRecipes />
+			},
+			{
+				path: "/testResults",
+				element: <ReactCSV />,
+				loader: csvLoader
 			}
 		]
 	},
@@ -83,11 +88,6 @@ const router = createBrowserRouter([
 			{
 				path: "/user/newPassword/:_id",
 				element: <Password />
-			},
-			{
-				path: "/testResults",
-				element: <ReactCSV />,
-				loader: csvLoader
 			}
 		]
 	}
