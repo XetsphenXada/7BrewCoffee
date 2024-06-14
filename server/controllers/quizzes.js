@@ -2,6 +2,7 @@ import { Router } from "express";
 import allQuizzes from "../quiz-data/quiz-all.json" with { type: "json" }
 import TestResult from "../models/testResults.js";
 import validationMiddleware from "../middleware/validationMiddleware.js";
+import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
 
 const router = Router();
 
@@ -121,6 +122,19 @@ router.get("/quiz/results", validationMiddleware, async (request, response) => {
         });
 
         response.send(testPassFail);
+    }
+    catch(err) {
+        response.status(500).send({
+            message: err.message,
+        });
+    }
+});
+
+// get list of test results for all users
+router.get("/quiz/results/all", adminPermissionMiddleware, async (request, response) => {
+    try {
+        const testResults = await TestResult.find({});
+        response.send(testResults)
     }
     catch(err) {
         response.status(500).send({

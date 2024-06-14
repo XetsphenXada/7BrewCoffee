@@ -1,20 +1,18 @@
 import { useState } from "react";
 import LogIn from "./Login"
-// import Email from "./Password-Reset-Email-Page";
-// import Password from "./Password-Reset-Password-Page";
+import Footer from "../Footer";
 
 
 //adding signup and login routes to auth component
 function Auth() {
   const [token, setToken] = useState(localStorage.getItem("jwt-token"));
     return (
-      <div>
-        
-        <LogIn path='/' setToken={setToken} />
-        {/* <Email path='/email' />
-        <Password path='/newPassword/:_id' /> */}
+        <div className='flex flex-col justify-between h-screen overflow-y-auto'>
+          
+          <LogIn setToken={setToken}/>
+          <Footer />
 
-      </div>
+        </div>
     )
   }
   

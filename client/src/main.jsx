@@ -12,10 +12,11 @@ import Email from './components/auth/Password-Reset-Email-Page.jsx'
 import Password from './components/auth/Password-Reset-Password-Page.jsx'
 import Auth from './components/auth/Auth.jsx'
 import ViewAllUsers from './components/auth/ViewAllUsers.jsx'
-import EditProileCard from './components/auth/EditProfileCard.jsx'
+import EditProfileCard from './components/auth/EditProfileCard.jsx'
 import Recipes from './components/Recipes.jsx'
 import DisplayRecipes from './components/Display-Recipes.jsx'
 import PasswordReset from './components/auth/Password- Reset-Rendering.jsx'
+import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
 
 // router for when regular employee is logged in
 const router = createBrowserRouter([
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/edit",
-				element: <EditProileCard />
+				element: <EditProfileCard />
 			},
 			{
 				path: "/recipes",
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
 			{
 				path: "/user/newPassword/:_id",
 				element: <Password />
+			},
+			{
+				path: "/testResults",
+				element: <ReactCSV />,
+				loader: csvLoader
 			}
 		]
 	}
