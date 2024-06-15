@@ -19,8 +19,8 @@ export default function EditEmailButton({ user }) {
         }
         
         //check to see if the email stored in the dataObj is a valid email address
-        var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var email = dataObj.email
+        const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let email = dataObj.email
         
         if (email === undefined) {
             const response = await fetch(`http://localhost:3000/edit/${user._id}`, {

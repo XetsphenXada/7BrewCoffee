@@ -9,43 +9,44 @@ export default function EmpCreation() {
     const [storeLocation, setStoreLocation] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    //regex to check if the email stored in the email is a valid email address
+    const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     
-    function employeeCreation(event) {
-        event.preventDefault();
-        
+    function employeeCreation() {
         hash(password, 10, async (err, passwordHash) => {
             if (err) {
                 console.log(err);
             } else {
-                const response = await fetch("http://localhost:3000/addEmployee", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                        "authorization": localStorage.getItem("jwt-token")
-                    },
-                    body: JSON.stringify({
-                        firstName,
-                        middleName,
-                        lastName,
-                        role,
-                        storeLocation,
-                        email,
-                        password: passwordHash
+                if (regexEmail.test(email)) {
+                        const response = await fetch("http://localhost:3000/addEmployee", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                            "authorization": localStorage.getItem("jwt-token")
+                        },
+                        body: JSON.stringify({
+                            firstName,
+                            middleName,
+                            lastName,
+                            role,
+                            storeLocation,
+                            email,
+                            password: passwordHash
+                        })
                     })
-                })
-                console.log(response);
-                //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
-                const body = await response.json();
-                if (response.status === 200) {
-                    console.log(body);
+                    //create a variable called body to hold the responses we get from the back end converts the response to json so we can read it
+                    const body = await response.json();
+                    if (response.status === 200) {
+                        console.log(body);
+                    } else {
+                        console.log(body.message);
+                    }
                 } else {
-                    console.log(body.message);
+                    alert("Please enter a valid email address!")
                 }
             }
         })
-        //refresh the page after submission
-        location.reload();
-        }
+    }
         
     
     
