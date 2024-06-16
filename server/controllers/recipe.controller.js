@@ -1,5 +1,7 @@
 import { Router, response } from "express"
 import Recipe from "../models/recipes.js"
+import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
+import validationMiddleware from "../middleware/validationMiddleware.js";
 const router = Router()
 
 //adds new recipe
@@ -14,8 +16,9 @@ router.post("/newRecipe", async (request, response) => {
                 ingredients: request.body.ingredients,
                 directions: request.body.directions
             });
-            response.send("New recipe was added!")
+            console.log("New recipe was added!")
             await recipe.save()
+            console.log("recipe test 1")
         } else {
             response.send("Recipe already exists, please pick a different name.")
         }
@@ -39,7 +42,7 @@ router.get("/allRecipes", async (request, response) => {
 });
 
 //edit recipes
-router.post("/editRecipe/:_id", async (request, response) => {
+router.put("/editRecipe/:_id", validationMiddleware, async (request, response) => {
     try {
         const recipe = await Recipe.findById(request.params._id);
         recipe.name = request.body.name
@@ -48,18 +51,22 @@ router.post("/editRecipe/:_id", async (request, response) => {
         await recipe.save();
         response.send("Recipe successfully updated!")
     } catch (error) {
-        response.send(error.message);
+        response.status(500).send({
+            message: error.message
+        });
     }
 });
 
 //delete recipes
-router.delete("/deleteRecipe/:_id", async (request, response) => {
+router.delete("/allRecipes/:_id", adminPermissionMiddleware, async (request, response) => {
     try {
-        let deletedRecipe = await Recipe.findByIdAndDelete({_id: request.params._id});
+        let deletedRecipe = await Recipe.deleteOne({_id: request.params._id});
         console.log(deletedRecipe);
-        response.send("Recipe deleted successfully");
+        response.send(deletedRecipe);
     } catch (error) {
-        response.send(error.message);
+        response.status(500).send({
+            message: error.message
+        });
     }
 });
 
