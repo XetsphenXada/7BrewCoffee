@@ -5,7 +5,7 @@ export async function quizListLoader() {
     const testResultResponse = await fetch("http://localhost:3000/quiz/results", {
         method: "GET",
         headers: { "Content-type": "application/json", authorization: localStorage.getItem("jwt-token") }
-    })
+    });
 
     const quizList = await quizListesponse.json();
     const testResults = await testResultResponse.json();

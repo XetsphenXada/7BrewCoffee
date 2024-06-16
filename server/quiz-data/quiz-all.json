@@ -232,21 +232,6 @@
         "quizName": "Coffee Chiller and Special 7 Principles",
         "quizParam": "coffeeChillerAndSpecial7Principles",
         "questionType": "selectAll",
-        "question": "Select the ingredients of the regular Chiller barrel:",
-        "answer": ["choice1", "choice3", "choice4"],
-        "answerChoices": {
-            "choice1": "Espresso",
-            "choice2": "Smooth Mix",
-            "choice3": "Sugar",
-            "choice4": "Whole Milk",
-            "choice5": "Coffee Grinds",
-            "choice6": "Mocha Mix"
-        }
-    },
-    {
-        "quizName": "Coffee Chiller and Special 7 Principles",
-        "quizParam": "coffeeChillerAndSpecial7Principles",
-        "questionType": "selectAll",
         "question": "Select the ingredients of the mocha Chiller barrel:",
         "answer": ["choice1", "choice5"],
         "answerChoices": {
@@ -361,7 +346,7 @@
         "quizName": "Cold Brew / Cold Foam",
         "quizParam": "coldBrewColdFoam",
         "questionType": "multipleChoice",
-        "question": "What are the correct order to build a COld Brew if cream and flavor are requested?",
+        "question": "What are the correct order to build a Cold Brew if cream and flavor are requested?",
         "answer": "choice1",
         "answerChoices": {
             "choice1": "Flavor, cold brew, tom-tom, cream on top of the ice",

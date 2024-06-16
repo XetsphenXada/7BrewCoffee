@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 
 export default function DropDownMenuLinkAdmin() {
     const [user, setUser] = useState([]);
@@ -43,9 +43,10 @@ export default function DropDownMenuLinkAdmin() {
             (userRole[0] === "Admin" || userRole[0] === "Manager" || userRole[0] === "Regional Manager")
             ?
             <>
-                <Link to='addadmin'>Add Manager</Link>
-                <Link to='addemployee'>Add Employee</Link>
-                <Link to='allusers'>View All Users</Link>
+                <NavLink to='addadmin'>Add Manager</NavLink>
+                <NavLink to='addemployee'>Add Employee</NavLink>
+                <NavLink to='allusers'>View All Users</NavLink>
+                <NavLink to='testResults'>Employee Test Results</NavLink>
             </>
             :
             <>

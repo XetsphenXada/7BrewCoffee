@@ -14,15 +14,24 @@ export default function Quiz() {
     const { userInfo } = useOutletContext();
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
+    const [hasClickedSubmit, setHasClickedSubmit] = useState(false)
     const navigate = useNavigate();
+
+    
 
     async function submitQuiz(event) {
         event.preventDefault();
+        setHasClickedSubmit(true);
 
         // only allow submit if all questions are answered
         if(quiz.length !== selectedAnswers.length) {
-            // add pop up that says must answer all questions
-            console.log("all questions must be answered")
+            // display pop up that says must answer all questions
+            alert("All questions must be answered.")
+            // set questions that haven't been answered
+            quiz.forEach((question) => {
+                question.unanswered = selectedAnswers.some((answer) => answer.question !== question.question);
+            });
+
             return;
         }
         // calculate number correct and incorrect
@@ -199,7 +208,19 @@ export default function Quiz() {
                 <div className="m-5">
                     {quiz.map((singleQuestion, i) => (
                         <div key={i}>
-                            <div className="text-2xl mt-4">{singleQuestion.question}</div>
+                            <div className="flex gap-4 content-center">
+                                <div className="text-2xl mt-4">{singleQuestion.question}</div>
+                                {hasClickedSubmit && singleQuestion.unanswered ? (
+                                    <div className="mt-5 flex gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="red" className="size-7">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                                        </svg>
+                                        Please answer all questions!
+                                    </div>
+                                ) : (
+                                    <></>
+                                )}
+                            </div>
                             {singleQuestion.questionType === "selectAll" ? (
                                 <>
                                     {Object.keys(singleQuestion.answerChoices).map((choice, j) => (

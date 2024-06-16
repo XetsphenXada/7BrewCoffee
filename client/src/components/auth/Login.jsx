@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer";
 import roundlogo from '../../images/sevenBrew_Secondary.png'
 
 export default function LogIn({ setToken }) {
@@ -29,7 +28,7 @@ export default function LogIn({ setToken }) {
       //saving jwt to local storage
       localStorage.setItem("jwt-token", body.token);
       setToken(body.token);
-      // navigate("/")
+      navigate("/")
       location.reload();
     } else {
       alert("The username or password is incorrect")
@@ -39,36 +38,35 @@ export default function LogIn({ setToken }) {
   //login page render
   return (
     <div>
-    <form
-      onSubmit={submitLogIn}
-      className="flex flex-col items-center justify-center"
-    >
+		<form
+			onSubmit={submitLogIn}
+			className="flex flex-col items-center justify-center"
+		>
       <figure className="flex size-1/3 m-2 md:size-28"><img src={roundlogo} alt="7 Brew Logo"/></figure>
-      <h1 className="text-4xl m-3">Log In</h1>
-      <label className="form-control w-full max-w-xs">
-        <span className="text-3xl m-4">Email:</span>
-        <input
-          type="text"
-          placeholder="Email"
-          className=" input input-bordered w-full max-w-xs text-3xl"
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-      </label>
-      <label className="form-control w-full max-w-xs">
-        <span className="text-3xl m-4">Password:</span>
-        <input
-          placeholder="Password"
-          type="password"
-          className=" input input-bordered w-full max-w-xs"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </label>
-      <button className="btn btn-secondary text-white text-2xl m-4"><a href="http://localhost:5173/user/email">Forgot your password?</a></button>
-      <button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
-        Submit
-      </button>
-    </form>
-    <Footer />
+			<h1 className="text-4xl m-3">Log In</h1>
+			<label className="form-control w-full max-w-xs">
+			<span className="text-3xl m-4">Email:</span>
+			<input
+				type="text"
+				placeholder="Email"
+				className=" input input-bordered w-full max-w-xs text-3xl"
+				onChange={(e) => setEmail(e.target.value)}
+			></input>
+			</label>
+			<label className="form-control w-full max-w-xs">
+			<span className="text-3xl m-4">Password:</span>
+			<input
+				placeholder="Password"
+				type="password"
+				className=" input input-bordered w-full max-w-xs"
+				onChange={(e) => setPassword(e.target.value)}
+			></input>
+			</label>
+			<button className="btn btn-secondary text-white text-2xl m-4"><a href="http://localhost:5173/user/email">Forgot your password?</a></button>
+			<button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
+			Submit
+			</button>
+		</form>
     </div>
   );
 }
