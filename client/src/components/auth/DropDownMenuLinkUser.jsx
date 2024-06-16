@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from  'react-router-dom'
+import React from 'react'
+import { NavLink } from  'react-router-dom'
 
 export default function DropDownMenuLinkUser() {
     
   return (
     <>
-        <Link to='edit'>Edit Profile</Link>
+        <NavLink to='edit'>Edit Profile</NavLink>
     </>
   )
 }

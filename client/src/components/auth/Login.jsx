@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer";
 import roundlogo from '../../images/sevenBrew_Secondary.png'
 
 export default function LogIn({ setToken }) {
@@ -29,7 +28,7 @@ export default function LogIn({ setToken }) {
       //saving jwt to local storage
       localStorage.setItem("jwt-token", body.token);
       setToken(body.token);
-      // navigate("/")
+      navigate("/")
       location.reload();
     } else {
       alert("The username or password is incorrect")
