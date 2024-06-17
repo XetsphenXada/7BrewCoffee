@@ -77,7 +77,7 @@ const router = createBrowserRouter([
 				loader: csvLoader
 			},
 			{
-				path: "/dailynews",
+				path: "/",
 				element: <DailyNews />,
 				loader: dailyNewsLoader
 			}
