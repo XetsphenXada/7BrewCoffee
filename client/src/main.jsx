@@ -16,7 +16,8 @@ import EditProfileCard from './components/auth/EditProfileCard.jsx'
 import Recipes from './components/Recipes.jsx'
 import DisplayRecipes from './components/Display-Recipes.jsx'
 import PasswordReset from './components/auth/Password- Reset-Rendering.jsx'
-// import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
+import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
+import DailyNews, { dailyNewsLoader } from './components/DailyNews.jsx'
 
 // router for when regular employee is logged in
 const router = createBrowserRouter([
@@ -70,11 +71,16 @@ const router = createBrowserRouter([
 				path: "/allRecipes",
 				element: <DisplayRecipes />
 			},
-			// {
-			// 	path: "/testResults",
-			// 	element: <ReactCSV />,
-			// 	loader: csvLoader
-			// }
+			{
+				path: "/testResults",
+				element: <ReactCSV />,
+				loader: csvLoader
+			},
+			{
+				path: "/dailynews",
+				element: <DailyNews />,
+				loader: dailyNewsLoader
+			}
 		]
 	},
 	{
