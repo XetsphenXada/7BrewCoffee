@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { hash } from "bcryptjs";
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
 export default function EmpCreation() {
     const [firstName, setFirstName] = useState("");
@@ -9,6 +10,7 @@ export default function EmpCreation() {
     const [storeLocation, setStoreLocation] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [visible, setVisible] = useState(false);
     
     function employeeCreation(event) {
         event.preventDefault();
@@ -81,7 +83,12 @@ export default function EmpCreation() {
             </label>
             <label>
                 <div className='text-black'>Password:</div>
-                <input className='border-2 border-secondary' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                <input className='border-2 border-secondary' placeholder="Password" type={visible ? "text" : "password"} onChange={(e) => setPassword(e.target.value)}></input>
+                <div onClick={() => setVisible(!visible)}>
+                    {
+                        visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>
+                    }
+                </div>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>
         </form>

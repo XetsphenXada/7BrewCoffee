@@ -4,10 +4,12 @@ import Footer from "../Footer";
 import Header from "../Header";
 import { hash } from "bcryptjs";
 import { useParams } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
 export default function Password() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
+  const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
   let { _id } = useParams();
 
@@ -57,18 +59,23 @@ export default function Password() {
         <span>Please enter new password to reset password</span>
         <input
           name="new password"
-          type="text"
+          type={visible ? "text" : "password"}
           placeholder="New Password"
           className=" input input-bordered w-full max-w-xs text-3xl"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input
           name="confirm password"
-          type="text"
+          type={visible ? "text" : "password"}
           placeholder="Re-enter New Password"
           className=" input input-bordered w-full max-w-xs text-2xl"
           onChange={(e) => setconfirmPassword(e.target.value)}
         ></input>
+        <div onClick={() => setVisible(!visible)}>
+          {
+            visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>
+          }
+        </div>
         <button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
           Submit
         </button>

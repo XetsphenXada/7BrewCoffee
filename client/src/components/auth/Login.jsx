@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 // import "../../index.css"
 
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
 
   async function submitLogIn(event) {
@@ -58,10 +60,15 @@ export default function LogIn({ setToken }) {
         <span className="text-3xl m-4">Password:</span>
         <input
           placeholder="Password"
-          type="password"
+          type={visible ? "text" : "password"}
           className=" input input-bordered w-full max-w-xs"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        <div onClick={() => setVisible(!visible)}>
+          {
+            visible ? <EyeOutlined/> : <EyeInvisibleOutlined/>
+          }
+        </div>
       </label>
       {/* <p className="m-4 text-2xl justify-center">Forgot your password?</p>  */}
       <button className="btn btn-secondary text-white text-2xl m-4"><a href="http://localhost:5173/email">Forgot your password?</a></button>
