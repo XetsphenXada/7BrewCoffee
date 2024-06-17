@@ -11,6 +11,7 @@ export async function dailyNewsLoader() {
 export default function DailyNews() {
     const pdfBody = useLoaderData();
     const [pdf, setPdf] = useState(pdfBody);
+    console.log(pdf)
 
     return (
         <div className="flex flex-col items-center">
