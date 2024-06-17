@@ -82,7 +82,9 @@ export default function Password() {
         </button>
       </label>
       </form>
+      <div className="flex bg-secondary absolute z-10 bottom-0 md:w-screen">
       <Footer />
+      </div>
     </div>
   );
 }
