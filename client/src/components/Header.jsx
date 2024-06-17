@@ -90,7 +90,7 @@ function Header() {
           </div>
         </div>
         <div className=" navbar text-accent flex justify-evenly md:justify-space-between">
-          <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/"}>Daily News</NavLink>
+          <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/dailynews"}>Daily News</NavLink>
           <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/recipes"}>Recipes</NavLink>
           <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/flashcards"} end>Study</NavLink>
           <NavLink className="btn hover:bg-neutral hover:text-accent m-1" to={"/quiz"} end>Testing</NavLink>
