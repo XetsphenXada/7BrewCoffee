@@ -43,19 +43,31 @@ router.get("/allRecipes", async (request, response) => {
 
 //edit recipes
 router.put("/editRecipe/:_id", validationMiddleware, async (request, response) => {
-    try {
-        const recipe = await Recipe.findById(request.params._id);
-        recipe.name = request.body.name
-        recipe.ingredients = request.body.ingredients
-        recipe.directions = request.body.directions
-        await recipe.save();
-        response.send("Recipe successfully updated!")
-    } catch (error) {
+
+try {
+    const doesRecipeExist = await Recipe.findById(
+        request.params._id
+    );
+    const filter = { _id: request.params._id };
+    const update = request.body;
+    if (!!doesRecipeExist === null) {
+        const editRecipe = await Recipe.findOneAndUpdate(filter, update, {new: true})
+        response.send(editRecipe)
+    } else if (doesRecipeExist._id.toString() === filter._id.toString()) {
+        const update = request.body;
+        const editRecipe = await Recipe.findByIdAndUpdate(request.params._id, update, {new: true})
+        response.send(editRecipe)
+    } else {
         response.status(500).send({
-            message: error.message
-        });
+            message: "Recipe name already exists"
+        })
     }
-});
+} catch (error) {
+    response.status(500).send({
+        message: error.message
+    });
+}
+})
 
 //delete recipes
 router.delete("/allRecipes/:_id", adminPermissionMiddleware, async (request, response) => {

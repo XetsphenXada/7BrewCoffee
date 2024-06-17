@@ -39,7 +39,7 @@ function Recipes() {
       onSubmit={newRecipe}
       className="flex flex-col items-center"
     >
-      <label className="flex form-control items-center justify-center">
+      <label className="flex form-control items-center justify-center p-2 m-2 gap-3">
         <span>Please enter name of new recipe</span>
         <input
           type="text"
