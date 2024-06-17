@@ -43,7 +43,7 @@ export default function EditRecipeButton({ recipe }) {
       }
     
     //refreshes the page when the form is submitted
-    // location.reload();
+    location.reload();
   }
   
   //function to handle closing the Modal, added as an onClick event handler in our HTML

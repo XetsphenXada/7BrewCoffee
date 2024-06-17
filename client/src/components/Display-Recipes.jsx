@@ -30,6 +30,31 @@ export default function DisplayRecipes() {
     retrieveRecipesList();
   }, []);
 
+  const [user, setUser] = useState([]);
+
+  //useEffect to fetch our current user from our database
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        let response = await fetch("http://localhost:3000/user/role", {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            authorization: localStorage.getItem("jwt-token"),
+          },
+        });
+        const body = await response.json();
+        setUser(body);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchResults();
+  }, []);
+
+  //maping our user array to role for use in our conditional rendering
+  const userRole = user.map((list) => list.role);
+
   //displays table of currently available rooms
   return (
     <>
@@ -58,12 +83,22 @@ export default function DisplayRecipes() {
                     {"Recipe Directions"}
                   </td>
                   <td className=" flex justify-center">{recipe.directions}</td>
-                  <td>
-                    <EditRecipeButton recipe={recipe} />
-                  </td>
-                  <td>
-                    <DeleteRecipeButton recipe={recipe} />
-                  </td>
+                  {
+                    // conditional rendering to prevent users without Admin, Manager,
+                    // and Regional Manager from seeing these renderings
+                    userRole[0] === "Admin" ||
+                    userRole[0] === "Manager" ||
+                    userRole[0] === "Regional Manager" ? (
+                      <>
+                        <td className=" flex justify-center gap-2">
+                          <EditRecipeButton recipe={recipe} />
+                          <DeleteRecipeButton recipe={recipe} />
+                        </td>
+                      </>
+                    ) : (
+                      <></>
+                    )
+                  }
                 </tr>
               ))}
             </tbody>

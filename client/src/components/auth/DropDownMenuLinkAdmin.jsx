@@ -47,6 +47,7 @@ export default function DropDownMenuLinkAdmin() {
                 <NavLink to='addemployee'>Add Employee</NavLink>
                 <NavLink to='allusers'>View All Users</NavLink>
                 <NavLink to='testResults'>Employee Test Results</NavLink>
+                <NavLink to='recipes'>Recipe Creation</NavLink>
             </>
             :
             <>
