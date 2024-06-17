@@ -12,11 +12,10 @@ export async function dailyNewsLoader() {
 export default function DailyNews() {
     const pdfBody = useLoaderData();
     const [pdfName, setPdfName] = useState(pdfBody[0].pdf);
-    console.log(pdfName)
 
     return (
-        <div className="flex flex-col items-center">
-            <PDF_Uploader />
+        <div className="flex flex-col items-center m-6">
+            {/* <PDF_Uploader /> */}
             <PDF_Viewer pdfName={pdfName} />
         </div>
     )
