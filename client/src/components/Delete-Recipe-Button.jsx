@@ -3,14 +3,13 @@ import { useParams } from 'react-router-dom';
 
 export default function DeleteRecipeButton({ recipe }) {
     const [deleteId, setDeleteId] = useState("");
-    
     async function deleteRecipe() {
       
-      let { _id } = useParams();
+      
 
       if(deleteId === "DELETE") {
       //fetch request from our endpoint
-        const response = await fetch(`http://localhost:3000/allusers/${_id}`, {
+        const response = await fetch(`http://localhost:3000/allRecipes/${recipe._id}`, {
           method: "DELETE",
           headers: {
             "content-type" : "application/json",

@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 
 //list prop contains the data we fetched from our get request in "ViewAllUsers.jsx"
 export default function EditRecipeButton({ recipe }) {
+  
   async function submitRecipeEdit(event) {
     
     //create a variable that holds our data recieved from Form Data (event.target."name".value) in an object
@@ -22,11 +22,10 @@ export default function EditRecipeButton({ recipe }) {
         };
       }
     
-      let { _id } = useParams();
 
     //fetch request for our edit endpoint
     //fetches if the email is 'undefined' (in the case of no email field being edited)
-      const response = await fetch(`http://localhost:3000/editRecipes/${_id}`, {
+      const response = await fetch(`http://localhost:3000/editRecipe/${recipe._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -44,7 +43,7 @@ export default function EditRecipeButton({ recipe }) {
       }
     
     //refreshes the page when the form is submitted
-    location.reload();
+    // location.reload();
   }
   
   //function to handle closing the Modal, added as an onClick event handler in our HTML
@@ -84,7 +83,7 @@ export default function EditRecipeButton({ recipe }) {
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="Recipe Name"
-                    name="recipeName"
+                    name="name"
                   ></input>
                 </label>
                 <label>
@@ -92,7 +91,7 @@ export default function EditRecipeButton({ recipe }) {
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="Recipe Ingredients"
-                    name="recipeIngredients"
+                    name="ingredients"
                   ></input>
                 </label>
                 <label>
@@ -100,7 +99,7 @@ export default function EditRecipeButton({ recipe }) {
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="Recipe Directions"
-                    name="recipeDirections"
+                    name="directions"
                   ></input>
                 </label>
               </div>
