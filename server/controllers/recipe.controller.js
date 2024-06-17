@@ -1,5 +1,7 @@
 import { Router, response } from "express"
 import Recipe from "../models/recipes.js"
+import adminPermissionMiddleware from "../middleware/permissionsMiddleware.js";
+import validationMiddleware from "../middleware/validationMiddleware.js";
 const router = Router()
 
 //adds new recipe
@@ -14,8 +16,9 @@ router.post("/newRecipe", async (request, response) => {
                 ingredients: request.body.ingredients,
                 directions: request.body.directions
             });
-            response.send("New recipe was added!")
+            console.log("New recipe was added!")
             await recipe.save()
+            console.log("recipe test 1")
         } else {
             response.send("Recipe already exists, please pick a different name.")
         }
@@ -39,27 +42,43 @@ router.get("/allRecipes", async (request, response) => {
 });
 
 //edit recipes
-router.post("/editRecipe/:_id", async (request, response) => {
-    try {
-        const recipe = await Recipe.findById(request.params._id);
-        recipe.name = request.body.name
-        recipe.ingredients = request.body.ingredients
-        recipe.directions = request.body.directions
-        await recipe.save();
-        response.send("Recipe successfully updated!")
-    } catch (error) {
-        response.send(error.message);
+router.put("/editRecipe/:_id", validationMiddleware, async (request, response) => {
+
+try {
+    const doesRecipeExist = await Recipe.findById(
+        request.params._id
+    );
+    const filter = { _id: request.params._id };
+    const update = request.body;
+    if (!!doesRecipeExist === null) {
+        const editRecipe = await Recipe.findOneAndUpdate(filter, update, {new: true})
+        response.send(editRecipe)
+    } else if (doesRecipeExist._id.toString() === filter._id.toString()) {
+        const update = request.body;
+        const editRecipe = await Recipe.findByIdAndUpdate(request.params._id, update, {new: true})
+        response.send(editRecipe)
+    } else {
+        response.status(500).send({
+            message: "Recipe name already exists"
+        })
     }
-});
+} catch (error) {
+    response.status(500).send({
+        message: error.message
+    });
+}
+})
 
 //delete recipes
-router.delete("/deleteRecipe/:_id", async (request, response) => {
+router.delete("/allRecipes/:_id", adminPermissionMiddleware, async (request, response) => {
     try {
-        let deletedRecipe = await Recipe.findByIdAndDelete({_id: request.params._id});
+        let deletedRecipe = await Recipe.deleteOne({_id: request.params._id});
         console.log(deletedRecipe);
-        response.send("Recipe deleted successfully");
+        response.send(deletedRecipe);
     } catch (error) {
-        response.send(error.message);
+        response.status(500).send({
+            message: error.message
+        });
     }
 });
 

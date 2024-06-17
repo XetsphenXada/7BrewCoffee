@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Recipes() {
   const [name, setName] = useState("");
@@ -21,12 +21,13 @@ function Recipes() {
         directions
       }),
     });
-
+    console.log("recipe test 3")
     const body = await response.json();
     if (response.status === 200) {
+      console.log(" recipe Test 2")
       console.log(body);
-
-      navigate("/");
+      alert("Recipe has been added to database")
+      navigate("/allRecipes");
       
     } else {
       console.log(body.response);
@@ -38,7 +39,7 @@ function Recipes() {
       onSubmit={newRecipe}
       className="flex flex-col items-center"
     >
-      <label className="flex form-control items-center justify-center">
+      <label className="flex form-control items-center justify-center p-2 m-2 gap-3">
         <span>Please enter name of new recipe</span>
         <input
           type="text"
@@ -69,6 +70,7 @@ function Recipes() {
         <button className="btn btn-wide btn-primary m-3 text-2xl" type="submit">
           Submit
         </button>
+        <NavLink className="btn btn-primary hover:bg-neutral hover:text-accent m-1" to={"/allRecipes"} end>View All Recipes</NavLink>
       </label>
     </form>
   );

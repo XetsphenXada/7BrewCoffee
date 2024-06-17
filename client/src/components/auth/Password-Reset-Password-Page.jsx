@@ -65,14 +65,14 @@ export default function Password() {
         <span>Please enter new password to reset password</span>
         <input
           name="new password"
-          type="text"
+          type="password"
           placeholder="New Password"
           className=" input input-bordered w-full max-w-xs text-3xl"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input
           name="confirm password"
-          type="text"
+          type="password"
           placeholder="Re-enter New Password"
           className=" input input-bordered w-full max-w-xs text-2xl"
           onChange={(e) => setconfirmPassword(e.target.value)}
@@ -82,7 +82,9 @@ export default function Password() {
         </button>
       </label>
       </form>
+      <div className="flex bg-secondary absolute z-10 bottom-0 md:w-screen">
       <Footer />
+      </div>
     </div>
   );
 }
