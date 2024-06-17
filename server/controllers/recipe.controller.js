@@ -42,7 +42,7 @@ router.get("/allRecipes", async (request, response) => {
 });
 
 //edit recipes
-router.put("/editRecipe/:_id", validationMiddleware, async (request, response) => {
+router.put("/editRecipe/:_id", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
 
 try {
     const doesRecipeExist = await Recipe.findById(
@@ -70,7 +70,7 @@ try {
 })
 
 //delete recipes
-router.delete("/allRecipes/:_id", adminPermissionMiddleware, async (request, response) => {
+router.delete("/allRecipes/:_id", validationMiddleware, adminPermissionMiddleware, async (request, response) => {
     try {
         let deletedRecipe = await Recipe.deleteOne({_id: request.params._id});
         console.log(deletedRecipe);

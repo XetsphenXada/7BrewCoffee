@@ -5,7 +5,7 @@ function Recipes() {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [directions, setDirections] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   async function newRecipe(event) {
     event.preventDefault(); //stop page from refreshing on submit
@@ -22,12 +22,13 @@ function Recipes() {
       }),
     });
     console.log("recipe test 3")
+    alert("Recipe has been added to database")
     const body = await response.json();
     if (response.status === 200) {
       console.log(" recipe Test 2")
       console.log(body);
-      alert("Recipe has been added to database")
-      navigate("/allRecipes");
+      // alert("Recipe has been added to database")
+      // navigate("/allRecipes");
       
     } else {
       console.log(body.response);

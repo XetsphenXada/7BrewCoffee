@@ -36,9 +36,6 @@ export default function Password() {
     if (response.status === 200) {
       console.log("test2", body);
 
-    //   //saving jwt to local storage
-    //   localStorage.setItem("jwt-token", body.token);
-    //   setToken(body.token);
       navigate("/", {replace: true});
     } else {
       console.log("test4", body.response);

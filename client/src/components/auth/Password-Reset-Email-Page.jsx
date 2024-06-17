@@ -43,11 +43,7 @@ export default function Email() {
     if (response.status === 200) {
       console.log(body);
 
-      //  //saving jwt to local storage
-      //  localStorage.setItem("jwt-token", body.token);
-      //  setToken(body.token);
        alert("Recovery email has been sent to " + email)
-      // navigate("/");
       
     } else {
       console.log(body.response);
