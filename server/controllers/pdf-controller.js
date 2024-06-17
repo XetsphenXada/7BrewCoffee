@@ -1,31 +1,43 @@
 import { Router } from "express";
 import "dotenv/config";
-import crypto from "crypto";
-import path from "path";
-import { GridFsStorage } from "multer-gridfs-storage";
 import multer from "multer";
-import { gfs, gridFsBucket } from "../app.js";
-import ExpressFormidable from "express-formidable";
-import fileSystem from "fs";
+import fs, { unlink } from "fs";
+import PdfDetails from "../models/pdfDetails.js";
 
 const router = Router();
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './pdfs')
+    },
+    filename: function (req, file, cb) {
+      const uniquePrefix = Date.now()
+      cb(null, uniquePrefix+"_"+file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
 
 // upload pdf to database
-router.post("/pdf/upload", ExpressFormidable, (request, response) => {
+router.post("/pdf/upload", upload.single("file"), async (request, response) => {
     try {
+        const fileName = request.file.filename;
+        // delete old file from folder
+        const currentFiles = fs.readdirSync("./pdfs/");
+        console.log(fileName)
+        currentFiles.forEach((file) => {
+            if(file !== fileName) {
+                console.log("deleting old file")
+                unlink(`./pdfs/${file}`, (err) => {
+                    if(err) console.log(err, "file does not exists");
+                    console.log("file was removed")
+                })
+            }
+        })
+
         console.log("starting upload of pdf")
 
-        const file = request.files.file;
-        const filePath = (new Date().getTime()) + "-" + file.name;
-
-        fileSystem.createReadStream(file.path).pipe(gridFsBucket.openUploadStream(filePath, {
-            chunkSizeBytes: 1048576,
-            metadata: {
-                name: file.name,
-                size: file.size,
-                type: file.type
-            }
-        })).on("finish", () => resourceLimits.redirect("/"));
+        const pdf = new PdfDetails({ pdf: fileName });
+        await pdf.save();
 
         response.send({ 
             message: "Pdf successfully uploaded to database."
@@ -39,8 +51,20 @@ router.post("/pdf/upload", ExpressFormidable, (request, response) => {
 });
 
 // get single pdf file from database
-router.get("/pdf/:filename", async (request, response) => {
-    
+router.get("/pdf", async (request, response) => {
+    try {
+        const pdf = await PdfDetails.find({});
+
+        response.send({
+            message: "Success",
+            data: pdf
+        })
+    }
+    catch(err) {
+        response.status(500).send({
+            message: err.message
+        });
+    }
 });
 
 export default router;

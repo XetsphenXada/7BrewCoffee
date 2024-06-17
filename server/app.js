@@ -23,12 +23,13 @@ const db = mongoose.connection;
 // middleware
 app.use(express.json());
 app.use(cors());
+app.use("/pdfs", express.static("pdfs"));
 //routes being used
 app.use("/", userRouter);
 app.use("/", flashcardRouter);
 app.use("/", quizRouter);
 app.use("/", recipeRouter);
-// app.use("/", pdfRouter)
+app.use("/", pdfRouter)
 
 export let gfs;
 export let gridFsBucket;
