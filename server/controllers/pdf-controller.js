@@ -56,7 +56,6 @@ router.get("/pdf", async (request, response) => {
     try {
         const pdf = await PdfDetails.find({});
         
-        
         response.send({
             message: "Success",
             data: pdf

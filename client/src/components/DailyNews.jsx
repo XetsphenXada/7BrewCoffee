@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import PDF_Uploader from "./PDF-Uploader";
 import { useState } from "react";
+import PDF_Viewer from "./PDF-Viewer";
 
 export async function dailyNewsLoader() {
     const pdfResponse = await fetch("http://localhost:3000/pdf");
@@ -10,12 +11,13 @@ export async function dailyNewsLoader() {
 
 export default function DailyNews() {
     const pdfBody = useLoaderData();
-    const [pdf, setPdf] = useState(pdfBody);
-    console.log(pdf)
+    const [pdfName, setPdfName] = useState(pdfBody[0].pdf);
+    console.log(pdfName)
 
     return (
         <div className="flex flex-col items-center">
             <PDF_Uploader />
+            <PDF_Viewer pdfName={pdfName} />
         </div>
     )
 }

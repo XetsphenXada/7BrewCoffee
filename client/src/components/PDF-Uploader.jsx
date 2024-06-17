@@ -17,7 +17,6 @@ export default function PDF_Uploader() {
             body: formData
         });
         const body = await response.json();
-        console.log(body)
 
         if(!response.ok) {
             console.error(body.message);
