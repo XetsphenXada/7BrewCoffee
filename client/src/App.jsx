@@ -4,6 +4,7 @@ import Auth from './components/auth/Auth'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Email from './components/auth/Password-Reset-Email-Page';
+import imageFile from "./images/sevenBrew_Secondary.png"
 
 export default function App() {
 	const [token, setToken] = useState(localStorage.getItem("jwt-token"));
@@ -28,6 +29,7 @@ export default function App() {
 					<div className='flex flex-col h-screen overflow-y-auto'>
 						<Header />
 						<div className='flex flex-col h-full overflow-y-auto'>
+							{/* <img src={imageFile} alt='7 brew coffee logo' className='absolute' /> */}
 							<Outlet context={{userInfo}} />
 						</div>
 						<Footer />
