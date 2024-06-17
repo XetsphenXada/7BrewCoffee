@@ -4,33 +4,29 @@ import crypto from "crypto";
 import path from "path";
 import { GridFsStorage } from "multer-gridfs-storage";
 import multer from "multer";
+import { gfs, gridFsBucket } from "../app.js";
+import ExpressFormidable from "express-formidable";
+import fileSystem from "fs";
 
 const router = Router();
 
-const storage = new GridFsStorage({
-    url: process.env.MONGODB,
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                return reject(err);
-                }
-                const filename = buf.toString('hex') + path.extname(file.originalname);
-                const fileInfo = {
-                filename: filename,
-                bucketName: 'uploads'
-                };
-                resolve(fileInfo);
-            });
-        });
-    }
-});
-const upload = multer({ storage }).single("file");
-
 // upload pdf to database
-router.post("/pdf/upload", upload, async (request, response) => {
+router.post("/pdf/upload", ExpressFormidable, (request, response) => {
     try {
         console.log("starting upload of pdf")
+
+        const file = request.files.file;
+        const filePath = (new Date().getTime()) + "-" + file.name;
+
+        fileSystem.createReadStream(file.path).pipe(gridFsBucket.openUploadStream(filePath, {
+            chunkSizeBytes: 1048576,
+            metadata: {
+                name: file.name,
+                size: file.size,
+                type: file.type
+            }
+        })).on("finish", () => resourceLimits.redirect("/"));
+
         response.send({ 
             message: "Pdf successfully uploaded to database."
         });
@@ -42,4 +38,9 @@ router.post("/pdf/upload", upload, async (request, response) => {
     }
 });
 
-export default router;6
+// get single pdf file from database
+router.get("/pdf/:filename", async (request, response) => {
+    
+});
+
+export default router;
