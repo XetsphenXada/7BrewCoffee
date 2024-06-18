@@ -28,6 +28,8 @@ export async function csvLoader() {
 export default function ReactCSV() {
     const { resultsData } = useLoaderData();
 
+    const date = new Date()
+    const csvFileName = "Test-Results_" + date.getTime()
     const headers = [
         {label: "Quiz Name", key: "quizName"},
         {label: "First Name", key: "user.firstName"},
@@ -70,7 +72,7 @@ export default function ReactCSV() {
             <CSVLink
                 data={resultsData}
                 headers={headers}
-                filename="testFIle"
+                filename={csvFileName}
                 className="btn btn-primary"
                 target="_blank"
             >
