@@ -64,7 +64,7 @@ export default function Password() {
           name="new password"
           type="password"
           placeholder="New Password"
-          className=" input input-bordered w-full max-w-xs text-3xl"
+          className=" input input-bordered w-full max-w-xs text-2xl"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input
