@@ -18,13 +18,20 @@ import DisplayRecipes from './components/Display-Recipes.jsx'
 import PasswordReset from './components/auth/Password- Reset-Rendering.jsx'
 import ReactCSV, { csvLoader } from './components/ReactCSV.jsx'
 import DailyNews, { dailyNewsLoader } from './components/DailyNews.jsx'
+import ErrorPage from './components/ErrorPage.jsx'
 
 // router for when regular employee is logged in
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
+		errorElement: <ErrorPage />,
 		children: [
+			{
+				path: "/",
+				element: <DailyNews />,
+				loader: dailyNewsLoader
+			},
 			{
 				path: "/flashcards",
 				element: <Flashcards />
@@ -75,11 +82,6 @@ const router = createBrowserRouter([
 				path: "/testResults",
 				element: <ReactCSV />,
 				loader: csvLoader
-			},
-			{
-				path: "/",
-				element: <DailyNews />,
-				loader: dailyNewsLoader
 			}
 		]
 	},
