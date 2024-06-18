@@ -18,7 +18,7 @@ export default function EditRecipeButton({ recipe }) {
     for (let [key, value] of data.entries())
       {
         if (value.trim() !== ''){
-          dataObj[key] = value.trim().toLowerCase();
+          dataObj[key] = value.trim();
         };
       }
     

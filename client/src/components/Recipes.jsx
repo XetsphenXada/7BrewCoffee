@@ -10,6 +10,7 @@ function Recipes() {
   async function newRecipe(event) {
     event.preventDefault(); //stop page from refreshing on submit
     //sending username and password to backend
+    alert("Recipe has been added to database")
     const response = await fetch("http://localhost:3000/newRecipe", {
       method: "POST",
       headers: {
@@ -21,8 +22,7 @@ function Recipes() {
         directions
       }),
     });
-    console.log("recipe test 3")
-    alert("Recipe has been added to database")
+    console.log(response)
     const body = await response.json();
     if (response.status === 200) {
       console.log(" recipe Test 2")
