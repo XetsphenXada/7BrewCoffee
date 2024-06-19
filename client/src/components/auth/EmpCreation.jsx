@@ -57,37 +57,37 @@ export default function EmpCreation() {
             <h1 className='text-primary'>Add Employee</h1>
             </div>
             <label>
-                <div className='text-black'>Email:</div>
+                <div className='text-neutral'>Email:</div>
                 <input className='border-2 border-secondary w-full' placeholder="Email" onChange={(e) => setEmail(e.target.value.trim().toLowerCase())}></input>
             </label>
             <div className='flex gap-1'>
             <label>
-                <div className='text-black'>First Name:</div>
+                <div className='text-neutral'>First Name:</div>
                 <input className='border-2 border-secondary' placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}></input>
             </label>
             <label>
-                <div className='text-black'>Middle Name:</div>
+                <div className='text-neutral'>Middle Name:</div>
                 <input className='border-2 border-secondary  w-11/12' placeholder="Middle Name" onChange={(e) => setMiddleName(e.target.value)}></input>
             </label>
             <label>
-                <div className='text-black'>Last Name:</div>
+                <div className='text-neutral'>Last Name:</div>
                 <input className='border-2 border-secondary' placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}></input>
             </label>
             </div>
             <label>
-                <div className='text-black'>Store Location:</div>
+                <div className='text-neutral'>Store Location:</div>
                 <input className='border-2 border-secondary w-full' placeholder="Store Location" onChange={(e) => setStoreLocation(e.target.value)}></input>
             </label>
             <label>
-                <div className='text-left text-black'>Role:</div>
-                <select className='bg-primary text-secondary w-full border-2 border-secondary' onChange={(e) => setRole(e.target.value)}>
+                <div className='text-left text-neutral'>Role:</div>
+                <select className='bg-primary text-neutral w-full border-2 border-secondary' onChange={(e) => setRole(e.target.value)}>
                     <option value="">Please choose an option</option>
                     <option>Brewista</option>
                     <option>Shift Leader</option>
                 </select>
             </label>
             <label>
-                <div className='text-black'>Password:</div>
+                <div className='text-neutral'>Password:</div>
                 <input className='border-2 border-secondary w-full' placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}></input>
             </label>
             <button type='submit' className='btn btn-primary mt-10'>Submit</button>

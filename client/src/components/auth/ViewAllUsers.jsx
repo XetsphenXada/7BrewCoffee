@@ -65,7 +65,7 @@ export default function ViewAllUsers() {
               (selectedLocation === "--Select Location--") 
                 //render all users if selected location is default
               ? records.map((list, index) => (
-                <tr key={index} className='border-secondary text-secondary'>
+                <tr key={index} className='border-secondary text-neutral'>
                       <td>{list.firstName}</td>
                       <td>{list.middleName}</td>
                       <td>{list.lastName}</td>
@@ -79,7 +79,7 @@ export default function ViewAllUsers() {
               ))
                 //else render the location that is selected from the drop down
               : locationRecords.map((list, index) => (
-                <tr key={index} className='border-secondary text-secondary'>
+                <tr key={index} className='border-secondary text-neutral'>
                       <td>{list.firstName}</td>
                       <td>{list.middleName}</td>
                       <td>{list.lastName}</td>
