@@ -54,15 +54,15 @@ export default function EditNameButton({ user }) {
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={closeModal}>✕</button>
                   <form method="dialog" onSubmit={editUser} className="flex flex-col">
                     <label>
-                      <div className="text-black">First Name:</div>
+                      <div className="text-neutral">First Name:</div>
                       <input className="border-2 border-secondary w-full" placeholder="First Name" name="firstName"></input>
                     </label>
                     <label>
-                      <div className="text-black">Middle Name:</div>
+                      <div className="text-neutral">Middle Name:</div>
                       <input className="border-2 border-secondary w-full" placeholder="Middle Name" name="middleName"></input>
                     </label>
                     <label>
-                      <div className="text-black">Last Name:</div>
+                      <div className="text-neutral">Last Name:</div>
                       <input className="border-2 border-secondary w-full" placeholder="Last Name" name="lastName"></input>
                     </label>
                   {/* if there is a button in form, it will close the modal */}

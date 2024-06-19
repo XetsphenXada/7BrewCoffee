@@ -81,7 +81,7 @@ export default function EditEmailButton({ user }) {
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={closeModal}>✕</button>
                     <form method="dialog" onSubmit={editUser} className="flex flex-col">
                         <label>
-                            <div className="text-black">Email:</div>
+                            <div className="text-neutral">Email:</div>
                             <input className="border-2 border-secondary w-full" placeholder="Email" name="email"></input>
                         </label>
                         {/* if there is a button in form, it will close the modal */}
