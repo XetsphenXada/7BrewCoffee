@@ -109,7 +109,7 @@ export default function EditUserButton({ list }) {
             >
               <div className="flex items-center gap-2">
                 <label>
-                  <div className="text-black">First Name:</div>
+                  <div className="text-neutral">First Name:</div>
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="First Name"
@@ -117,7 +117,7 @@ export default function EditUserButton({ list }) {
                   ></input>
                 </label>
                 <label>
-                  <div className="text-black">Middle Name:</div>
+                  <div className="text-neutral">Middle Name:</div>
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="Middle Name"
@@ -125,7 +125,7 @@ export default function EditUserButton({ list }) {
                   ></input>
                 </label>
                 <label>
-                  <div className="text-black">Last Name:</div>
+                  <div className="text-neutral">Last Name:</div>
                   <input
                     className="border-2 border-secondary w-full"
                     placeholder="Last Name"
@@ -134,7 +134,7 @@ export default function EditUserButton({ list }) {
                 </label>
               </div>
               <label>
-                <div className="text-black">Email:</div>
+                <div className="text-neutral">Email:</div>
                 <input
                   className="border-2 border-secondary w-full"
                   placeholder="Email"
@@ -142,7 +142,7 @@ export default function EditUserButton({ list }) {
                 ></input>
               </label>
               <label>
-                <div className="text-black">Store Location:</div>
+                <div className="text-neutral">Store Location:</div>
                 <input
                   className="border-2 border-secondary w-full"
                   placeholder="Store Location"
@@ -150,9 +150,9 @@ export default function EditUserButton({ list }) {
                 ></input>
               </label>
               <label>
-                <div className="text-left text-black">Role:</div>
+                <div className="text-left text-neutral">Role:</div>
                 <select
-                  className="bg-primary text-secondary w-full border-2 border-secondary"
+                  className="bg-primary text-neutral w-full border-2 border-secondary"
                   name="role"
                 >
                   <option value="">Please choose an option</option>

@@ -47,7 +47,7 @@ export default function ViewAllUsers() {
         <div className='overflow-y-auto border-2 border-secondary mb-12'>
           <table className='table'>
             <thead>
-              <tr className='border-primary text-primary sticky top-0 bg-secondary'>
+              <tr className='border-primary text-primary sticky top-0 bg-zinc-500'>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
