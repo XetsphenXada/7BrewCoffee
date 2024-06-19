@@ -49,7 +49,7 @@ export default function AdminSignUp() {
     }
     
     return (
-        <div className='flex justify-center  overflow-y-auto  h-1/8'>
+        <div className='flex justify-center m-5  overflow-y-auto  h-1/8'>
         <form onSubmit={submitAdminManagerSignup} className="prose flex flex-col card border-2 border-secondary shadow-2xl p-6 overflow-y-auto">
             <div className='flex justify-center'>
             <h1 className='text-primary'>Add Manager</h1>
