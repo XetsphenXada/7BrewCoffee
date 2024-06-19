@@ -63,7 +63,7 @@ export default function DisplayRecipes() {
           All Recipes
         </div>
         <div className="border-2 border-secondary mb-[16px] w-[30rem]"></div>
-        <div className="overflow-y-auto border-2 border-secondary mb-12">
+        <div className="overflow-y-auto border-2 border-secondary mb-12 w-3/5">
           <table className="table table-pin-rows">
             <tbody className=" flex-inline text-neutral">
               {recipes.map((recipe) => (
