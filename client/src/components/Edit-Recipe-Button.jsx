@@ -62,7 +62,7 @@ export default function EditRecipeButton({ recipe }) {
       <dialog id={recipe._id + "edit"} className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">
-            Edit {recipe.name} {recipe.ingredients} {recipe.directions}
+            Edit: {recipe.name}
           </h3>
           <div className="mb-0.5">Please edit only the fields you would like to be changed:</div>
           <div className="flex flex-col justify-center items-center">
